@@ -1,0 +1,578 @@
+/**
+ * Furrylicious Boutique Grid System
+ *
+ * Custom CSS Grid layouts for:
+ * - Asymmetric mosaic grids (editorial puppy layouts)
+ * - Container utilities
+ * - Responsive grid utilities
+ * - Split content layouts
+ */
+
+/* ==========================================================================
+   Containers
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+}
+
+.container--sm {
+    max-width: var(--container-sm);
+}
+
+.container--md {
+    max-width: var(--container-md);
+}
+
+.container--lg {
+    max-width: var(--container-lg);
+}
+
+.container--wide {
+    max-width: var(--container-wide);
+}
+
+.container--full {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* ==========================================================================
+   Base Grid
+   ========================================================================== */
+
+.grid {
+    display: grid;
+    gap: var(--grid-gutter);
+}
+
+/* Column count utilities */
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+.grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+@media (min-width: 640px) {
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .sm\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 768px) {
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .md\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .md\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .lg\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .lg\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* Gap utilities */
+.gap-0 { gap: 0; }
+.gap-2 { gap: var(--space-2); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+.gap-10 { gap: var(--space-10); }
+.gap-12 { gap: var(--space-12); }
+
+/* ==========================================================================
+   Bento Grid - Base
+   ========================================================================== */
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--bento-gap);
+}
+
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gutter-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Bento Item base */
+.bento-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
+    background-color: var(--white);
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base);
+}
+
+.bento-item:hover {
+    transform: translateY(var(--lift-md));
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* Spanning utilities */
+.bento-item--featured,
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.row-span-2 {
+    grid-row: span 2;
+}
+
+.bento-item--featured {
+    grid-row: span 2;
+}
+
+.bento-item--wide {
+    grid-column: span 2;
+}
+
+.bento-item--tall {
+    grid-row: span 2;
+}
+
+.bento-item--full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 767px) {
+    .bento-item--featured {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .bento-item--tall {
+        grid-row: span 1;
+    }
+}
+
+/* ==========================================================================
+   Puppies Mosaic Grid - Editorial Asymmetric Layout
+   ========================================================================== */
+
+.mosaic-grid {
+    display: grid;
+    gap: var(--grid-gutter);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .mosaic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .mosaic-grid {
+        gap: var(--grid-gutter-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .mosaic-grid {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto;
+    }
+
+    /* Asymmetric layout - first item is featured large */
+    .mosaic-grid--puppies {
+        grid-template-areas:
+            "featured featured featured featured featured item1 item1 item1 item2 item2 item2 item2"
+            "featured featured featured featured featured item3 item3 item3 item4 item4 item4 item4";
+    }
+
+    .mosaic-grid--puppies .mosaic-item:nth-child(1) { grid-area: featured; }
+    .mosaic-grid--puppies .mosaic-item:nth-child(2) { grid-area: item1; }
+    .mosaic-grid--puppies .mosaic-item:nth-child(3) { grid-area: item2; }
+    .mosaic-grid--puppies .mosaic-item:nth-child(4) { grid-area: item3; }
+    .mosaic-grid--puppies .mosaic-item:nth-child(5) { grid-area: item4; }
+
+    /* Second row of puppies (items 6+) */
+    .mosaic-grid--puppies .mosaic-item:nth-child(n+6) {
+        grid-column: span 3;
+    }
+}
+
+/* Alternate layout - center featured */
+@media (min-width: 1024px) {
+    .mosaic-grid--center {
+        grid-template-areas:
+            "a a a b b b b b c c c c"
+            "a a a b b b b b d d d d";
+    }
+
+    .mosaic-grid--center .mosaic-item:nth-child(1) { grid-area: a; }
+    .mosaic-grid--center .mosaic-item:nth-child(2) { grid-area: b; }
+    .mosaic-grid--center .mosaic-item:nth-child(3) { grid-area: c; }
+    .mosaic-grid--center .mosaic-item:nth-child(4) { grid-area: d; }
+}
+
+/* Staggered layout */
+@media (min-width: 1024px) {
+    .mosaic-grid--staggered {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: none;
+    }
+
+    .mosaic-grid--staggered .mosaic-item:nth-child(3n+1) {
+        transform: translateY(var(--space-8));
+    }
+
+    .mosaic-grid--staggered .mosaic-item:nth-child(3n+2) {
+        transform: translateY(0);
+    }
+
+    .mosaic-grid--staggered .mosaic-item:nth-child(3n) {
+        transform: translateY(var(--space-4));
+    }
+}
+
+/* ==========================================================================
+   Split Content Layouts
+   ========================================================================== */
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .split {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-12);
+    }
+}
+
+@media (min-width: 1024px) {
+    .split {
+        gap: var(--space-16);
+    }
+
+    /* Asymmetric splits */
+    .split--60-40 {
+        grid-template-columns: 1.5fr 1fr;
+    }
+
+    .split--40-60 {
+        grid-template-columns: 1fr 1.5fr;
+    }
+
+    .split--70-30 {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .split--30-70 {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* Reverse on desktop */
+@media (min-width: 768px) {
+    .split--reverse > *:first-child {
+        order: 2;
+    }
+
+    .split--reverse > *:last-child {
+        order: 1;
+    }
+}
+
+/* Image that breaks out of container */
+.split__image {
+    position: relative;
+}
+
+.split__image--offset {
+    margin-right: calc(var(--space-8) * -1);
+}
+
+@media (min-width: 1024px) {
+    .split__image--offset {
+        margin-right: calc(var(--space-16) * -1);
+    }
+}
+
+.split--reverse .split__image--offset {
+    margin-right: 0;
+    margin-left: calc(var(--space-8) * -1);
+}
+
+@media (min-width: 1024px) {
+    .split--reverse .split__image--offset {
+        margin-left: calc(var(--space-16) * -1);
+    }
+}
+
+.split__image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-2xl);
+}
+
+.split__content {
+    padding: var(--space-4) 0;
+}
+
+@media (min-width: 768px) {
+    .split__content {
+        padding: var(--space-8) 0;
+    }
+}
+
+/* ==========================================================================
+   Hero Split (60/40 with full-height image)
+   ========================================================================== */
+
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 70vh;
+}
+
+@media (min-width: 768px) {
+    .hero-split {
+        grid-template-columns: 1fr 1fr;
+        min-height: 80vh;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-split {
+        grid-template-columns: 60% 40%;
+        min-height: 90vh;
+    }
+}
+
+.hero-split__image {
+    position: relative;
+    min-height: 50vh;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .hero-split__image {
+        min-height: auto;
+    }
+}
+
+.hero-split__image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-split__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-10) var(--space-6);
+    background-color: var(--cream);
+}
+
+@media (min-width: 768px) {
+    .hero-split__content {
+        padding: var(--space-12) var(--space-10);
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-split__content {
+        padding: var(--space-16) var(--space-12);
+    }
+}
+
+/* ==========================================================================
+   Feature Grid - For Why Us sections
+   ========================================================================== */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-8);
+    }
+}
+
+/* Alternating image/text blocks for "Why Families Choose Us" */
+.alternating-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+}
+
+@media (min-width: 768px) {
+    .alternating-grid {
+        gap: var(--space-24);
+    }
+}
+
+.alternating-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .alternating-item {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-12);
+    }
+
+    .alternating-item:nth-child(even) .alternating-item__image {
+        order: 2;
+    }
+
+    .alternating-item:nth-child(even) .alternating-item__content {
+        order: 1;
+    }
+}
+
+.alternating-item__image {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    /* Image breaks out of grid on alternating sides */
+    .alternating-item:nth-child(odd) .alternating-item__image {
+        margin-left: calc(var(--space-8) * -1);
+    }
+
+    .alternating-item:nth-child(even) .alternating-item__image {
+        margin-right: calc(var(--space-8) * -1);
+    }
+}
+
+.alternating-item__image img {
+    width: 100%;
+    border-radius: var(--radius-2xl);
+}
+
+.alternating-item__number {
+    font-family: var(--font-display);
+    font-size: var(--font-size-6xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--rose-light);
+    margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   Horizontal Scroll Container
+   ========================================================================== */
+
+.scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-track {
+    display: flex;
+    gap: var(--space-6);
+    padding: var(--space-4);
+}
+
+.scroll-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 280px;
+}
+
+@media (min-width: 768px) {
+    .scroll-item {
+        width: 320px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .scroll-item {
+        width: 380px;
+    }
+}
+
+/* ==========================================================================
+   Flexbox Utilities
+   ========================================================================== */
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+
+/* ==========================================================================
+   Aspect Ratio Utilities
+   ========================================================================== */
+
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+.aspect-portrait { aspect-ratio: 3 / 4; }
+.aspect-tall { aspect-ratio: 2 / 3; }
+.aspect-wide { aspect-ratio: 2 / 1; }
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .bento-item:hover,
+    .mosaic-grid--staggered .mosaic-item {
+        transform: none;
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "WebFetch(domain:petalandpup.com)",
+      "WebFetch(domain:www.anthropologie.com)",
+      "WebFetch(domain:www.coach.com)",
+      "WebFetch(domain:www.victoriassecret.com)",
+      "Bash(curl:*)",
+      "WebFetch(domain:www.furrylicious.com)",
+      "Bash(php -l:*)",
+      "Bash(head:*)",
+      "Bash(for file in base/_variables.css base/_reset.css base/_typography.css animations/_animations.css layouts/_header.css layouts/_bento-grid.css layouts/_sections.css layouts/_footer.css components/_navigation.css components/_buttons.css components/_cards.css components/_forms.css components/_carousel.css pages/_homepage.css pages/_puppy-detail.css pages/_faq.css utilities/_utilities.css)",
+      "Bash(do)",
+      "Bash(if [ -f \"/Users/carleykuehner/www/furrylicious/assets/css/$file\" ])",
+      "Bash(then)",
+      "Bash(echo:*)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(done)"
+    ]
+  }
+}

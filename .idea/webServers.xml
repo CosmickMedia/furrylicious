@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4aa1aabb-f064-4607-ad63-023e3aebb6a2" name="furrylicious-dev" url="http://env-furrylicious-ukm.kinsta.cloud/">
+        <fileTransfer rootFolder="/www/furrylicious_392/public/wp-content/themes/furrylicious" accessType="SFTP" host="35.236.219.140" port="30621" sshConfigId="5fa381b6-62c8-45a2-a3ee-dea46175ba4c" sshConfig="furrylicious-ukm-dev">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

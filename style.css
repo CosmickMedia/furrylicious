@@ -1,0 +1,20 @@
+/*
+Theme Name: Furrylicious
+Theme URI: https://furrylicious.com
+Author: Furrylicious
+Author URI: https://furrylicious.com
+Description: A modern WordPress theme for Furrylicious Puppy Boutique featuring bento-grid layouts, scrollytelling, and optimized lead capture. Built with Bootstrap 5 and mobile-first design.
+Version: 2.0.0
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: furrylicious
+Tags: custom-menu, custom-logo, featured-images, full-width-template, one-column, two-columns
+
+Furrylicious - A complete rebuild with modern web standards.
+*/
+
+/* Import main CSS file */
+@import url('./assets/css/main.css');

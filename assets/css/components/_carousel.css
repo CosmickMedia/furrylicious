@@ -1,0 +1,267 @@
+/**
+ * Carousel Styles
+ *
+ * Swiper overrides and custom carousel styling.
+ */
+
+/* ==========================================================================
+   Swiper Base Overrides
+   ========================================================================== */
+
+.swiper {
+    width: 100%;
+    padding-bottom: var(--space-10);
+}
+
+.swiper-slide {
+    height: auto;
+}
+
+/* ==========================================================================
+   Pagination Dots
+   ========================================================================== */
+
+.swiper-pagination {
+    position: relative;
+    margin-top: var(--space-6);
+    bottom: 0;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-lightest-pink);
+    border: 1px solid var(--color-primary);
+    opacity: 1;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.swiper-pagination-bullet:hover {
+    transform: scale(1.1);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+    transform: scale(1.2);
+}
+
+/* ==========================================================================
+   Navigation Arrows
+   ========================================================================== */
+
+.swiper-button-prev,
+.swiper-button-next {
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-white);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: var(--color-light-pink);
+    transform: scale(1.1);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.swiper-button-prev {
+    left: var(--space-2);
+}
+
+.swiper-button-next {
+    right: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .swiper-button-prev {
+        left: var(--space-4);
+    }
+
+    .swiper-button-next {
+        right: var(--space-4);
+    }
+}
+
+/* Hide arrows on mobile */
+@media (max-width: 767px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Testimonial Carousel
+   ========================================================================== */
+
+.testimonial-carousel {
+    padding: var(--space-4) var(--space-2);
+}
+
+.testimonial-carousel .swiper-slide {
+    padding: 0 var(--space-2);
+}
+
+.testimonial-carousel .swiper-pagination {
+    margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   Puppy Carousel
+   ========================================================================== */
+
+.puppy-carousel {
+    padding: var(--space-4) 0;
+}
+
+.puppy-carousel .swiper-slide {
+    height: auto;
+}
+
+.puppy-carousel .puppy-card {
+    height: 100%;
+}
+
+/* ==========================================================================
+   Gallery Carousel (Puppy Detail Page)
+   ========================================================================== */
+
+.gallery-carousel {
+    margin-bottom: var(--space-4);
+}
+
+.gallery-carousel .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-light-grey);
+}
+
+.gallery-carousel .swiper-slide img {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+/* Gallery Thumbnails */
+.gallery-thumbs {
+    padding: var(--space-2) 0;
+}
+
+.gallery-thumbs .swiper-slide {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity var(--transition-fast);
+    border: 2px solid transparent;
+}
+
+.gallery-thumbs .swiper-slide:hover {
+    opacity: 0.8;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    border-color: var(--color-primary);
+}
+
+.gallery-thumbs .swiper-slide img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   Review Carousel (Owl Carousel Compatibility)
+   ========================================================================== */
+
+/* For backward compatibility with existing Owl Carousel */
+#reviewCarousel.owl-carousel .owl-dots {
+    text-align: center;
+    margin-top: var(--space-6);
+}
+
+#reviewCarousel.owl-carousel .owl-dot {
+    display: inline-block;
+    margin: 0 var(--space-1);
+}
+
+#reviewCarousel.owl-carousel .owl-dot span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-lightest-pink);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast);
+}
+
+#reviewCarousel.owl-carousel .owl-dot.active span,
+#reviewCarousel.owl-carousel .owl-dot:hover span {
+    background-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Carousel Loading State
+   ========================================================================== */
+
+.swiper:not(.swiper-initialized) .swiper-slide:not(:first-child) {
+    display: none;
+}
+
+.swiper-lazy {
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.swiper-lazy-loaded {
+    opacity: 1;
+}
+
+.swiper-lazy-preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-light-grey);
+    border-top-color: var(--color-primary);
+    border-radius: var(--radius-full);
+    animation: carousel-spinner 1s linear infinite;
+}
+
+@keyframes carousel-spinner {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* ==========================================================================
+   Carousel in Sections
+   ========================================================================== */
+
+.section--light-pink .swiper-pagination-bullet {
+    background-color: var(--color-white);
+}
+
+.section--light-pink .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+}
+
+.section--brown .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--color-white);
+}
+
+.section--brown .swiper-pagination-bullet-active {
+    background-color: var(--color-white);
+}

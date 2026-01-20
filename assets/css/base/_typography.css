@@ -1,0 +1,691 @@
+/**
+ * Furrylicious Boutique Typography
+ *
+ * Font System:
+ * - Display/Headlines: Playfair Display (elegant, editorial)
+ * - Subheadings: Josefin Sans (uppercase, letterspaced)
+ * - Body: DM Sans (clean, modern, highly readable)
+ * - Accent: Caveat (handwritten touches for personality)
+ */
+
+/* ==========================================================================
+   Font Loading - Google Fonts with display swap
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Josefin+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* ==========================================================================
+   Base Typography
+   ========================================================================== */
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   Display Headings - Playfair Display
+   For hero titles, dramatic statements
+   ========================================================================== */
+
+.display-1,
+.display-2,
+.display-3 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    color: var(--color-heading);
+    letter-spacing: var(--letter-spacing-tight);
+    margin-bottom: var(--space-6);
+}
+
+.display-1 {
+    font-size: var(--font-size-4xl);
+}
+
+.display-2 {
+    font-size: var(--font-size-3xl);
+}
+
+.display-3 {
+    font-size: var(--font-size-2xl);
+}
+
+@media (min-width: 768px) {
+    .display-1 {
+        font-size: var(--font-size-5xl);
+    }
+
+    .display-2 {
+        font-size: var(--font-size-4xl);
+    }
+
+    .display-3 {
+        font-size: var(--font-size-3xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .display-1 {
+        font-size: var(--font-size-6xl);
+    }
+
+    .display-2 {
+        font-size: var(--font-size-5xl);
+    }
+
+    .display-3 {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+/* Italic display variant for editorial feel */
+.display-italic {
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Standard Headings - Playfair Display
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-snug);
+    color: var(--color-heading);
+    margin-bottom: var(--space-4);
+}
+
+/* H1 - Page/Section titles */
+h1, .h1 {
+    font-size: var(--font-size-3xl);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+@media (min-width: 768px) {
+    h1, .h1 {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    h1, .h1 {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+/* H2 - Section titles */
+h2, .h2 {
+    font-size: var(--font-size-2xl);
+}
+
+@media (min-width: 768px) {
+    h2, .h2 {
+        font-size: var(--font-size-3xl);
+    }
+}
+
+/* H3 - Subsection titles */
+h3, .h3 {
+    font-size: var(--font-size-xl);
+}
+
+@media (min-width: 768px) {
+    h3, .h3 {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/* H4 - Card titles, smaller headings */
+h4, .h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 768px) {
+    h4, .h4 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* H5 */
+h5, .h5 {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* H6 */
+h6, .h6 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* ==========================================================================
+   Subheadings - Josefin Sans
+   Uppercase, letterspaced, boutique style
+   ========================================================================== */
+
+.subheading,
+.eyebrow,
+.overline {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+    display: block;
+}
+
+.subheading--lg {
+    font-size: var(--font-size-sm);
+}
+
+.subheading--muted {
+    color: var(--color-text-secondary);
+}
+
+.subheading--gold {
+    color: var(--gold);
+}
+
+/* Section eyebrow with decorative dash */
+.eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background-color: currentColor;
+    margin-right: var(--space-3);
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   Accent Text - Caveat
+   Handwritten feel for personality
+   ========================================================================== */
+
+.accent-text,
+.handwritten {
+    font-family: var(--font-accent);
+    font-weight: var(--font-weight-medium);
+    font-size: 1.5em;
+    line-height: 1.2;
+    color: var(--dusty-rose);
+}
+
+.accent-text--lg {
+    font-size: 2em;
+}
+
+.accent-text--sm {
+    font-size: 1.25em;
+}
+
+/* Floating label style for testimonials */
+.accent-label {
+    font-family: var(--font-accent);
+    font-size: var(--font-size-xl);
+    color: var(--dusty-rose);
+    transform: rotate(-3deg);
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Body Text & Paragraphs
+   ========================================================================== */
+
+p {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lead paragraph - Intro text */
+.lead,
+.intro-text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+    .lead,
+    .intro-text {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* Large body text */
+.text-lg {
+    font-size: var(--font-size-lg);
+}
+
+/* Small text */
+small,
+.small,
+.text-sm {
+    font-size: var(--font-size-sm);
+}
+
+.text-xs {
+    font-size: var(--font-size-xs);
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: var(--transition-colors);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-link-hover);
+}
+
+/* Underlined link with animated underline */
+.link-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-base);
+}
+
+.link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Arrow link */
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+}
+
+.link-arrow svg,
+.link-arrow::after {
+    transition: transform var(--transition-base);
+}
+
+.link-arrow::after {
+    content: '\2192'; /* Right arrow */
+}
+
+.link-arrow:hover::after,
+.link-arrow:hover svg {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+ul, ol {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-6);
+}
+
+li {
+    margin-bottom: var(--space-2);
+    color: var(--color-text-secondary);
+}
+
+/* Unstyled list */
+.list-unstyled {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list-unstyled li {
+    margin-bottom: var(--space-2);
+}
+
+/* Inline list */
+.list-inline {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.list-inline li {
+    margin-bottom: 0;
+}
+
+/* Checkmark list */
+.list-check {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list-check li {
+    position: relative;
+    padding-left: var(--space-8);
+}
+
+.list-check li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--sage);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ==========================================================================
+   Blockquotes
+   ========================================================================== */
+
+blockquote {
+    margin: var(--space-8) 0;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid var(--rose);
+    background-color: var(--blush);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+blockquote p {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--color-heading);
+    line-height: var(--line-height-relaxed);
+}
+
+@media (min-width: 768px) {
+    blockquote p {
+        font-size: var(--font-size-xl);
+    }
+}
+
+blockquote cite {
+    display: block;
+    margin-top: var(--space-4);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-sm);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+    color: var(--color-text-secondary);
+}
+
+/* Pull quote style */
+.pullquote {
+    position: relative;
+    border: none;
+    background: transparent;
+    text-align: center;
+    padding: var(--space-8);
+}
+
+.pullquote::before {
+    content: '\201C';
+    font-family: var(--font-display);
+    font-size: var(--font-size-6xl);
+    color: var(--rose-light);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+}
+
+.pullquote p {
+    font-size: var(--font-size-2xl);
+    text-align: center;
+}
+
+/* ==========================================================================
+   Section Headers - Editorial Style
+   ========================================================================== */
+
+.section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--space-12);
+}
+
+.section-header--left {
+    text-align: left;
+    margin-left: 0;
+}
+
+.section-header .eyebrow {
+    margin-bottom: var(--space-4);
+}
+
+.section-header h2 {
+    margin-bottom: var(--space-4);
+}
+
+.section-header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+}
+
+/* Section title with decorative line */
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--space-8);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--gradient-rose);
+    border-radius: var(--radius-full);
+}
+
+.section-title--left::after {
+    left: 0;
+    transform: none;
+}
+
+/* ==========================================================================
+   Text Colors
+   ========================================================================== */
+
+.text-espresso { color: var(--espresso) !important; }
+.text-rose { color: var(--rose) !important; }
+.text-dusty-rose { color: var(--dusty-rose) !important; }
+.text-mauve { color: var(--mauve) !important; }
+.text-sage { color: var(--sage) !important; }
+.text-gold { color: var(--gold) !important; }
+.text-cream { color: var(--cream) !important; }
+.text-white { color: var(--white) !important; }
+.text-muted { color: var(--color-text-muted) !important; }
+
+/* ==========================================================================
+   Text Alignment
+   ========================================================================== */
+
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+
+@media (min-width: 768px) {
+    .md\:text-left { text-align: left !important; }
+    .md\:text-center { text-align: center !important; }
+    .md\:text-right { text-align: right !important; }
+}
+
+@media (min-width: 1024px) {
+    .lg\:text-left { text-align: left !important; }
+    .lg\:text-center { text-align: center !important; }
+    .lg\:text-right { text-align: right !important; }
+}
+
+/* ==========================================================================
+   Text Transform & Spacing
+   ========================================================================== */
+
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+.capitalize { text-transform: capitalize !important; }
+.normal-case { text-transform: none !important; }
+
+.tracking-tight { letter-spacing: var(--letter-spacing-tight) !important; }
+.tracking-normal { letter-spacing: var(--letter-spacing-normal) !important; }
+.tracking-wide { letter-spacing: var(--letter-spacing-wide) !important; }
+.tracking-wider { letter-spacing: var(--letter-spacing-wider) !important; }
+.tracking-widest { letter-spacing: var(--letter-spacing-widest) !important; }
+
+/* ==========================================================================
+   Font Weight Utilities
+   ========================================================================== */
+
+.font-light { font-weight: var(--font-weight-light) !important; }
+.font-normal { font-weight: var(--font-weight-normal) !important; }
+.font-medium { font-weight: var(--font-weight-medium) !important; }
+.font-semibold { font-weight: var(--font-weight-semibold) !important; }
+.font-bold { font-weight: var(--font-weight-bold) !important; }
+
+/* ==========================================================================
+   Font Family Utilities
+   ========================================================================== */
+
+.font-display { font-family: var(--font-display) !important; }
+.font-heading { font-family: var(--font-heading) !important; }
+.font-body { font-family: var(--font-body) !important; }
+.font-accent { font-family: var(--font-accent) !important; }
+
+/* ==========================================================================
+   Special Typography Patterns
+   ========================================================================== */
+
+/* Large number for lists/steps */
+.display-number {
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--rose-light);
+}
+
+@media (min-width: 768px) {
+    .display-number {
+        font-size: var(--font-size-6xl);
+    }
+}
+
+/* Price styling */
+.price {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--espresso);
+}
+
+.price-currency {
+    font-size: 0.65em;
+    vertical-align: super;
+}
+
+/* Badge/Tag text */
+.badge-text {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+}
+
+/* Editorial caption */
+.caption {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Responsive Typography - Fluid scales
+   ========================================================================== */
+
+.fluid-heading {
+    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-5xl));
+}
+
+.fluid-display {
+    font-size: clamp(var(--font-size-3xl), 8vw, var(--font-size-7xl));
+}
+
+.fluid-body {
+    font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
+}
+
+/* ==========================================================================
+   Selection Styling
+   ========================================================================== */
+
+::selection {
+    background-color: var(--rose-light);
+    color: var(--espresso);
+}
+
+::-moz-selection {
+    background-color: var(--rose-light);
+    color: var(--espresso);
+}

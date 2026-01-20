@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="35.236.219.140" id="5fa381b6-62c8-45a2-a3ee-dea46175ba4c" port="30621" customName="furrylicious-ukm-dev" nameFormat="CUSTOM" username="furrylicious" useOpenSSHConfig="true">
+        <option name="customName" value="furrylicious-ukm-dev" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
