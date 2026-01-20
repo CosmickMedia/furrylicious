@@ -17,7 +17,12 @@
       "Bash(echo:*)",
       "Bash(else)",
       "Bash(fi)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(ls:*)",
+      "Bash(path=\"/Users/carleykuehner/www/furrylicious/assets/css/$file\")",
+      "Bash(if [ -f \"$path\" ])",
+      "Bash(find:*)",
+      "Bash(sort:*)"
     ]
   }
 }

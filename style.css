@@ -16,5 +16,12 @@ Tags: custom-menu, custom-logo, featured-images, full-width-template, one-column
 Furrylicious - A complete rebuild with modern web standards.
 */
 
-/* Import main CSS file */
-@import url('./assets/css/main.css');
+/* ==========================================================================
+   Theme Styles
+   ========================================================================== */
+/*
+ * All styles are loaded via WordPress enqueue system (inc/enqueue.php)
+ * which properly loads /assets/css/main.css with correct dependencies.
+ *
+ * This file is required by WordPress for theme identification.
+ */
