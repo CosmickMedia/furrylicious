@@ -77,7 +77,7 @@ const ScrollEffects = {
 
         setTimeout(() => {
             element.classList.remove('reveal-hidden');
-            element.classList.add('reveal-visible', `reveal-${revealType}`);
+            element.classList.add('is-visible', `reveal-${revealType}`);
         }, parseInt(delay, 10));
     },
 
@@ -86,7 +86,7 @@ const ScrollEffects = {
      */
     showAllElements() {
         document.querySelectorAll('[data-reveal]').forEach((el) => {
-            el.classList.add('reveal-visible');
+            el.classList.add('is-visible');
         });
     },
 
@@ -137,7 +137,7 @@ const ScrollEffects = {
         // Re-check reveal on orientation change
         window.addEventListener('orientationchange', () => {
             setTimeout(() => {
-                document.querySelectorAll('[data-reveal].reveal-hidden').forEach((el) => {
+                document.querySelectorAll('[data-reveal]:not(.is-visible)').forEach((el) => {
                     if (this.isElementInViewport(el)) {
                         this.revealElement(el);
                     }
@@ -189,7 +189,7 @@ const ScrollEffects = {
      */
     observe(element) {
         if (this.state.isReducedMotion) {
-            element.classList.add('reveal-visible');
+            element.classList.add('is-visible');
             return;
         }
 
