@@ -31,9 +31,9 @@ $logo_dark = get_template_directory_uri() . '/assets/images/logo.png';
 $logo_light = get_template_directory_uri() . '/assets/images/logo.png';
 
 // Static announcement bar - set to empty string to disable
-$announcement_text = 'Free shipping on all puppy supplies over $100!';
-$announcement_link_url = '/shop/';
-$announcement_link_text = 'Shop Now';
+$announcement_text = 'Don\'t see what you\'re looking for?';
+$announcement_link_url = '/puppy-concierge/';
+$announcement_link_text = 'Click Here';
 
 // Contact info for announcement bar
 $contact_phone = '(555) 123-4567';
@@ -49,7 +49,10 @@ $contact_phone = '(555) 123-4567';
 <?php if ($announcement_text) : ?>
 <div class="announcement-bar">
     <div class="announcement-bar__inner">
-        <!-- Left: Promo text -->
+        <!-- Left: Spacer for balance -->
+        <div class="announcement-bar__spacer"></div>
+
+        <!-- Center: Promo text -->
         <p class="announcement-bar__text">
             <?php echo esc_html($announcement_text); ?>
             <?php if ($announcement_link_url && $announcement_link_text) : ?>
@@ -59,7 +62,7 @@ $contact_phone = '(555) 123-4567';
             <?php endif; ?>
         </p>
 
-        <!-- Right: Account & Phone -->
+        <!-- Right: Account, Map & Phone -->
         <div class="announcement-bar__actions">
             <a href="<?php echo esc_url(home_url('/my-account/')); ?>" class="announcement-bar__action">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -67,6 +70,13 @@ $contact_phone = '(555) 123-4567';
                     <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <span class="sr-only"><?php esc_html_e('My Account', 'furrylicious'); ?></span>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Furrylicious+531+US+Highway+22+E+Whitehouse+Station+New+Jersey+08889" class="announcement-bar__action" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="sr-only"><?php esc_html_e('Find Us', 'furrylicious'); ?></span>
             </a>
             <?php if ($contact_phone) : ?>
             <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $contact_phone)); ?>" class="announcement-bar__action">
@@ -230,27 +240,6 @@ $contact_phone = '(555) 123-4567';
             ));
         endif;
         ?>
-
-        <!-- Static Featured Puppy in Mobile Menu -->
-        <?php
-        // Static featured puppy - set $show_featured_puppy to false to hide
-        $show_featured_puppy = true;
-        $featured_puppy_name = 'Bella';
-        $featured_puppy_breed = 'Mini Goldendoodle';
-        $featured_puppy_image = get_template_directory_uri() . '/assets/images/featured-puppy.jpg';
-        $featured_puppy_link = home_url('/puppies-for-sale/bella/');
-        ?>
-        <?php if ($show_featured_puppy) : ?>
-        <div class="mobile-nav__featured">
-            <p class="mobile-nav__featured-label"><?php esc_html_e('New Arrival', 'furrylicious'); ?></p>
-            <img src="<?php echo esc_url($featured_puppy_image); ?>" alt="<?php echo esc_attr($featured_puppy_name); ?>" class="mobile-nav__featured-image" />
-            <h3 class="mobile-nav__featured-title"><?php echo esc_html($featured_puppy_name); ?></h3>
-            <p class="mobile-nav__featured-breed"><?php echo esc_html($featured_puppy_breed); ?></p>
-            <a href="<?php echo esc_url($featured_puppy_link); ?>" class="btn btn--primary btn--sm">
-                <?php esc_html_e('Meet Me', 'furrylicious'); ?>
-            </a>
-        </div>
-        <?php endif; ?>
 
         <!-- Mobile Contact Info - Static -->
         <?php

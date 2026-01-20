@@ -71,6 +71,11 @@ const Navigation = {
         this.elements.dropdownItems = document.querySelectorAll('.primary-nav__item.has-dropdown');
         this.elements.mobileDropdownItems = document.querySelectorAll('.mobile-nav__item.has-dropdown');
         this.elements.backToTop = document.querySelector('.back-to-top');
+
+        // Debug logging (temporary)
+        console.log('[Navigation] Mobile toggle:', this.elements.mobileToggle);
+        console.log('[Navigation] Mobile nav:', this.elements.mobileNav);
+        console.log('[Navigation] Mobile overlay:', this.elements.mobileNavOverlay);
     },
 
     /**
@@ -258,6 +263,7 @@ const Navigation = {
      * Open mobile menu
      */
     openMobileMenu() {
+        console.log('[Navigation] Opening mobile menu, adding is-open class');
         this.state.isMobileMenuOpen = true;
 
         // Close search if open
@@ -268,6 +274,7 @@ const Navigation = {
         if (this.elements.mobileNav) {
             this.elements.mobileNav.classList.add('is-open');
             this.elements.mobileNav.setAttribute('aria-hidden', 'false');
+            console.log('[Navigation] Mobile nav classes:', this.elements.mobileNav.className);
         }
 
         if (this.elements.mobileNavOverlay) {

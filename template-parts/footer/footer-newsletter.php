@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Part: Footer Newsletter
+ * Template Part: Footer Social
  *
- * Displays the newsletter signup section in the footer.
+ * Displays the social links section in the footer.
  *
  * @package Furrylicious
  * @version 2.0.0
@@ -13,16 +13,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Get newsletter form ID from theme options
-$newsletter_form_id = furrylicious_get_option('newsletter_form_id', 8);
-
 // Get social networks from ACF
 $social_networks = function_exists('get_field') ? get_field('social_networks', 'options') : array();
 ?>
 
-<div class="footer-widget footer-newsletter-widget">
+<div class="footer-widget footer-social-widget">
     <h3 class="footer-widget__title">
-        <?php esc_html_e('Join Our Community', 'furrylicious'); ?>
+        <?php esc_html_e('Follow Us', 'furrylicious'); ?>
     </h3>
 
     <?php if (!empty($social_networks) && is_array($social_networks)) : ?>
@@ -69,33 +66,4 @@ $social_networks = function_exists('get_field') ? get_field('social_networks', '
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-
-    <h4 class="footer-widget__subtitle">
-        <?php esc_html_e('Newsletter Subscription', 'furrylicious'); ?>
-    </h4>
-
-    <div class="footer-newsletter">
-        <?php
-        if (function_exists('gravity_form')) {
-            gravity_form($newsletter_form_id, false, false, false, null, true);
-        } else {
-            // Fallback form
-            ?>
-            <form class="newsletter-form" action="#" method="post">
-                <label for="newsletter-email" class="visually-hidden">
-                    <?php esc_html_e('Email address', 'furrylicious'); ?>
-                </label>
-                <input type="email"
-                       id="newsletter-email"
-                       name="email"
-                       placeholder="<?php esc_attr_e('Enter your email', 'furrylicious'); ?>"
-                       required />
-                <button type="submit" class="btn btn--primary">
-                    <?php esc_html_e('Subscribe', 'furrylicious'); ?>
-                </button>
-            </form>
-            <?php
-        }
-        ?>
-    </div>
 </div>

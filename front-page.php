@@ -15,14 +15,14 @@ get_header();
 // HERO SECTION
 // =============================================================================
 $hero_eyebrow = 'Welcome to Furrylicious';
-$hero_title = 'Find Your|*Perfect* Puppy';
-$hero_description = 'Where every puppy finds their forever family. We specialize in healthy, happy puppies raised with love and care.';
+$hero_title = 'Where Your|*Puppy Journey* Begins';
+$hero_description = 'Carefully raised. Thoughtfully matched. We help families find puppies that fit their lifestyle, heart, and home.';
 $hero_image = get_template_directory_uri() . '/assets/images/furrylicious-hero.jpg';
 $hero_cta_text = 'Meet Our Puppies';
 $hero_cta_link = home_url('/puppies-for-sale/');
 $hero_secondary_cta_text = 'Learn More';
 $hero_secondary_cta_link = home_url('/about/');
-$hero_accent_text = 'Bringing joy to families since 2010';
+$hero_accent_text = 'Trusted by loving families since 2010';
 $badge_label = 'New Arrivals';
 $badge_text = 'Available Now';
 
@@ -85,9 +85,23 @@ $hero_title_formatted = preg_replace('/\*([^*]+)\*/', '<span>$1</span>', $hero_t
         <div class="trust-bar__inner">
             <div class="trust-bar__item">
                 <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span class="trust-bar__text">Health Guarantee</span>
+                <span class="trust-bar__text">Open Every Day 11 AM - 7 PM</span>
+            </div>
+            <div class="trust-bar__item">
+                <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="trust-bar__text">Rated A+ by the BBB</span>
+            </div>
+            <div class="trust-bar__item">
+                <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="trust-bar__text">5 Star Reviews</span>
             </div>
             <div class="trust-bar__item">
                 <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -95,19 +109,6 @@ $hero_title_formatted = preg_replace('/\*([^*]+)\*/', '<span>$1</span>', $hero_t
                     <polyline points="22,4 12,14.01 9,11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <span class="trust-bar__text">Vet Checked</span>
-            </div>
-            <div class="trust-bar__item">
-                <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="trust-bar__text">Raised with Love</span>
-            </div>
-            <div class="trust-bar__item">
-                <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
-                    <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span class="trust-bar__text">Secure Delivery</span>
             </div>
         </div>
     </div>
@@ -134,7 +135,7 @@ $puppies = [
         'image' => get_template_directory_uri() . '/assets/images/puppies/puppy-1.jpg',
         'link' => home_url('/puppies-for-sale/luna/'),
         'badge' => 'Just Arrived',
-        'featured' => true,
+        'featured' => false,
     ],
     [
         'name' => 'Milo',
@@ -243,7 +244,6 @@ $puppies = [
 
                             <div class="puppy-card__meta">
                                 <span class="puppy-card__age"><?php echo esc_html($puppy['age']); ?></span>
-                                <span class="puppy-card__price"><?php echo esc_html($puppy['price']); ?></span>
                             </div>
                         </div>
                     </a>
@@ -357,14 +357,14 @@ $why_title_formatted = preg_replace('/\*([^*]+)\*/', '<span>$1</span>', $why_tit
 $reasons = [
     [
         'number' => '01',
-        'title' => 'Health First, Always',
-        'description' => 'Every puppy receives comprehensive veterinary care, genetic testing, and vaccinations before going home. Our health guarantee gives you peace of mind for years to come.',
-        'image' => get_template_directory_uri() . '/assets/images/why-us/health.jpg',
+        'title' => 'Puppy Concierge Service',
+        'description' => 'Looking for a specific puppy but don\'t see it listed? Let us help! Tell us exactly what you\'re looking for—from breed and color to size—and we\'ll reach out to our trusted network of responsible, high-quality breeders to find the perfect match for you.',
+        'image' => get_template_directory_uri() . '/assets/images/furry-1.jpg',
         'points' => [
-            'Full veterinary examination',
-            'Up-to-date vaccinations',
-            'Genetic health testing',
-            '2-year health guarantee',
+            'Personalized puppy matching',
+            'Trusted breeder network',
+            'Specific breed & color requests',
+            'Your personal puppy matchmaker',
         ],
     ],
     [
@@ -383,7 +383,7 @@ $reasons = [
         'number' => '03',
         'title' => 'Lifetime Support',
         'description' => 'Your journey with us doesn\'t end at pickup. We\'re here for training questions, health advice, and anything else you need. Once you\'re family, you\'re family forever.',
-        'image' => get_template_directory_uri() . '/assets/images/why-us/support.jpg',
+        'image' => get_template_directory_uri() . '/assets/images/furry-3.jpg',
         'points' => [
             '24/7 phone & email support',
             'Training resources & tips',
@@ -463,28 +463,25 @@ $testimonials_title_formatted = preg_replace('/\*([^*]+)\*/', '<span>$1</span>',
 
 $testimonials = [
     [
-        'quote' => 'Our little Luna has brought so much joy to our family. The team at Furrylicious made the whole process feel like working with friends.',
-        'author' => 'Sarah M.',
-        'location' => 'Austin, TX',
-        'pet_name' => 'Luna',
-        'pet_breed' => 'Golden Retriever',
-        'image' => get_template_directory_uri() . '/assets/images/testimonials/family-1.jpg',
+        'quote' => 'Very happy with this place. Very clean the best pet shop I\'ve ever been to I\'m so happy with my dachshund that I purchased from the store he is very happy and healthy his name is Riley I had a very good experience with the owner she\'s fantastic!!!',
+        'author' => 'Renee',
+        'location' => 'New Jersey',
+        'pet_name' => 'Riley',
+        'pet_breed' => 'Dachshund',
     ],
     [
-        'quote' => 'From our first visit to bringing Milo home, every step was transparent and caring. You can tell they truly love these puppies.',
-        'author' => 'The Johnson Family',
-        'location' => 'Denver, CO',
-        'pet_name' => 'Milo',
-        'pet_breed' => 'French Bulldog',
-        'image' => get_template_directory_uri() . '/assets/images/testimonials/family-2.jpg',
+        'quote' => 'I truly enjoyed my experience with Furrylicious when purchasing my Cockalier Georgie. The staff was extremely helpful and knowledgeable. Georgie has been a wonderful addition to my family. He is adorable, happy, smart and very playful.',
+        'author' => 'Maria Lorefice',
+        'location' => 'New Jersey',
+        'pet_name' => 'Georgie',
+        'pet_breed' => 'Cockalier',
     ],
     [
-        'quote' => 'Best decision we ever made! Daisy is healthy, happy, and the perfect addition to our home. Thank you Furrylicious!',
-        'author' => 'Jennifer K.',
-        'location' => 'Seattle, WA',
-        'pet_name' => 'Daisy',
-        'pet_breed' => 'Cavalier King Charles',
-        'image' => get_template_directory_uri() . '/assets/images/testimonials/family-3.jpg',
+        'quote' => 'We are so fortunate to have found Furrylicious! We love our mini goldendoodle puppy! He has a wonderful, calm temperament and is the best addition to our family! Cindy and her team went above and beyond for our family! Definitely recommend!!',
+        'author' => 'D. O\'Donnell',
+        'location' => 'New Jersey',
+        'pet_name' => 'Puppy',
+        'pet_breed' => 'Mini Goldendoodle',
     ],
 ];
 ?>
@@ -508,12 +505,11 @@ $testimonials = [
         <div class="testimonials-grid">
             <?php foreach ($testimonials as $testimonial) : ?>
                 <article class="testimonial-card">
-                    <img
-                        src="<?php echo esc_url($testimonial['image']); ?>"
-                        alt="<?php echo esc_attr($testimonial['author']); ?> with <?php echo esc_attr($testimonial['pet_name']); ?>"
-                        class="testimonial-card__image"
-                        loading="lazy"
-                    />
+                    <div class="testimonial-card__icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
 
                     <div class="testimonial-card__content">
                         <blockquote class="testimonial-card__quote">

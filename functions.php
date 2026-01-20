@@ -244,3 +244,8 @@ function furrylicious_body_classes($classes) {
     return $classes;
 }
 add_filter('body_class', 'furrylicious_body_classes');
+
+/**
+ * Hide WordPress admin bar globally
+ */
+add_filter('show_admin_bar', '__return_false');

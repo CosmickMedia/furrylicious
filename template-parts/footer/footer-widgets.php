@@ -33,10 +33,8 @@ $map_image = function_exists('get_field') ? get_field('footer_map_image', 'optio
 <!-- Branding & Contact -->
 <div class="footer-branding">
     <?php
-    $logo = furrylicious_get_option('footer_logo');
-    if (empty($logo)) {
-        $logo = get_template_directory_uri() . '/assets/images/logo-footer.png';
-    }
+    // Use the footer-specific logo
+    $logo = get_template_directory_uri() . '/assets/images/logo-footer.png';
     ?>
     <a href="<?php echo esc_url(home_url('/')); ?>" class="footer-logo-link">
         <img src="<?php echo esc_url($logo); ?>"
@@ -50,7 +48,9 @@ $map_image = function_exists('get_field') ? get_field('footer_map_image', 'optio
     <div class="footer-contact">
         <?php if (!empty($address)) : ?>
             <address class="footer-address">
-                <?php echo wp_kses_post($address); ?>
+                <a href="https://www.google.com/maps/search/?api=1&query=Furrylicious+531+US+Highway+22+E+Whitehouse+Station+New+Jersey+08889" target="_blank" rel="noopener">
+                    <?php echo wp_kses_post($address); ?>
+                </a>
             </address>
         <?php endif; ?>
 
@@ -128,46 +128,28 @@ $map_image = function_exists('get_field') ? get_field('footer_map_image', 'optio
 
 <!-- Map & BBB Badge -->
 <div class="footer-widget footer-map">
-    <?php if (!empty($map_link)) : ?>
-        <a href="<?php echo esc_url($map_link); ?>"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="<?php esc_attr_e('View our location on Google Maps', 'furrylicious'); ?>">
-            <?php if (!empty($map_image)) : ?>
-                <img src="<?php echo esc_url($map_image); ?>"
-                     alt="<?php esc_attr_e('Store location map', 'furrylicious'); ?>"
-                     class="footer-map__image"
-                     loading="lazy" />
-            <?php else : ?>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/map-placeholder.png'); ?>"
-                     alt="<?php esc_attr_e('Store location map', 'furrylicious'); ?>"
-                     class="footer-map__image"
-                     loading="lazy" />
-            <?php endif; ?>
-        </a>
-    <?php endif; ?>
+    <!-- Google Map Embed -->
+    <div class="footer-map__embed">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3033.8876!2d-74.7701!3d40.6176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3ed0a3a5a5a5a%3A0x0!2s531%20US%20Highway%2022%20E%2C%20Whitehouse%20Station%2C%20NJ%2008889!5e0!3m2!1sen!2sus!4v1"
+            width="100%"
+            height="200"
+            style="border:0; border-radius: 8px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Furrylicious Location">
+        </iframe>
+    </div>
 
     <!-- BBB Badge -->
-    <?php
-    $bbb_link = function_exists('get_field') ? get_field('bbb_link', 'options') : '';
-    $bbb_image = function_exists('get_field') ? get_field('bbb_badge', 'options') : '';
-
-    if (!empty($bbb_link)) :
-    ?>
-        <div class="footer-badge">
-            <a href="<?php echo esc_url($bbb_link); ?>"
-               target="_blank"
-               rel="nofollow noopener noreferrer">
-                <?php if (!empty($bbb_image)) : ?>
-                    <img src="<?php echo esc_url($bbb_image); ?>"
-                         alt="<?php echo esc_attr(get_bloginfo('name') . ' BBB Business Review'); ?>"
-                         loading="lazy" />
-                <?php else : ?>
-                    <img src="https://seal-newjersey.bbb.org/seals/blue-seal-250-52-bbb-90143942.png"
-                         alt="<?php echo esc_attr(get_bloginfo('name') . ' BBB Business Review'); ?>"
-                         loading="lazy" />
-                <?php endif; ?>
-            </a>
-        </div>
-    <?php endif; ?>
+    <div class="footer-badge">
+        <a href="https://www.bbb.org/us/nj/whitehouse-station/profile/pet-shop/furrylicious-0221-90143942"
+           target="_blank"
+           rel="nofollow noopener noreferrer">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/bbb-seal.png'); ?>"
+                 alt="<?php echo esc_attr(get_bloginfo('name') . ' BBB Business Review - A+ Rating'); ?>"
+                 loading="lazy" />
+        </a>
+    </div>
 </div>
