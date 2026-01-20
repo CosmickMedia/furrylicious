@@ -32,9 +32,6 @@ require_once FURRYLICIOUS_DIR . '/inc/setup.php';
 // Asset enqueuing: CSS, JS with proper loading strategies
 require_once FURRYLICIOUS_DIR . '/inc/enqueue.php';
 
-// Petkey API integration functions
-require_once FURRYLICIOUS_DIR . '/inc/petkey-functions.php';
-
 // Custom Post Types: FAQ, breeds, etc.
 require_once FURRYLICIOUS_DIR . '/inc/custom-post-types.php';
 

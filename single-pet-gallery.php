@@ -48,7 +48,7 @@ if (have_posts()) : the_post();
     $contact = furrylicious_get_contact_info();
 ?>
 
-<div class="puppy-detail puppy-detail--adopted petkey">
+<div class="puppy-detail puppy-detail--adopted">
     <div class="container">
 
         <!-- Page Title -->

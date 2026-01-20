@@ -34,6 +34,9 @@ $logo_light = get_template_directory_uri() . '/assets/images/logo.png';
 $announcement_text = 'Free shipping on all puppy supplies over $100!';
 $announcement_link_url = '/shop/';
 $announcement_link_text = 'Shop Now';
+
+// Contact info for announcement bar
+$contact_phone = '(555) 123-4567';
 ?>
 
 <body <?php body_class(); ?>>
@@ -45,7 +48,8 @@ $announcement_link_text = 'Shop Now';
 
 <?php if ($announcement_text) : ?>
 <div class="announcement-bar">
-    <div class="container">
+    <div class="announcement-bar__inner">
+        <!-- Left: Promo text -->
         <p class="announcement-bar__text">
             <?php echo esc_html($announcement_text); ?>
             <?php if ($announcement_link_url && $announcement_link_text) : ?>
@@ -54,37 +58,31 @@ $announcement_link_text = 'Shop Now';
                 </a>
             <?php endif; ?>
         </p>
+
+        <!-- Right: Account & Phone -->
+        <div class="announcement-bar__actions">
+            <a href="<?php echo esc_url(home_url('/my-account/')); ?>" class="announcement-bar__action">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="sr-only"><?php esc_html_e('My Account', 'furrylicious'); ?></span>
+            </a>
+            <?php if ($contact_phone) : ?>
+            <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $contact_phone)); ?>" class="announcement-bar__action">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span><?php echo esc_html($contact_phone); ?></span>
+            </a>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
 <?php endif; ?>
 
 <header id="site-header" class="<?php echo esc_attr($header_class); ?>" role="banner">
     <div class="header-main header-main--centered">
-
-        <!-- Left Navigation (Desktop) -->
-        <nav class="primary-nav primary-nav--left" aria-label="<?php esc_attr_e('Primary Menu Left', 'furrylicious'); ?>">
-            <?php
-            if (has_nav_menu('primary-left')) :
-                wp_nav_menu(array(
-                    'theme_location' => 'primary-left',
-                    'menu_id'        => 'primary-menu-left',
-                    'menu_class'     => 'primary-nav__list',
-                    'container'      => false,
-                    'depth'          => 2,
-                    'fallback_cb'    => false,
-                ));
-            elseif (has_nav_menu('primary')) :
-                wp_nav_menu(array(
-                    'theme_location' => 'primary',
-                    'menu_id'        => 'primary-menu-left',
-                    'menu_class'     => 'primary-nav__list',
-                    'container'      => false,
-                    'depth'          => 2,
-                    'fallback_cb'    => false,
-                ));
-            endif;
-            ?>
-        </nav>
 
         <!-- Mobile Menu Toggle -->
         <button
@@ -130,24 +128,8 @@ $announcement_link_text = 'Shop Now';
             </a>
         </div>
 
-        <!-- Right Navigation & Actions (Desktop) -->
+        <!-- Header Actions -->
         <div class="header-actions">
-            <!-- Right Navigation -->
-            <nav class="primary-nav primary-nav--right" aria-label="<?php esc_attr_e('Primary Menu Right', 'furrylicious'); ?>">
-                <?php
-                if (has_nav_menu('primary-right')) :
-                    wp_nav_menu(array(
-                        'theme_location' => 'primary-right',
-                        'menu_id'        => 'primary-menu-right',
-                        'menu_class'     => 'primary-nav__list',
-                        'container'      => false,
-                        'depth'          => 2,
-                        'fallback_cb'    => false,
-                    ));
-                endif;
-                ?>
-            </nav>
-
             <!-- Search Toggle -->
             <button
                 type="button"

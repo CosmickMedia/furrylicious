@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
  * @return void
  */
 function furrylicious_enqueue_styles() {
-    // Google Fonts - matches CSS variables in _variables.css
+    // Google Fonts - matches CSS variables
     wp_enqueue_style(
         'furrylicious-fonts',
         'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@400;500;600&display=swap',
@@ -27,7 +27,7 @@ function furrylicious_enqueue_styles() {
         null
     );
 
-    // Bootstrap 5 (CDN with local fallback)
+    // Bootstrap 5 (CDN)
     wp_enqueue_style(
         'bootstrap',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
@@ -35,27 +35,11 @@ function furrylicious_enqueue_styles() {
         '5.3.2'
     );
 
-    // Swiper CSS (for carousels)
-    wp_enqueue_style(
-        'swiper',
-        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
-        array(),
-        '11.0.0'
-    );
-
-    // Main theme stylesheet
-    wp_enqueue_style(
-        'furrylicious-main',
-        FURRYLICIOUS_CSS . '/main.css',
-        array('bootstrap', 'swiper'),
-        FURRYLICIOUS_VERSION
-    );
-
-    // Theme style.css (WordPress requirement)
+    // Theme style.css (contains all theme styles)
     wp_enqueue_style(
         'furrylicious-style',
         get_stylesheet_uri(),
-        array('furrylicious-main'),
+        array('bootstrap'),
         FURRYLICIOUS_VERSION
     );
 }
@@ -76,20 +60,11 @@ function furrylicious_enqueue_scripts() {
         true
     );
 
-    // Swiper JS (for carousels)
-    wp_enqueue_script(
-        'swiper',
-        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
-        array(),
-        '11.0.0',
-        true
-    );
-
     // Main theme script
     wp_enqueue_script(
         'furrylicious-main',
         FURRYLICIOUS_JS . '/main.js',
-        array('bootstrap', 'swiper'),
+        array('bootstrap'),
         FURRYLICIOUS_VERSION,
         true
     );
@@ -131,9 +106,7 @@ function furrylicious_script_attributes($tag, $handle, $src) {
     );
 
     // Scripts to defer
-    $defer_scripts = array(
-        'swiper',
-    );
+    $defer_scripts = array();
 
     // Scripts to load async
     $async_scripts = array();

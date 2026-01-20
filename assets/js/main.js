@@ -10,8 +10,6 @@
 
 // Import modules
 import Navigation from './modules/navigation.js';
-import ScrollEffects from './modules/scroll-effects.js';
-import Marquee from './modules/marquee.js';
 import FormEnhancements from './modules/form-enhancements.js';
 
 (function() {
@@ -42,8 +40,6 @@ import FormEnhancements from './modules/form-enhancements.js';
      */
     Furrylicious.modules = {
         navigation: Navigation,
-        scrollEffects: ScrollEffects,
-        marquee: Marquee,
         forms: FormEnhancements,
     };
 
@@ -242,84 +238,17 @@ import FormEnhancements from './modules/form-enhancements.js';
     };
 
     /**
-     * Initialize Experience Scroll Navigation
-     */
-    Furrylicious.experienceScroll = function() {
-        const section = document.querySelector('.experience-scroll');
-        if (!section) return;
-
-        const track = section.querySelector('.experience-scroll__track');
-        const prevBtn = section.querySelector('.experience-scroll__btn--prev');
-        const nextBtn = section.querySelector('.experience-scroll__btn--next');
-
-        if (!track || !prevBtn || !nextBtn) return;
-
-        const scrollAmount = 340; // Card width + gap
-
-        prevBtn.addEventListener('click', () => {
-            track.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            track.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        // Update button states on scroll
-        track.addEventListener('scroll', () => {
-            prevBtn.disabled = track.scrollLeft <= 0;
-            nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth;
-        });
-
-        // Initial state
-        prevBtn.disabled = true;
-    };
-
-    /**
-     * Initialize Puppy Card Hover Effects
-     */
-    Furrylicious.puppyCards = function() {
-        if (Furrylicious.utils.isTouchDevice()) return;
-
-        document.querySelectorAll('.puppy-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        });
-    };
-
-    /**
      * Main Initialization
      */
     Furrylicious.init = function() {
+        // Initialize navigation module (header scroll state, mobile menu, search overlay)
+        this.modules.navigation.init();
+
         // Core functionality
         this.lazyLoad();
         this.smoothScroll();
         this.externalLinks();
         this.reducedMotion();
-
-        // Page-specific functionality
-        this.experienceScroll();
-        this.puppyCards();
 
         // Add loaded class for CSS transitions
         document.documentElement.classList.add('js-loaded');
