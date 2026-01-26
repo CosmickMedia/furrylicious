@@ -1,5 +1,6 @@
 {
     "key": "post_type_furrylicious_breeds",
+    "post_type": "breeds",
     "title": "Breeds",
     "labels": {
         "name": "Breeds",

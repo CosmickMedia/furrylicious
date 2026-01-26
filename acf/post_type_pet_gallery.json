@@ -1,5 +1,6 @@
 {
     "key": "post_type_furrylicious_pet_gallery",
+    "post_type": "pet-gallery",
     "title": "Pet Gallery",
     "labels": {
         "name": "Pet Gallery",

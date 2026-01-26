@@ -84,7 +84,7 @@ function furrylicious_add_inquiry_button() {
  * Enqueue inquiry modal scripts
  */
 function furrylicious_enqueue_inquiry_scripts() {
-    if (is_product()) {
+    if (function_exists('is_product') && is_product()) {
         wp_enqueue_script(
             'furrylicious-inquiry',
             FURRYLICIOUS_JS . '/modules/inquiry.js',
