@@ -11,6 +11,7 @@
 // Import modules
 import Navigation from './modules/navigation.js';
 import FormEnhancements from './modules/form-enhancements.js';
+import { initSingleProduct } from './modules/single-product.js';
 
 (function() {
     'use strict';
@@ -41,6 +42,7 @@ import FormEnhancements from './modules/form-enhancements.js';
     Furrylicious.modules = {
         navigation: Navigation,
         forms: FormEnhancements,
+        singleProduct: initSingleProduct,
     };
 
     /**

@@ -22,7 +22,8 @@
       "Bash(path=\"/Users/carleykuehner/www/furrylicious/assets/css/$file\")",
       "Bash(if [ -f \"$path\" ])",
       "Bash(find:*)",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "Bash(tree:*)"
     ]
   }
 }

@@ -1,0 +1,105 @@
+{
+    "key": "group_furrylicious_pet_gallery",
+    "title": "Gallery Item Details",
+    "fields": [
+        {
+            "key": "field_gallery_pet_name",
+            "label": "Pet Name",
+            "name": "gallery_pet_name",
+            "type": "text",
+            "instructions": "Name of the adopted pet",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_gallery_breed",
+            "label": "Breed",
+            "name": "gallery_breed",
+            "type": "text",
+            "instructions": "Breed of the pet",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_gallery_family_name",
+            "label": "Family Name",
+            "name": "gallery_family_name",
+            "type": "text",
+            "instructions": "Name of the adopting family",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_gallery_adoption_date",
+            "label": "Adoption Date",
+            "name": "gallery_adoption_date",
+            "type": "date_picker",
+            "instructions": "When was this pet adopted?",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "Y-m-d"
+        },
+        {
+            "key": "field_gallery_testimonial",
+            "label": "Testimonial",
+            "name": "gallery_testimonial",
+            "type": "textarea",
+            "instructions": "Optional testimonial from the family",
+            "required": 0,
+            "rows": 4
+        },
+        {
+            "key": "field_gallery_additional_images",
+            "label": "Additional Images",
+            "name": "gallery_additional_images",
+            "type": "gallery",
+            "instructions": "Additional photos of the pet with their new family",
+            "required": 0,
+            "return_format": "array",
+            "library": "all",
+            "min": 0,
+            "max": 10,
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 5,
+            "mime_types": "jpg,jpeg,png,webp"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "pet-gallery"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Details for pet gallery items"
+}

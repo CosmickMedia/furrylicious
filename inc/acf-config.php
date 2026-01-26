@@ -14,6 +14,33 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * ACF JSON Save Point
+ *
+ * Saves ACF field groups to theme's acf folder.
+ *
+ * @param string $path Path to save JSON files.
+ * @return string Modified path.
+ */
+function furrylicious_acf_json_save_point($path) {
+    return FURRYLICIOUS_DIR . '/acf';
+}
+add_filter('acf/settings/save_json', 'furrylicious_acf_json_save_point');
+
+/**
+ * ACF JSON Load Point
+ *
+ * Loads ACF field groups from theme's acf folder.
+ *
+ * @param array $paths Existing load paths.
+ * @return array Modified paths.
+ */
+function furrylicious_acf_json_load_point($paths) {
+    $paths[] = FURRYLICIOUS_DIR . '/acf';
+    return $paths;
+}
+add_filter('acf/settings/load_json', 'furrylicious_acf_json_load_point');
+
+/**
  * Register ACF Options Pages
  *
  * @return void

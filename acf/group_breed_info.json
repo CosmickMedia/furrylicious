@@ -1,0 +1,203 @@
+{
+    "key": "group_furrylicious_breed_info",
+    "title": "Breed Characteristics",
+    "fields": [
+        {
+            "key": "field_breed_overview_tab",
+            "label": "Overview",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_temperament",
+            "label": "Temperament",
+            "name": "temperament",
+            "type": "textarea",
+            "instructions": "Describe the typical temperament of this breed",
+            "required": 0,
+            "rows": 3,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_breed_size_tab",
+            "label": "Size",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_adult_weight_min",
+            "label": "Adult Weight (Min)",
+            "name": "adult_weight_min",
+            "type": "number",
+            "instructions": "Minimum adult weight in pounds",
+            "required": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "append": "lbs"
+        },
+        {
+            "key": "field_adult_weight_max",
+            "label": "Adult Weight (Max)",
+            "name": "adult_weight_max",
+            "type": "number",
+            "instructions": "Maximum adult weight in pounds",
+            "required": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "append": "lbs"
+        },
+        {
+            "key": "field_adult_height_min",
+            "label": "Adult Height (Min)",
+            "name": "adult_height_min",
+            "type": "number",
+            "instructions": "Minimum adult height in inches",
+            "required": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "append": "in"
+        },
+        {
+            "key": "field_adult_height_max",
+            "label": "Adult Height (Max)",
+            "name": "adult_height_max",
+            "type": "number",
+            "instructions": "Maximum adult height in inches",
+            "required": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "append": "in"
+        },
+        {
+            "key": "field_life_expectancy",
+            "label": "Life Expectancy",
+            "name": "life_expectancy",
+            "type": "text",
+            "instructions": "Average life expectancy (e.g., 10-14)",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "10-14"
+        },
+        {
+            "key": "field_breed_traits_tab",
+            "label": "Traits",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_trainability",
+            "label": "Trainability",
+            "name": "trainability",
+            "type": "range",
+            "instructions": "How easy is this breed to train?",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default_value": 3
+        },
+        {
+            "key": "field_shedding",
+            "label": "Shedding",
+            "name": "shedding",
+            "type": "range",
+            "instructions": "How much does this breed shed?",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default_value": 3
+        },
+        {
+            "key": "field_barking",
+            "label": "Barking",
+            "name": "barking",
+            "type": "range",
+            "instructions": "How vocal is this breed?",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default_value": 3
+        },
+        {
+            "key": "field_energy_level",
+            "label": "Energy Level",
+            "name": "energy_level",
+            "type": "range",
+            "instructions": "How active is this breed?",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default_value": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "breeds"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Breed characteristics and traits for the Breeds CPT"
+}

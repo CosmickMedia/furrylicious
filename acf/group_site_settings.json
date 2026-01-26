@@ -1,0 +1,215 @@
+{
+    "key": "group_furrylicious_site_settings",
+    "title": "Site Settings",
+    "fields": [
+        {
+            "key": "field_contact_tab",
+            "label": "Contact Info",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_phone",
+            "label": "Phone Number",
+            "name": "phone",
+            "type": "text",
+            "instructions": "Primary contact phone number",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "(555) 123-4567"
+        },
+        {
+            "key": "field_email",
+            "label": "Email Address",
+            "name": "email",
+            "type": "email",
+            "instructions": "Primary contact email",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "hello@furrylicious.com"
+        },
+        {
+            "key": "field_address",
+            "label": "Address",
+            "name": "address",
+            "type": "textarea",
+            "instructions": "Full business address",
+            "required": 0,
+            "rows": 3
+        },
+        {
+            "key": "field_google_maps_url",
+            "label": "Google Maps URL",
+            "name": "google_maps_url",
+            "type": "url",
+            "instructions": "Link to Google Maps location",
+            "required": 0
+        },
+        {
+            "key": "field_hours_tab",
+            "label": "Business Hours",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_business_hours",
+            "label": "Business Hours",
+            "name": "business_hours",
+            "type": "repeater",
+            "instructions": "Add your business hours for each day",
+            "required": 0,
+            "layout": "table",
+            "button_label": "Add Hours",
+            "sub_fields": [
+                {
+                    "key": "field_hours_day",
+                    "label": "Day",
+                    "name": "day",
+                    "type": "select",
+                    "choices": {
+                        "Monday": "Monday",
+                        "Tuesday": "Tuesday",
+                        "Wednesday": "Wednesday",
+                        "Thursday": "Thursday",
+                        "Friday": "Friday",
+                        "Saturday": "Saturday",
+                        "Sunday": "Sunday"
+                    },
+                    "wrapper": {
+                        "width": "30"
+                    }
+                },
+                {
+                    "key": "field_hours_open",
+                    "label": "Open",
+                    "name": "open",
+                    "type": "text",
+                    "placeholder": "9:00 AM",
+                    "wrapper": {
+                        "width": "30"
+                    }
+                },
+                {
+                    "key": "field_hours_close",
+                    "label": "Close",
+                    "name": "close",
+                    "type": "text",
+                    "placeholder": "6:00 PM",
+                    "wrapper": {
+                        "width": "30"
+                    }
+                },
+                {
+                    "key": "field_hours_closed",
+                    "label": "Closed",
+                    "name": "closed",
+                    "type": "true_false",
+                    "wrapper": {
+                        "width": "10"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_social_tab",
+            "label": "Social Media",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_facebook_url",
+            "label": "Facebook URL",
+            "name": "facebook_url",
+            "type": "url",
+            "required": 0,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_instagram_url",
+            "label": "Instagram URL",
+            "name": "instagram_url",
+            "type": "url",
+            "required": 0,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_tiktok_url",
+            "label": "TikTok URL",
+            "name": "tiktok_url",
+            "type": "url",
+            "required": 0,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_youtube_url",
+            "label": "YouTube URL",
+            "name": "youtube_url",
+            "type": "url",
+            "required": 0,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_booking_tab",
+            "label": "Booking",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_booking_url",
+            "label": "Booking URL",
+            "name": "booking_url",
+            "type": "url",
+            "instructions": "URL for appointment scheduling (e.g., Calendly, Acuity)",
+            "required": 0
+        },
+        {
+            "key": "field_gravity_form_id",
+            "label": "Contact Form ID",
+            "name": "gravity_form_id",
+            "type": "number",
+            "instructions": "Gravity Forms ID for the main contact form",
+            "required": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "General site settings for Furrylicious"
+}

@@ -44,6 +44,14 @@ require_once FURRYLICIOUS_DIR . '/inc/gravity-forms.php';
 // Performance optimizations
 require_once FURRYLICIOUS_DIR . '/inc/performance.php';
 
+// WooCommerce integration (catalog-only, no e-commerce)
+if (class_exists('WooCommerce')) {
+    require_once FURRYLICIOUS_DIR . '/inc/woocommerce.php';
+}
+
+// Add-ons loader
+require_once FURRYLICIOUS_DIR . '/add-ons/add-ons.php';
+
 /**
  * Unique ID generator for accessibility
  *

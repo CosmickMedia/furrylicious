@@ -1,0 +1,253 @@
+{
+    "key": "group_furrylicious_pet_details",
+    "title": "Pet Details",
+    "fields": [
+        {
+            "key": "field_pet_name",
+            "label": "Pet Name",
+            "name": "pet_name",
+            "type": "text",
+            "instructions": "The pet's given name",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "e.g., Bella"
+        },
+        {
+            "key": "field_reference_number",
+            "label": "Reference Number",
+            "name": "reference_number",
+            "type": "text",
+            "instructions": "Unique identifier for this pet",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "e.g., PUP-2024-001"
+        },
+        {
+            "key": "field_birth_date",
+            "label": "Birth Date",
+            "name": "birth_date",
+            "type": "date_picker",
+            "instructions": "The pet's date of birth",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "Y-m-d",
+            "first_day": 0
+        },
+        {
+            "key": "field_status",
+            "label": "Status",
+            "name": "status",
+            "type": "select",
+            "instructions": "Current availability status",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Available": "Available",
+                "Coming Soon": "Coming Soon",
+                "Reserved": "Reserved",
+                "Sold": "Sold"
+            },
+            "default_value": "Available",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_availability_date",
+            "label": "Availability Date",
+            "name": "availability_date",
+            "type": "date_picker",
+            "instructions": "When will this pet be available? (for Coming Soon status)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_status",
+                        "operator": "==",
+                        "value": "Coming Soon"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "Y-m-d",
+            "first_day": 0
+        },
+        {
+            "key": "field_video",
+            "label": "Video URL",
+            "name": "video",
+            "type": "url",
+            "instructions": "YouTube or Vimeo video URL",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "https://www.youtube.com/watch?v=..."
+        },
+        {
+            "key": "field_ancestry_tab",
+            "label": "Ancestry",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_sire_name",
+            "label": "Sire (Father) Name",
+            "name": "sire_name",
+            "type": "text",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sire_breed",
+            "label": "Sire Breed",
+            "name": "sire_breed",
+            "type": "text",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_dam_name",
+            "label": "Dam (Mother) Name",
+            "name": "dam_name",
+            "type": "text",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_dam_breed",
+            "label": "Dam Breed",
+            "name": "dam_breed",
+            "type": "text",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_registration",
+            "label": "Registration",
+            "name": "registration",
+            "type": "text",
+            "instructions": "Registration organization (e.g., AKC, UKC)",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_pedigree",
+            "label": "Pedigree Information",
+            "name": "pedigree",
+            "type": "wysiwyg",
+            "instructions": "Additional pedigree details",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
+            "key": "field_breeder_tab",
+            "label": "Breeder Info",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_breeder_name",
+            "label": "Breeder Name",
+            "name": "breeder_name",
+            "type": "text",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_breeder_state",
+            "label": "Breeder State",
+            "name": "breeder_state",
+            "type": "text",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_usda_license",
+            "label": "USDA License",
+            "name": "usda_license",
+            "type": "text",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Pet details and metadata for WooCommerce products"
+}
