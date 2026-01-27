@@ -23,7 +23,8 @@
       "Bash(if [ -f \"$path\" ])",
       "Bash(find:*)",
       "Bash(sort:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "WebFetch(domain:furrylicious.com)"
     ]
   }
 }

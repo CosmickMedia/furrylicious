@@ -22,7 +22,7 @@ function furrylicious_enqueue_styles() {
     // Google Fonts - matches CSS variables
     wp_enqueue_style(
         'furrylicious-fonts',
-        'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@400;500;600&display=swap',
+        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap',
         array(),
         null
     );
@@ -103,6 +103,7 @@ function furrylicious_script_attributes($tag, $handle, $src) {
     // Scripts to load as ES6 modules
     $module_scripts = array(
         'furrylicious-main',
+        'furrylicious-filter',
     );
 
     // Scripts to defer
@@ -234,7 +235,7 @@ add_action('admin_enqueue_scripts', 'furrylicious_admin_styles');
  */
 function furrylicious_editor_styles() {
     add_editor_style(array(
-        'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@400;500;600&display=swap',
+        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap',
         FURRYLICIOUS_CSS . '/editor-style.css',
     ));
 }

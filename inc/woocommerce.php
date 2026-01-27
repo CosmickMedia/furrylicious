@@ -249,3 +249,97 @@ function furrylicious_remove_sidebar() {
     }
 }
 add_action('wp', 'furrylicious_remove_sidebar');
+
+/**
+ * Remove /product-category/ base from product category URLs
+ * Changes URLs from /product-category/breed-name/ to /breed-name/
+ */
+
+// Add custom rewrite rules for product categories at root level
+add_action('init', function() {
+    // Get all product categories
+    $terms = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'hide_empty' => false,
+        'fields' => 'all',
+    ));
+
+    if (is_wp_error($terms) || empty($terms)) {
+        return;
+    }
+
+    foreach ($terms as $term) {
+        // Add rewrite rule for this category
+        add_rewrite_rule(
+            '^' . preg_quote($term->slug, '/') . '/?$',
+            'index.php?product_cat=' . $term->slug,
+            'top'
+        );
+        // Handle pagination
+        add_rewrite_rule(
+            '^' . preg_quote($term->slug, '/') . '/page/([0-9]+)/?$',
+            'index.php?product_cat=' . $term->slug . '&paged=$matches[1]',
+            'top'
+        );
+    }
+}, 10);
+
+// Fix the term links to remove /product-category/
+add_filter('term_link', function($url, $term, $taxonomy) {
+    if ($taxonomy === 'product_cat') {
+        return home_url('/' . $term->slug . '/');
+    }
+    return $url;
+}, 10, 3);
+
+// Prevent canonical redirects on product category URLs
+add_filter('redirect_canonical', function($redirect_url, $requested_url) {
+    // Get all product category slugs
+    $terms = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'hide_empty' => false,
+        'fields' => 'slugs',
+    ));
+
+    if (is_wp_error($terms) || empty($terms)) {
+        return $redirect_url;
+    }
+
+    // Get the request path
+    $path = trim(parse_url($requested_url, PHP_URL_PATH), '/');
+
+    // If the path matches a product category slug, prevent redirect
+    if (in_array($path, $terms)) {
+        return false;
+    }
+
+    return $redirect_url;
+}, 10, 2);
+
+// Flush rewrite rules when product categories change
+add_action('created_product_cat', 'furrylicious_flush_product_cat_rewrite_rules');
+add_action('edited_product_cat', 'furrylicious_flush_product_cat_rewrite_rules');
+add_action('delete_product_cat', 'furrylicious_flush_product_cat_rewrite_rules');
+
+function furrylicious_flush_product_cat_rewrite_rules() {
+    // Set a flag to flush on next page load
+    update_option('furrylicious_flush_product_cat_rewrite_rules', true);
+}
+
+// Check if we need to flush rewrite rules
+add_action('init', function() {
+    if (get_option('furrylicious_flush_product_cat_rewrite_rules')) {
+        flush_rewrite_rules();
+        delete_option('furrylicious_flush_product_cat_rewrite_rules');
+    }
+}, 999);
+
+// Force flush via admin URL parameter: ?flush_rewrite_rules=1
+add_action('admin_init', function() {
+    if (isset($_GET['flush_rewrite_rules']) && $_GET['flush_rewrite_rules'] === '1' && current_user_can('manage_options')) {
+        flush_rewrite_rules();
+        add_action('admin_notices', function() {
+            echo '<div class="notice notice-success"><p>Rewrite rules flushed successfully.</p></div>';
+        });
+    }
+});

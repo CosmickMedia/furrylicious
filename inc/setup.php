@@ -14,6 +14,22 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Store Configuration Constants
+ */
+if (!defined('FURRYLICIOUS_PHONE')) {
+    define('FURRYLICIOUS_PHONE', '(908) 823-4468');
+}
+if (!defined('FURRYLICIOUS_PHONE_LINK')) {
+    define('FURRYLICIOUS_PHONE_LINK', 'tel:+19088234468');
+}
+if (!defined('FURRYLICIOUS_BOOKING_URL')) {
+    define('FURRYLICIOUS_BOOKING_URL', '#'); // Placeholder - no booking feature
+}
+if (!defined('FURRYLICIOUS_LOCATION')) {
+    define('FURRYLICIOUS_LOCATION', 'Furrylicious');
+}
+
+/**
  * Theme setup
  *
  * Sets up theme defaults and registers support for various WordPress features.
@@ -97,12 +113,8 @@ function furrylicious_setup() {
      * Register navigation menus.
      */
     register_nav_menus(array(
-        'primary'       => esc_html__('Primary Menu', 'furrylicious'),
-        'primary-left'  => esc_html__('Primary Menu Left (of logo)', 'furrylicious'),
-        'primary-right' => esc_html__('Primary Menu Right (of logo)', 'furrylicious'),
-        'secondary'     => esc_html__('Secondary Menu', 'furrylicious'),
-        'footer'        => esc_html__('Footer Menu', 'furrylicious'),
-        'mobile'        => esc_html__('Mobile Menu', 'furrylicious'),
+        'primary' => esc_html__('Primary Menu', 'furrylicious'),
+        'footer'  => esc_html__('Footer Menu', 'furrylicious'),
     ));
 }
 add_action('after_setup_theme', 'furrylicious_setup');
@@ -247,3 +259,15 @@ function furrylicious_menu_link_atts($atts, $item, $args, $depth) {
     return $atts;
 }
 add_filter('nav_menu_link_attributes', 'furrylicious_menu_link_atts', 10, 4);
+
+/**
+ * Load product modals on WooCommerce pages
+ *
+ * @return void
+ */
+function furrylicious_load_product_modals() {
+    if (function_exists('is_woocommerce') && (is_woocommerce() || is_shop() || is_product_category() || is_product_tag())) {
+        get_template_part('partials/modals/product-modals');
+    }
+}
+add_action('wp_footer', 'furrylicious_load_product_modals', 20);
