@@ -245,7 +245,7 @@ $contact_phone = '(908) 823-4468';
                 <a href="<?php echo esc_url(home_url('/puppies-for-sale/?breed=goldendoodle')); ?>" class="header-search-overlay__tag">Goldendoodles</a>
                 <a href="<?php echo esc_url(home_url('/puppies-for-sale/?breed=french-bulldog')); ?>" class="header-search-overlay__tag">French Bulldogs</a>
                 <a href="<?php echo esc_url(home_url('/puppies-for-sale/?breed=cavalier')); ?>" class="header-search-overlay__tag">Cavaliers</a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="header-search-overlay__tag">FAQs</a>
+                <a href="<?php echo esc_url(home_url('/faqs/')); ?>" class="header-search-overlay__tag">FAQs</a>
             </div>
         </div>
     </div>

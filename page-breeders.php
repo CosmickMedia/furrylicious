@@ -215,7 +215,7 @@ $partner_cta_title = get_field('partner_cta_title') ?: __('Are You a Responsible
 $partner_cta_description = get_field('partner_cta_description') ?: __("We're always looking to expand our network of ethical, quality breeders. If you share our commitment to puppy welfare and meet our rigorous standards, we'd love to hear from you.", 'furrylicious');
 $partner_requirements = get_field('partner_requirements');
 $partner_btn_text = get_field('partner_btn_text') ?: __('Apply to Be a Partner', 'furrylicious');
-$partner_btn_link = get_field('partner_btn_link') ?: home_url('/contact-us/?subject=breeder-inquiry');
+$partner_btn_link = get_field('partner_btn_link') ?: home_url('/contact/?subject=breeder-inquiry');
 
 // Partner requirements fallback
 $default_partner_requirements = [

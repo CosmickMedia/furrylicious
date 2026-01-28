@@ -396,9 +396,9 @@ foreach ($schema_reviews as $review) {
                     <?php endforeach; ?>
                 <?php else : ?>
                     <?php for ($i = 1; $i <= 8; $i++) : ?>
-                        <a href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/customer-photos/photo-' . $i . '.jpg'); ?>" class="reviews-page__photo" data-lightbox>
+                        <a href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/customer-photos/photo-' . $i . '.svg'); ?>" class="reviews-page__photo" data-lightbox>
                             <img
-                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/customer-photos/photo-' . $i . '.jpg'); ?>"
+                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/customer-photos/photo-' . $i . '.svg'); ?>"
                                 alt="Happy puppy from Furrylicious family"
                                 loading="lazy"
                                 width="300"

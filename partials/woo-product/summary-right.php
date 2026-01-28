@@ -142,14 +142,14 @@ $gender_class = strtolower($gender) === 'male' ? 'puppy-summary__gender--male' :
         </div>
 
         <div class="puppy-summary__actions">
-            <a href="<?php echo esc_url(home_url('/contact-us/?puppy=' . $product_id)); ?>" class="puppy-summary__cta puppy-summary__cta--primary">
+            <a href="<?php echo esc_url(home_url('/contact/?puppy=' . $product_id)); ?>" class="puppy-summary__cta puppy-summary__cta--primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
                 <?php esc_html_e('Inquire About This Puppy', 'furrylicious'); ?>
             </a>
 
-            <a href="<?php echo esc_url(home_url('/contact-us/?visit=1&puppy=' . $product_id)); ?>" class="puppy-summary__cta puppy-summary__cta--secondary">
+            <a href="<?php echo esc_url(home_url('/contact/?visit=1&puppy=' . $product_id)); ?>" class="puppy-summary__cta puppy-summary__cta--secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>

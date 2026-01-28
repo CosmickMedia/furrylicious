@@ -19,7 +19,7 @@ $schema = [
     'name' => 'Furrylicious',
     'description' => 'Premium puppy boutique in Whitehouse Station, NJ offering healthy, ethically-sourced puppies from USDA-licensed breeders with lifetime support.',
     'image' => get_template_directory_uri() . '/assets/images/logo.png',
-    'url' => home_url('/about/'),
+    'url' => home_url('/about-furrylicious-pet/'),
     'telephone' => '(908) 823-4468',
     'email' => 'info@furryliciousnj.com',
     'address' => [
@@ -646,7 +646,7 @@ $schema = [
             <div class="about-page__cta-content">
                 <h2>Meet Your New Best Friend</h2>
                 <p>Browse our selection of healthy, happy puppies waiting to join your family.</p>
-                <a href="<?php echo esc_url(home_url('/puppies/')); ?>" class="btn btn--rose btn--lg">
+                <a href="<?php echo esc_url(home_url('/puppies-for-sale/')); ?>" class="btn btn--rose btn--lg">
                     View Available Puppies
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="5" y1="12" x2="19" y2="12"/>

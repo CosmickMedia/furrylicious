@@ -21,7 +21,7 @@ $hero_image = get_template_directory_uri() . '/assets/images/furrylicious-hero.j
 $hero_cta_text = 'Meet Our Puppies';
 $hero_cta_link = home_url('/puppies-for-sale/');
 $hero_secondary_cta_text = 'Learn More';
-$hero_secondary_cta_link = home_url('/about/');
+$hero_secondary_cta_link = home_url('/about-furrylicious-pet/');
 $hero_accent_text = 'Trusted by loving families since 2010';
 $badge_label = 'New Arrivals';
 $badge_text = 'Available Now';
@@ -443,7 +443,7 @@ $reasons = [
         </div>
 
         <div class="why-us__cta">
-            <a href="<?php echo esc_url(home_url('/about/')); ?>" class="btn btn--outline btn--lg">
+            <a href="<?php echo esc_url(home_url('/about-furrylicious-pet/')); ?>" class="btn btn--outline btn--lg">
                 Learn More About Us
             </a>
         </div>

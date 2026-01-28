@@ -17,7 +17,7 @@ $hero_title = furrylicious_get_page_field('hero_title', 'Luxury & Love, Curated 
 $hero_description = furrylicious_get_page_field('hero_description', 'Discover premium pet products from the brands we trust for our own furry friends. From designer accessories to healthy nutrition, we\'ve curated the best for your best friend.');
 $hero_background = furrylicious_get_image_field('hero_background', 'large', '');
 $hero_cta_text = furrylicious_get_page_field('hero_cta_secondary_text', 'Visit In-Store');
-$hero_cta_link = furrylicious_get_page_field('hero_cta_secondary_link', home_url('/booking/'));
+$hero_cta_link = furrylicious_get_page_field('hero_cta_secondary_link', home_url('/booking-an-appointment/'));
 
 // Brands Section ACF fields with defaults
 $brands_label = furrylicious_get_page_field('brands_label', 'Featured Brands');

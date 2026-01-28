@@ -413,3 +413,13 @@ function furrylicious_hide_editor_on_acf_pages($field_group) {
     return $field_group;
 }
 add_filter('acf/load_field_group', 'furrylicious_hide_editor_on_acf_pages');
+
+/**
+ * Hide default ACF Options menu item
+ *
+ * We use our own Theme Options page, so hide the default ACF one.
+ */
+function furrylicious_hide_acf_options_page() {
+    remove_menu_page('acf-options-main');
+}
+add_action('admin_menu', 'furrylicious_hide_acf_options_page', 99);

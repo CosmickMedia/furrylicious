@@ -10,4 +10,4 @@
 
 defined('ABSPATH') || exit;
 ?>
-</ul>
+</div>

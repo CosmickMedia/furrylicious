@@ -78,7 +78,7 @@ $schema = [
             'description' => 'Schedule a private visit to meet our puppies',
             'target' => [
                 '@type' => 'EntryPoint',
-                'urlTemplate' => home_url('/booking/'),
+                'urlTemplate' => home_url('/booking-an-appointment/'),
                 'actionPlatform' => ['http://schema.org/DesktopWebPlatform', 'http://schema.org/MobileWebPlatform']
             ],
             'result' => [

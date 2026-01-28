@@ -67,7 +67,7 @@ function furrylicious_add_inquiry_button() {
     }
 
     $product_id = $product->get_id();
-    $inquiry_url = add_query_arg('puppy', $product_id, home_url('/contact-us/'));
+    $inquiry_url = add_query_arg('puppy', $product_id, home_url('/contact/'));
     ?>
     <div class="pet-inquiry-cta">
         <a href="<?php echo esc_url($inquiry_url); ?>" class="btn btn--primary btn--full">

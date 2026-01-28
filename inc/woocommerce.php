@@ -68,6 +68,9 @@ function furrylicious_remove_wc_hooks() {
     remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
     remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
 
+    // Remove result count from shop loop
+    remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+
     // Remove single product hooks
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
@@ -203,11 +206,9 @@ add_filter('woocommerce_post_class', 'furrylicious_product_class', 10, 2);
  */
 function furrylicious_woocommerce_wrapper_before() {
     echo '<main id="main" class="site-main">';
-    echo '<div class="container">';
 }
 
 function furrylicious_woocommerce_wrapper_after() {
-    echo '</div>';
     echo '</main>';
 }
 
@@ -239,6 +240,47 @@ function furrylicious_catalog_orderby($orderby) {
     return $orderby;
 }
 add_filter('woocommerce_catalog_orderby', 'furrylicious_catalog_orderby');
+
+/**
+ * Output breed filter dropdown in shop loop
+ */
+function furrylicious_breed_filter_dropdown() {
+    // Get the parent category by slug
+    $parent_cat = get_term_by('slug', 'puppies-for-sale', 'product_cat');
+    $parent_id = $parent_cat ? $parent_cat->term_id : 0;
+
+    // Get breed sub-categories under the parent
+    $breeds = get_terms(array(
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => true,
+        'parent'     => $parent_id,
+    ));
+
+    if (is_wp_error($breeds) || empty($breeds)) {
+        return;
+    }
+
+    $current_breed = isset($_GET['product_cat']) ? sanitize_text_field($_GET['product_cat']) : '';
+    ?>
+    <form class="puppies-ordering puppies-filter-breed" method="get" action="<?php echo esc_url(home_url('/puppies-for-sale/')); ?>">
+        <select
+            name="product_cat"
+            id="puppy-breed-filter"
+            class="puppies-ordering__select"
+            aria-label="<?php esc_attr_e('Filter by breed', 'furrylicious'); ?>"
+            onchange="if(this.value === '') { window.location.href = '<?php echo esc_url(home_url('/puppies-for-sale/')); ?>'; } else { this.form.submit(); }"
+        >
+            <option value=""><?php esc_html_e('All Breeds', 'furrylicious'); ?></option>
+            <?php foreach ($breeds as $breed) : ?>
+                <option value="<?php echo esc_attr($breed->slug); ?>" <?php selected($current_breed, $breed->slug); ?>>
+                    <?php echo esc_html($breed->name); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </form>
+    <?php
+}
+add_action('woocommerce_before_shop_loop', 'furrylicious_breed_filter_dropdown', 15);
 
 /**
  * Remove sidebar from shop pages

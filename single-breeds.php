@@ -244,7 +244,7 @@ if ($puppies_query->have_posts()) :
             <?php esc_html_e('Contact us today to learn more about our available puppies and upcoming litters!', 'furrylicious'); ?>
         </p>
         <div class="breeds-cta__buttons">
-            <a href="<?php echo esc_url(home_url('/contact-us/?breed=' . urlencode($breed_name))); ?>" class="btn btn--primary">
+            <a href="<?php echo esc_url(home_url('/contact/?breed=' . urlencode($breed_name))); ?>" class="btn btn--primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>

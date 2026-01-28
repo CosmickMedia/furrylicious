@@ -57,7 +57,7 @@ if (empty($how_steps)) {
 $breeds_label = get_field('breeds_label') ?: 'Popular Breeds';
 $breeds_title = get_field('breeds_title') ?: 'Breeds Families Love';
 $popular_breeds = get_field('popular_breeds');
-$breeds_link = get_field('breeds_link') ?: home_url('/breeds/');
+$breeds_link = get_field('breeds_link') ?: home_url('/dog-breed-info/');
 if (empty($popular_breeds)) {
     $popular_breeds = [
         ['name' => 'Golden Retriever', 'traits' => [['trait' => 'Family-friendly'], ['trait' => 'Active'], ['trait' => 'Loyal']], 'image' => null],
@@ -72,7 +72,7 @@ $concierge_label = get_field('concierge_label') ?: 'Premium Service';
 $concierge_title = get_field('concierge_title') ?: 'Puppy Concierge Service';
 $concierge_description = get_field('concierge_description') ?: "Looking for something specific? Our Puppy Concierge team can source your dream puppy from our trusted breeder network. Tell us exactly what you're looking for, and we'll find it.";
 $concierge_cta_text = get_field('concierge_cta_text') ?: 'Contact Concierge';
-$concierge_cta_link = get_field('concierge_cta_link') ?: home_url('/contact-us/?subject=concierge');
+$concierge_cta_link = get_field('concierge_cta_link') ?: home_url('/contact/?subject=concierge');
 $concierge_image = get_field('concierge_image');
 
 // Helper function for How It Works icons

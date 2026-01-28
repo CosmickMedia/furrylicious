@@ -42,12 +42,6 @@ if (empty($category_filters)) {
     ];
 }
 
-// Newsletter Section
-$newsletter_title       = get_field('newsletter_title') ?: __('Get Puppy Tips in Your Inbox', 'furrylicious');
-$newsletter_description = get_field('newsletter_description') ?: __('Subscribe to receive new articles, care tips, and exclusive content delivered weekly.', 'furrylicious');
-$newsletter_form_action = get_field('newsletter_form_action') ?: home_url('/newsletter-signup/');
-$newsletter_privacy_text = get_field('newsletter_privacy_text') ?: __('We respect your privacy. Unsubscribe anytime.', 'furrylicious');
-
 // Topics Section
 $topics_title = get_field('topics_title') ?: __('Popular Topics', 'furrylicious');
 $topics_count = get_field('topics_count') ?: 15;
@@ -322,37 +316,6 @@ $schema = [
                     </a>
                 </div>
             <?php endif; wp_reset_postdata(); ?>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="blog-page__newsletter" aria-labelledby="newsletter-heading">
-        <div class="container">
-            <div class="blog-page__newsletter-card">
-                <div class="blog-page__newsletter-content">
-                    <h2 id="newsletter-heading" class="blog-page__newsletter-title"><?php echo esc_html($newsletter_title); ?></h2>
-                    <p class="blog-page__newsletter-text"><?php echo esc_html($newsletter_description); ?></p>
-                </div>
-
-                <form class="blog-page__newsletter-form" action="<?php echo esc_url($newsletter_form_action); ?>" method="post">
-                    <?php wp_nonce_field('furrylicious_newsletter', 'newsletter_nonce'); ?>
-                    <div class="blog-page__newsletter-field">
-                        <label for="newsletter-email" class="sr-only"><?php esc_html_e('Email address', 'furrylicious'); ?></label>
-                        <input
-                            type="email"
-                            id="newsletter-email"
-                            name="email"
-                            placeholder="<?php esc_attr_e('Enter your email', 'furrylicious'); ?>"
-                            required
-                            class="blog-page__newsletter-input"
-                        >
-                        <button type="submit" class="btn btn--primary">
-                            <?php esc_html_e('Subscribe', 'furrylicious'); ?>
-                        </button>
-                    </div>
-                    <p class="blog-page__newsletter-privacy"><?php echo esc_html($newsletter_privacy_text); ?></p>
-                </form>
-            </div>
         </div>
     </section>
 

@@ -21,7 +21,7 @@ $show_search = furrylicious_get_page_field('show_search', true);
 $cta_title = furrylicious_get_page_field('cta_title', 'Still Have Questions?');
 $cta_description = furrylicious_get_page_field('cta_description', "Can't find what you're looking for? Our team is here to help.");
 $cta_btn1_text = furrylicious_get_page_field('cta_btn1_text', 'Contact Us');
-$cta_btn1_link = furrylicious_get_page_field('cta_btn1_link', home_url('/contact-us/'));
+$cta_btn1_link = furrylicious_get_page_field('cta_btn1_link', home_url('/contact/'));
 $cta_btn2_text = furrylicious_get_page_field('cta_btn2_text', '(908) 823-4468');
 $cta_btn2_link = furrylicious_get_page_field('cta_btn2_link', 'tel:+19088234468');
 

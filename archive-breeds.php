@@ -67,7 +67,7 @@ get_header();
                 <a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>" class="btn btn--primary">
                     <?php esc_html_e('View Available Puppies', 'furrylicious'); ?>
                 </a>
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="btn btn--outline">
+                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--outline">
                     <?php esc_html_e('Contact Us', 'furrylicious'); ?>
                 </a>
             </div>

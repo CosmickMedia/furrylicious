@@ -51,7 +51,7 @@ $pet_name = $product->get_meta('pet_name');
                         );
                         ?>
                     </p>
-                    <a href="<?php echo esc_url(home_url('/contact-us/?puppy=' . $product_id)); ?>" class="puppy-description__cta btn btn--primary">
+                    <a href="<?php echo esc_url(home_url('/contact/?puppy=' . $product_id)); ?>" class="puppy-description__cta btn btn--primary">
                         <?php esc_html_e('Ask About This Puppy', 'furrylicious'); ?>
                     </a>
                 </div>

@@ -40,8 +40,8 @@ get_header();
                 <p class="concierge-page__hero-description"><?php esc_html_e('Can\'t find your dream puppy in our store? Let us help! Share your preferences and we\'ll work with our trusted network of breeders to find the perfect match for your family.', 'furrylicious'); ?></p>
 
                 <div class="concierge-page__hero-cta">
-                    <a href="<?php echo esc_url(home_url('/preferences/')); ?>" class="btn btn--rose btn--lg">
-                        <?php esc_html_e('Submit Your Preferences', 'furrylicious'); ?>
+                    <a href="<?php echo esc_url(home_url('/contact/?subject=concierge')); ?>" class="btn btn--rose btn--lg">
+                        <?php esc_html_e('Contact Us', 'furrylicious'); ?>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
@@ -150,8 +150,8 @@ get_header();
             <div class="concierge-page__cta-content">
                 <h2><?php esc_html_e('Ready to Find Your Perfect Puppy?', 'furrylicious'); ?></h2>
                 <p><?php esc_html_e('Submit your preferences and let our team start the search. There\'s no commitment—just let us know what you\'re looking for.', 'furrylicious'); ?></p>
-                <a href="<?php echo esc_url(home_url('/preferences/')); ?>" class="btn btn--white btn--lg">
-                    <?php esc_html_e('Submit Your Preferences', 'furrylicious'); ?>
+                <a href="<?php echo esc_url(home_url('/contact/?subject=concierge')); ?>" class="btn btn--white btn--lg">
+                    <?php esc_html_e('Contact Us', 'furrylicious'); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="5" y1="12" x2="19" y2="12"/>
                         <polyline points="12 5 19 12 12 19"/>

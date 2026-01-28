@@ -11,4 +11,4 @@
 
 defined('ABSPATH') || exit;
 ?>
-<ul class="puppy-grid products list-unstyled">
+<div class="puppy-grid products">

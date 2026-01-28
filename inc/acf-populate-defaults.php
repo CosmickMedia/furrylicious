@@ -189,7 +189,7 @@ function furrylicious_get_all_defaults() {
             'hero_cta_primary_text' => 'Shop Online',
             'hero_cta_primary_link' => home_url('/shop/'),
             'hero_cta_secondary_text' => 'Visit In-Store',
-            'hero_cta_secondary_link' => home_url('/booking/'),
+            'hero_cta_secondary_link' => home_url('/booking-an-appointment/'),
 
             // Brands Section
             'brands_label' => 'Featured Brands',
@@ -345,7 +345,7 @@ function furrylicious_get_all_defaults() {
                 ['requirement' => 'Commitment to Socialization'],
             ],
             'partner_btn_text' => 'Apply to Be a Partner',
-            'partner_btn_link' => home_url('/contact-us/?subject=breeder-inquiry'),
+            'partner_btn_link' => home_url('/contact/?subject=breeder-inquiry'),
         ],
 
         // =====================================================================
@@ -580,9 +580,9 @@ function furrylicious_get_all_defaults() {
             'cta_title' => 'Ready to See Us in Person?',
             'cta_description' => 'Nothing beats visiting in person. Schedule your appointment and experience our boutique firsthand.',
             'cta_primary_text' => 'Schedule a Visit',
-            'cta_primary_link' => home_url('/booking/'),
+            'cta_primary_link' => home_url('/booking-an-appointment/'),
             'cta_secondary_text' => 'Meet Our Puppies',
-            'cta_secondary_link' => home_url('/puppies/'),
+            'cta_secondary_link' => home_url('/puppies-for-sale/'),
         ],
 
         // =====================================================================
@@ -616,7 +616,7 @@ function furrylicious_get_all_defaults() {
             // Popular Breeds Section
             'breeds_label' => 'Popular Breeds',
             'breeds_title' => 'Breeds Families Love',
-            'breeds_link' => home_url('/breeds/'),
+            'breeds_link' => home_url('/dog-breed-info/'),
             'popular_breeds' => [
                 ['name' => 'Golden Retriever', 'traits' => [['trait' => 'Family-friendly'], ['trait' => 'Active'], ['trait' => 'Loyal']], 'image' => $placeholder_id],
                 ['name' => 'French Bulldog', 'traits' => [['trait' => 'Apartment-friendly'], ['trait' => 'Low energy'], ['trait' => 'Affectionate']], 'image' => $placeholder_id],
@@ -629,7 +629,7 @@ function furrylicious_get_all_defaults() {
             'concierge_title' => 'Puppy Concierge Service',
             'concierge_description' => "Looking for something specific? Our Puppy Concierge team can source your dream puppy from our trusted breeder network. Tell us exactly what you're looking for, and we'll find it.",
             'concierge_cta_text' => 'Contact Concierge',
-            'concierge_cta_link' => home_url('/contact-us/?subject=concierge'),
+            'concierge_cta_link' => home_url('/contact/?subject=concierge'),
             'concierge_image' => $placeholder_id,
         ],
 
@@ -708,7 +708,7 @@ function furrylicious_get_all_defaults() {
             'cta_title' => 'Still Have Questions?',
             'cta_description' => "Can't find what you're looking for? Our team is here to help.",
             'cta_btn1_text' => 'Contact Us',
-            'cta_btn1_link' => home_url('/contact-us/'),
+            'cta_btn1_link' => home_url('/contact/'),
             'cta_btn2_text' => '(908) 823-4468',
             'cta_btn2_link' => 'tel:+19088234468',
 

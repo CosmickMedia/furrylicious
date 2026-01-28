@@ -53,9 +53,9 @@ $standards_image_alt = $standards_image ? $standards_image['alt'] : 'Clean and o
 $cta_title = get_field('cta_title') ?: 'Ready to See Us in Person?';
 $cta_description = get_field('cta_description') ?: 'Nothing beats visiting in person. Schedule your appointment and experience our boutique firsthand.';
 $cta_primary_text = get_field('cta_primary_text') ?: 'Schedule a Visit';
-$cta_primary_link = get_field('cta_primary_link') ?: home_url('/booking/');
+$cta_primary_link = get_field('cta_primary_link') ?: home_url('/booking-an-appointment/');
 $cta_secondary_text = get_field('cta_secondary_text') ?: 'Meet Our Puppies';
-$cta_secondary_link = get_field('cta_secondary_link') ?: home_url('/puppies/');
+$cta_secondary_link = get_field('cta_secondary_link') ?: home_url('/puppies-for-sale/');
 
 // Static fallback data for gallery categories
 $default_gallery_categories = [
@@ -148,7 +148,7 @@ $schema = [
             '@type' => 'ImageGallery',
             'name' => 'Furrylicious Facility Tour',
             'description' => 'Take a virtual tour of our clean, comfortable puppy boutique',
-            'url' => home_url('/look-inside/'),
+            'url' => home_url('/look-inside-furrylicious/'),
             'about' => [
                 '@type' => 'Place',
                 'name' => 'Furrylicious',

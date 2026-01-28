@@ -53,7 +53,8 @@
       "Bash(sips:*)",
       "Bash(if [ -f \"assets/images/brands/$logo\" ])",
       "WebFetch(domain:www.yelp.com)",
-      "WebFetch(domain:reviews.birdeye.com)"
+      "WebFetch(domain:reviews.birdeye.com)",
+      "Bash(wp:*)"
     ]
   }
 }
