@@ -9,6 +9,52 @@
         <meta name="robots" content="noindex, nofollow">
     <?php endif; ?>
 
+    <?php
+    /**
+     * Open Graph & Twitter Card Meta Tags
+     * These serve as fallbacks when Yoast SEO is not active
+     */
+    if (!defined('WPSEO_VERSION') && is_singular()) :
+        $og_title = get_the_title();
+        $og_description = function_exists('furrylicious_get_page_field')
+            ? furrylicious_get_page_field('seo_meta_description', get_bloginfo('description'))
+            : get_bloginfo('description');
+        $og_image = function_exists('furrylicious_get_page_field')
+            ? furrylicious_get_page_field('og_image')
+            : null;
+        $og_url = get_permalink();
+        $og_site_name = get_bloginfo('name');
+    ?>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="<?php echo esc_attr($og_title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($og_description); ?>">
+    <meta property="og:url" content="<?php echo esc_url($og_url); ?>">
+    <meta property="og:site_name" content="<?php echo esc_attr($og_site_name); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="<?php echo esc_attr(get_locale()); ?>">
+    <?php if ($og_image && isset($og_image['url'])) : ?>
+    <meta property="og:image" content="<?php echo esc_url($og_image['url']); ?>">
+    <?php if (isset($og_image['width'])) : ?>
+    <meta property="og:image:width" content="<?php echo esc_attr($og_image['width']); ?>">
+    <?php endif; ?>
+    <?php if (isset($og_image['height'])) : ?>
+    <meta property="og:image:height" content="<?php echo esc_attr($og_image['height']); ?>">
+    <?php endif; ?>
+    <?php elseif (has_post_thumbnail()) : ?>
+    <meta property="og:image" content="<?php echo esc_url(get_the_post_thumbnail_url(null, 'large')); ?>">
+    <?php endif; ?>
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo esc_attr($og_title); ?>">
+    <meta name="twitter:description" content="<?php echo esc_attr($og_description); ?>">
+    <?php if ($og_image && isset($og_image['url'])) : ?>
+    <meta name="twitter:image" content="<?php echo esc_url($og_image['url']); ?>">
+    <?php elseif (has_post_thumbnail()) : ?>
+    <meta name="twitter:image" content="<?php echo esc_url(get_the_post_thumbnail_url(null, 'large')); ?>">
+    <?php endif; ?>
+    <?php endif; ?>
+
     <?php wp_head(); ?>
 
     <!-- Remove no-js class when JS is enabled -->
@@ -36,7 +82,7 @@ $announcement_link_url = '/puppy-concierge/';
 $announcement_link_text = 'Click Here';
 
 // Contact info for announcement bar
-$contact_phone = '(555) 123-4567';
+$contact_phone = '(908) 823-4468';
 ?>
 
 <body <?php body_class(); ?>>
@@ -244,7 +290,7 @@ $contact_phone = '(555) 123-4567';
         <!-- Mobile Contact Info - Static -->
         <?php
         // Static contact info - edit these directly
-        $contact_phone = '(555) 123-4567';
+        $contact_phone = '(908) 823-4468';
         $contact_email = 'hello@furrylicious.com';
         ?>
         <div class="mobile-nav__contact">
@@ -272,11 +318,13 @@ $contact_phone = '(555) 123-4567';
         <!-- Mobile Social Links - Static -->
         <?php
         // Static social links - set to empty string to hide
-        $social_instagram = 'https://instagram.com/furrylicious';
-        $social_facebook = 'https://facebook.com/furrylicious';
-        $social_tiktok = 'https://tiktok.com/@furrylicious';
+        $social_instagram = 'https://www.instagram.com/furrylicious/?hl=en';
+        $social_facebook = 'https://www.facebook.com/furrylicious';
+        $social_twitter = 'https://twitter.com/_Furrylicious';
+        $social_pinterest = 'https://www.pinterest.com/furrylicious/_created/';
+        $social_youtube = 'https://www.youtube.com/channel/UCzDaJzujKN2RRcMY_23l3jA';
         ?>
-        <?php if ($social_instagram || $social_facebook || $social_tiktok) : ?>
+        <?php if ($social_instagram || $social_facebook || $social_twitter || $social_pinterest || $social_youtube) : ?>
         <div class="mobile-nav__social">
             <?php if ($social_instagram) : ?>
                 <a href="<?php echo esc_url($social_instagram); ?>" class="mobile-nav__social-link" aria-label="Instagram" target="_blank" rel="noopener">
@@ -294,10 +342,25 @@ $contact_phone = '(555) 123-4567';
                     </svg>
                 </a>
             <?php endif; ?>
-            <?php if ($social_tiktok) : ?>
-                <a href="<?php echo esc_url($social_tiktok); ?>" class="mobile-nav__social-link" aria-label="TikTok" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+            <?php if ($social_twitter) : ?>
+                <a href="<?php echo esc_url($social_twitter); ?>" class="mobile-nav__social-link" aria-label="Twitter" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            <?php endif; ?>
+            <?php if ($social_pinterest) : ?>
+                <a href="<?php echo esc_url($social_pinterest); ?>" class="mobile-nav__social-link" aria-label="Pinterest" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.81-2.425.853 0 1.265.641 1.265 1.409 0 .858-.545 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            <?php endif; ?>
+            <?php if ($social_youtube) : ?>
+                <a href="<?php echo esc_url($social_youtube); ?>" class="mobile-nav__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/>
                     </svg>
                 </a>
             <?php endif; ?>

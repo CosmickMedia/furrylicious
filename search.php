@@ -6,6 +6,13 @@
  * @version 2.0.0
  */
 
+// Modify query to search only products
+add_action('pre_get_posts', function($query) {
+    if (!is_admin() && $query->is_main_query() && $query->is_search()) {
+        $query->set('post_type', 'product');
+    }
+});
+
 get_header();
 ?>
 
@@ -40,8 +47,8 @@ get_header();
                 printf(
                     /* translators: %d: number of results */
                     esc_html(_n(
-                        '%d result found',
-                        '%d results found',
+                        '%d puppy found',
+                        '%d puppies found',
                         $wp_query->found_posts,
                         'furrylicious'
                     )),
@@ -77,46 +84,23 @@ get_header();
 
         <?php else : ?>
 
-            <div class="no-results">
-                <h2><?php esc_html_e('Nothing Found', 'furrylicious'); ?></h2>
-                <p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with different keywords.', 'furrylicious'); ?></p>
-
-                <!-- Suggestions -->
-                <div class="search-suggestions">
-                    <h3><?php esc_html_e('Suggestions:', 'furrylicious'); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e('Check your spelling', 'furrylicious'); ?></li>
-                        <li><?php esc_html_e('Try more general keywords', 'furrylicious'); ?></li>
-                        <li><?php esc_html_e('Try different keywords', 'furrylicious'); ?></li>
-                    </ul>
+            <div class="search-no-results">
+                <div class="search-no-results__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        <line x1="8" y1="11" x2="14" y2="11"/>
+                    </svg>
                 </div>
-
-                <!-- Popular Links -->
-                <div class="popular-links">
-                    <h3><?php esc_html_e('Popular Pages:', 'furrylicious'); ?></h3>
-                    <ul>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/available-puppies/')); ?>">
-                                <?php esc_html_e('Available Puppies', 'furrylicious'); ?>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/about-us/')); ?>">
-                                <?php esc_html_e('About Us', 'furrylicious'); ?>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>">
-                                <?php esc_html_e('Contact Us', 'furrylicious'); ?>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo esc_url(home_url('/faq/')); ?>">
-                                <?php esc_html_e('FAQ', 'furrylicious'); ?>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <h2 class="search-no-results__title"><?php esc_html_e('No puppies found', 'furrylicious'); ?></h2>
+                <p class="search-no-results__text"><?php esc_html_e('We couldn\'t find any puppies matching your search. Try a different search term or browse all our available puppies.', 'furrylicious'); ?></p>
+                <a href="<?php echo esc_url(home_url('/puppies-for-sale/')); ?>" class="btn btn--primary btn--lg">
+                    <?php esc_html_e('Browse All Puppies', 'furrylicious'); ?>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </a>
             </div>
 
         <?php endif; ?>

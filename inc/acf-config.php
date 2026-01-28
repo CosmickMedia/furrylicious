@@ -227,3 +227,189 @@ function furrylicious_get_hero_settings($post_id = null) {
         'overlay'     => get_field('hero_overlay', $post_id),
     );
 }
+
+/**
+ * ============================================================================
+ * Page Template ACF Helper Functions
+ * ============================================================================
+ */
+
+/**
+ * Get page field with fallback
+ *
+ * Helper function to get ACF page field values with fallback for backward compatibility.
+ *
+ * @param string $field   Field name.
+ * @param mixed  $default Default value if field is empty.
+ * @param int    $post_id Post ID. Default current post.
+ * @return mixed Field value or default.
+ */
+function furrylicious_get_page_field($field, $default = '', $post_id = null) {
+    if (!function_exists('get_field')) {
+        return $default;
+    }
+
+    if (is_null($post_id)) {
+        $post_id = get_the_ID();
+    }
+
+    $value = get_field($field, $post_id);
+
+    return !empty($value) ? $value : $default;
+}
+
+/**
+ * Check if repeater has rows
+ *
+ * @param string $field   Repeater field name.
+ * @param int    $post_id Post ID. Default current post.
+ * @return bool True if repeater has rows.
+ */
+function furrylicious_has_items($field, $post_id = null) {
+    if (!function_exists('have_rows')) {
+        return false;
+    }
+
+    if (is_null($post_id)) {
+        $post_id = get_the_ID();
+    }
+
+    return have_rows($field, $post_id);
+}
+
+/**
+ * Render repeater with callback
+ *
+ * @param string   $field    Repeater field name.
+ * @param callable $callback Function to call for each row, receives index.
+ * @param int      $post_id  Post ID. Default current post.
+ * @return void
+ */
+function furrylicious_render_repeater($field, $callback, $post_id = null) {
+    if (!furrylicious_has_items($field, $post_id)) {
+        return;
+    }
+
+    if (is_null($post_id)) {
+        $post_id = get_the_ID();
+    }
+
+    $i = 0;
+    while (have_rows($field, $post_id)) {
+        the_row();
+        call_user_func($callback, $i++);
+    }
+}
+
+/**
+ * Get image field with fallback
+ *
+ * @param string $field       Image field name.
+ * @param string $size        Image size. Default 'large'.
+ * @param string $default_url Default image URL if field is empty.
+ * @param int    $post_id     Post ID. Default current post.
+ * @return array Array with 'url', 'alt', 'width', 'height' keys.
+ */
+function furrylicious_get_image_field($field, $size = 'large', $default_url = '', $post_id = null) {
+    $image = furrylicious_get_page_field($field, null, $post_id);
+
+    if ($image && is_array($image)) {
+        $sized = isset($image['sizes'][$size]) ? $image['sizes'][$size] : $image['url'];
+        return array(
+            'url'    => $sized,
+            'alt'    => isset($image['alt']) ? $image['alt'] : '',
+            'width'  => isset($image['sizes'][$size . '-width']) ? $image['sizes'][$size . '-width'] : (isset($image['width']) ? $image['width'] : ''),
+            'height' => isset($image['sizes'][$size . '-height']) ? $image['sizes'][$size . '-height'] : (isset($image['height']) ? $image['height'] : ''),
+        );
+    }
+
+    return array(
+        'url'    => $default_url,
+        'alt'    => '',
+        'width'  => '',
+        'height' => '',
+    );
+}
+
+/**
+ * ============================================================================
+ * Editor Visibility
+ * ============================================================================
+ */
+
+/**
+ * Disable Gutenberg block editor on ACF-powered page templates
+ *
+ * Since all content is managed via ACF fields, the block editor is unnecessary.
+ * This forces the classic editor to load, where ACF's hide_on_screen can then hide the content editor.
+ *
+ * @param bool    $use_block_editor Whether to use block editor.
+ * @param WP_Post $post             The post being edited.
+ * @return bool False to disable block editor for ACF templates.
+ */
+function furrylicious_disable_gutenberg_for_acf_templates($use_block_editor, $post) {
+    if ($post->post_type !== 'page') {
+        return $use_block_editor;
+    }
+
+    $template = get_page_template_slug($post->ID);
+
+    $acf_templates = [
+        'page-booking.php',
+        'page-blog.php',
+        'page-boutique.php',
+        'page-breeders.php',
+        'page-contact-us.php',
+        'page-financing.php',
+        'page-look-inside.php',
+        'page-preferences.php',
+        'page-reviews.php',
+        'templates/template-faq.php',
+    ];
+
+    if (in_array($template, $acf_templates, true)) {
+        return false;
+    }
+
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post', 'furrylicious_disable_gutenberg_for_acf_templates', 10, 2);
+
+/**
+ * Hide the default WordPress editor on ACF-powered page templates
+ *
+ * Since all content is managed via ACF fields, the empty editor is unnecessary.
+ * This hides the content editor in the Classic Editor after Gutenberg is disabled.
+ *
+ * @param array $field_group The field group settings.
+ * @return array Modified field group settings.
+ */
+function furrylicious_hide_editor_on_acf_pages($field_group) {
+    $templates_to_hide = [
+        'page-booking.php',
+        'page-blog.php',
+        'page-boutique.php',
+        'page-breeders.php',
+        'page-contact-us.php',
+        'page-financing.php',
+        'page-look-inside.php',
+        'page-preferences.php',
+        'page-reviews.php',
+        'templates/template-faq.php',
+    ];
+
+    if (!empty($field_group['location'])) {
+        foreach ($field_group['location'] as $group) {
+            foreach ($group as $rule) {
+                if ($rule['param'] === 'page_template' &&
+                    in_array($rule['value'], $templates_to_hide)) {
+                    $field_group['hide_on_screen'] = ['the_content', 'discussion', 'comments', 'revisions', 'slug', 'author'];
+                    return $field_group;
+                }
+            }
+        }
+    }
+
+    return $field_group;
+}
+add_filter('acf/load_field_group', 'furrylicious_hide_editor_on_acf_pages');

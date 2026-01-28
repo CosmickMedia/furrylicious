@@ -1,0 +1,241 @@
+{
+    "key": "group_furrylicious_page_boutique",
+    "title": "Boutique Page",
+    "fields": [
+        {
+            "key": "field_boutique_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_boutique_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Shop",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_boutique_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Luxury & Love, Curated for Your Companion"
+        },
+        {
+            "key": "field_boutique_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Discover premium pet products from the brands we trust for our own furry friends. From designer accessories to healthy nutrition, we've curated the best for your best friend."
+        },
+        {
+            "key": "field_boutique_hero_background",
+            "label": "Background Image",
+            "name": "hero_background",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_boutique_cta_primary_text",
+            "label": "Primary CTA Text",
+            "name": "hero_cta_primary_text",
+            "type": "text",
+            "default_value": "Shop Online",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_boutique_cta_primary_link",
+            "label": "Primary CTA Link",
+            "name": "hero_cta_primary_link",
+            "type": "text",
+            "default_value": "/shop/",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_boutique_cta_secondary_text",
+            "label": "Secondary CTA Text",
+            "name": "hero_cta_secondary_text",
+            "type": "text",
+            "default_value": "Visit In-Store",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_boutique_cta_secondary_link",
+            "label": "Secondary CTA Link",
+            "name": "hero_cta_secondary_link",
+            "type": "text",
+            "default_value": "/booking/",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_boutique_brands_tab",
+            "label": "Brands",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_boutique_brands_label",
+            "label": "Section Label",
+            "name": "brands_label",
+            "type": "text",
+            "default_value": "Featured Brands",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_boutique_brands_title",
+            "label": "Section Title",
+            "name": "brands_title",
+            "type": "text",
+            "default_value": "Brands We Love"
+        },
+        {
+            "key": "field_boutique_brands",
+            "label": "Brands",
+            "name": "brands",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Brand",
+            "sub_fields": [
+                {
+                    "key": "field_boutique_brand_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_boutique_brand_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_boutique_services_tab",
+            "label": "Services",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_boutique_services_label",
+            "label": "Section Label",
+            "name": "services_label",
+            "type": "text",
+            "default_value": "Boutique Services",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_boutique_services_title",
+            "label": "Section Title",
+            "name": "services_title",
+            "type": "text",
+            "default_value": "The Furrylicious Experience"
+        },
+        {
+            "key": "field_boutique_services",
+            "label": "Services",
+            "name": "services",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Service",
+            "sub_fields": [
+                {
+                    "key": "field_boutique_service_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "user": "Personal Shopping",
+                        "gift": "Gift Wrapping",
+                        "search": "Special Orders",
+                        "truck": "Local Delivery"
+                    },
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_boutique_service_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "35" }
+                },
+                {
+                    "key": "field_boutique_service_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "text",
+                    "wrapper": { "width": "45" }
+                }
+            ]
+        },
+        {
+            "key": "field_boutique_giftcards_tab",
+            "label": "Gift Cards",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_boutique_giftcards_title",
+            "label": "Section Title",
+            "name": "giftcards_title",
+            "type": "text",
+            "default_value": "Give the Gift of Furrylicious"
+        },
+        {
+            "key": "field_boutique_giftcards_description",
+            "label": "Description",
+            "name": "giftcards_description",
+            "type": "text",
+            "default_value": "Know a pet parent who deserves something special? Our gift cards make the perfect present for birthdays, holidays, or just because."
+        },
+        {
+            "key": "field_boutique_giftcards_cta_text",
+            "label": "CTA Text",
+            "name": "giftcards_cta_text",
+            "type": "text",
+            "default_value": "Shop Gift Cards",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_boutique_giftcards_cta_link",
+            "label": "CTA Link",
+            "name": "giftcards_cta_link",
+            "type": "text",
+            "default_value": "/shop/gift-cards/",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_boutique_giftcards_image",
+            "label": "Gift Card Image",
+            "name": "giftcards_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-boutique.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Pet Boutique page template"
+}

@@ -248,7 +248,9 @@ get_header();
 
 .single-post__navigation {
     margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl, 4rem);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-2xl);
     border-top: 1px solid var(--color-border);
 }
 
@@ -256,38 +258,90 @@ get_header();
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
 }
 
 .single-post__navigation .nav-previous,
 .single-post__navigation .nav-next {
     flex: 1;
-    min-width: 200px;
+    max-width: 48%;
 }
 
 .single-post__navigation .nav-next {
     text-align: right;
+    margin-left: auto;
 }
 
 .single-post__navigation a {
-    color: var(--color-text-brown);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--white);
+    border: 2px solid var(--espresso, var(--color-brown));
+    border-radius: var(--border-radius-lg, 12px);
+    color: var(--espresso, var(--color-brown));
     text-decoration: none;
+    transition: all var(--transition-fast);
+    min-width: 160px;
+}
+
+.single-post__navigation .nav-next a {
+    align-items: flex-end;
 }
 
 .single-post__navigation a:hover {
-    color: var(--color-dark-pink);
+    background-color: var(--rose, var(--color-dark-pink));
+    border-color: var(--rose, var(--color-dark-pink));
+    color: var(--white);
+}
+
+.single-post__navigation a:hover .nav-subtitle,
+.single-post__navigation a:hover .nav-title {
+    color: var(--white);
 }
 
 .single-post__navigation .nav-subtitle {
     display: block;
-    font-size: var(--font-size-sm);
-    color: var(--color-text-brown);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rose, var(--color-dark-pink));
     margin-bottom: var(--spacing-xs);
+    transition: color var(--transition-fast);
 }
 
 .single-post__navigation .nav-title {
+    font-family: var(--font-heading);
     font-weight: 600;
-    color: var(--color-brown);
+    font-size: var(--font-size-base);
+    color: var(--espresso, var(--color-brown));
+    line-height: 1.3;
+    transition: color var(--transition-fast);
+}
+
+@media (max-width: 600px) {
+    .single-post__navigation .nav-links {
+        flex-direction: column;
+    }
+
+    .single-post__navigation .nav-previous,
+    .single-post__navigation .nav-next {
+        max-width: 100%;
+    }
+
+    .single-post__navigation a {
+        width: 100%;
+    }
+
+    .single-post__navigation .nav-next {
+        text-align: left;
+    }
+
+    .single-post__navigation .nav-next a {
+        align-items: flex-start;
+    }
 }
 </style>
 

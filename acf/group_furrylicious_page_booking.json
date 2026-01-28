@@ -1,0 +1,311 @@
+{
+    "key": "group_furrylicious_page_booking",
+    "title": "Booking Page",
+    "fields": [
+        {
+            "key": "field_booking_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_booking_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Visit Us",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_booking_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Meet Your Future Best Friend"
+        },
+        {
+            "key": "field_booking_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Schedule a private appointment to visit our boutique and spend quality time with our puppies. No pressure, no obligation—just pure puppy love."
+        },
+        {
+            "key": "field_booking_hero_image",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_booking_hero_cta_text",
+            "label": "CTA Button Text",
+            "name": "hero_cta_text",
+            "type": "text",
+            "default_value": "Schedule Your Visit",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_booking_hero_cta_link",
+            "label": "CTA Button Link",
+            "name": "hero_cta_link",
+            "type": "text",
+            "default_value": "#booking-form",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_booking_trust_tab",
+            "label": "Trust Badges",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_booking_trust_badges",
+            "label": "Trust Badges",
+            "name": "trust_badges",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Badge",
+            "sub_fields": [
+                {
+                    "key": "field_booking_badge_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "shield": "Shield (Security)",
+                        "check-circle": "Check Circle",
+                        "clock": "Clock (Time)",
+                        "heart": "Heart",
+                        "star": "Star"
+                    },
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_booking_badge_text",
+                    "label": "Badge Text",
+                    "name": "text",
+                    "type": "text",
+                    "wrapper": { "width": "70" }
+                }
+            ]
+        },
+        {
+            "key": "field_booking_form_tab",
+            "label": "Booking Form",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_booking_form_title",
+            "label": "Form Title",
+            "name": "form_title",
+            "type": "text",
+            "default_value": "Request an Appointment"
+        },
+        {
+            "key": "field_booking_form_subtitle",
+            "label": "Form Subtitle",
+            "name": "form_subtitle",
+            "type": "text",
+            "default_value": "Fill out the form below and we'll confirm your visit within 24 hours."
+        },
+        {
+            "key": "field_booking_gravity_form_id",
+            "label": "Gravity Form ID",
+            "name": "gravity_form_id",
+            "type": "number",
+            "instructions": "Enter the Gravity Forms ID for the booking form",
+            "default_value": 2,
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_booking_fallback_phone",
+            "label": "Fallback Phone Number",
+            "name": "fallback_phone",
+            "type": "text",
+            "instructions": "Shown if Gravity Forms is not available",
+            "default_value": "(908) 823-4468",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_booking_expect_tab",
+            "label": "What to Expect",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_booking_expect_label",
+            "label": "Section Label",
+            "name": "expectations_label",
+            "type": "text",
+            "default_value": "Your Visit",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_booking_expect_title",
+            "label": "Section Title",
+            "name": "expectations_title",
+            "type": "text",
+            "default_value": "What to Expect"
+        },
+        {
+            "key": "field_booking_expect_intro",
+            "label": "Introduction",
+            "name": "expectations_intro",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Your appointment is a relaxed, personal experience designed to help you find your perfect companion."
+        },
+        {
+            "key": "field_booking_expect_steps",
+            "label": "Steps",
+            "name": "expectations_steps",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Step",
+            "sub_fields": [
+                {
+                    "key": "field_booking_step_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "home": "Home",
+                        "heart": "Heart",
+                        "help-circle": "Question",
+                        "check-square": "Checkbox"
+                    },
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_booking_step_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "40" }
+                },
+                {
+                    "key": "field_booking_step_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 2,
+                    "wrapper": { "width": "40" }
+                }
+            ]
+        },
+        {
+            "key": "field_booking_tips_tab",
+            "label": "Preparation Tips",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_booking_tips_label",
+            "label": "Section Label",
+            "name": "tips_label",
+            "type": "text",
+            "default_value": "Before You Visit",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_booking_tips_title",
+            "label": "Section Title",
+            "name": "tips_title",
+            "type": "text",
+            "default_value": "Preparation Tips"
+        },
+        {
+            "key": "field_booking_tips_intro",
+            "label": "Introduction",
+            "name": "tips_intro",
+            "type": "text",
+            "default_value": "A few simple tips to make the most of your appointment."
+        },
+        {
+            "key": "field_booking_tips_faq",
+            "label": "FAQ Items",
+            "name": "tips_faq",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add FAQ",
+            "sub_fields": [
+                {
+                    "key": "field_booking_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text"
+                },
+                {
+                    "key": "field_booking_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        },
+        {
+            "key": "field_booking_location_tab",
+            "label": "Location",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_booking_map_embed_url",
+            "label": "Google Maps Embed URL",
+            "name": "map_embed_url",
+            "type": "text",
+            "instructions": "Paste the Google Maps embed URL"
+        },
+        {
+            "key": "field_booking_address",
+            "label": "Address",
+            "name": "location_address",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "531 US Highway 22 E\nWhitehouse Station, NJ 08889"
+        },
+        {
+            "key": "field_booking_hours",
+            "label": "Hours",
+            "name": "location_hours",
+            "type": "text",
+            "default_value": "Open Daily: 11 AM – 7 PM"
+        },
+        {
+            "key": "field_booking_phone",
+            "label": "Phone",
+            "name": "location_phone",
+            "type": "text",
+            "default_value": "(908) 823-4468"
+        },
+        {
+            "key": "field_booking_directions_url",
+            "label": "Get Directions URL",
+            "name": "directions_url",
+            "type": "text",
+            "default_value": "https://maps.google.com/?q=531+US+Highway+22+E+Whitehouse+Station+NJ+08889"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-booking.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Booking an Appointment page template"
+}

@@ -106,21 +106,23 @@ $map_image = function_exists('get_field') ? get_field('footer_map_image', 'optio
         <?php esc_html_e('Reviews', 'furrylicious'); ?>
     </h3>
 
-    <div class="footer-reviews">
-        <?php
-        // Check if CSR plugin is active
-        if (function_exists('csr_get_overall_rating')) {
-            csr_get_overall_rating();
-        } else {
-            // Fallback stars display
-            ?>
-            <div class="stars" aria-label="<?php esc_attr_e('5 out of 5 stars', 'furrylicious'); ?>">
-                <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            </div>
+    <a href="https://www.google.com/search?sca_esv=ac8dc95cd3d12e0a&sxsrf=ANbL-n4bKsBFW_LeUJZvsK3v6tg6tRJ5iw:1769548763814&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_x7YVms8zn01JAEvVuXN2vHy0h-6MsJMWgEvC87Fg2Huepglee-2Of5a4Cq31ZV1wAFB_MrPuR36AUAvIKVSlWq4pkTfV98qbJGayeeOPFvbB7Ze8Jw%3D%3D&q=Furrylicious+Puppy+Boutique+Reviews&sa=X&ved=2ahUKEwjRjuvr0qySAxWkg4kEHeuuIwsQ0bkNegQIJxAH&biw=1643&bih=824&dpr=1&aic=0" target="_blank" rel="noopener noreferrer" class="footer-reviews-link">
+        <div class="footer-reviews">
             <?php
-        }
-        ?>
-    </div>
+            // Check if CSR plugin is active
+            if (function_exists('csr_get_overall_rating')) {
+                csr_get_overall_rating();
+            } else {
+                // Fallback stars display
+                ?>
+                <div class="stars" aria-label="<?php esc_attr_e('5 out of 5 stars', 'furrylicious'); ?>">
+                    <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </a>
 </div>
 
 <!-- Newsletter & Social -->

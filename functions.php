@@ -38,6 +38,9 @@ require_once FURRYLICIOUS_DIR . '/inc/custom-post-types.php';
 // ACF configuration: options pages
 require_once FURRYLICIOUS_DIR . '/inc/acf-config.php';
 
+// ACF default data population
+require_once FURRYLICIOUS_DIR . '/inc/acf-populate-defaults.php';
+
 // Gravity Forms customizations
 require_once FURRYLICIOUS_DIR . '/inc/gravity-forms.php';
 

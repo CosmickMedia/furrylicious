@@ -1,0 +1,164 @@
+{
+    "key": "group_furrylicious_page_blog",
+    "title": "Blog Page",
+    "fields": [
+        {
+            "key": "field_blog_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_blog_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "From Our Team",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_blog_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Stories, Tips & Puppy Love"
+        },
+        {
+            "key": "field_blog_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Helpful advice, heartwarming stories, and everything you need to know about puppy parenthood."
+        },
+        {
+            "key": "field_blog_show_search",
+            "label": "Show Search",
+            "name": "show_search",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_blog_featured_tab",
+            "label": "Featured",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_blog_featured_override",
+            "label": "Featured Post Override",
+            "name": "featured_override",
+            "type": "post_object",
+            "post_type": ["post"],
+            "return_format": "id",
+            "allow_null": 1,
+            "instructions": "Leave empty to use the most recent sticky post or latest post"
+        },
+        {
+            "key": "field_blog_categories_tab",
+            "label": "Categories",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_blog_category_filters",
+            "label": "Category Filters",
+            "name": "category_filters",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Category",
+            "sub_fields": [
+                {
+                    "key": "field_blog_cat_slug",
+                    "label": "Slug",
+                    "name": "slug",
+                    "type": "text",
+                    "instructions": "Leave empty for 'All Posts'",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_blog_cat_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_blog_newsletter_tab",
+            "label": "Newsletter",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_blog_newsletter_title",
+            "label": "Newsletter Title",
+            "name": "newsletter_title",
+            "type": "text",
+            "default_value": "Get Puppy Tips in Your Inbox"
+        },
+        {
+            "key": "field_blog_newsletter_description",
+            "label": "Newsletter Description",
+            "name": "newsletter_description",
+            "type": "text",
+            "default_value": "Subscribe to receive new articles, care tips, and exclusive content delivered weekly."
+        },
+        {
+            "key": "field_blog_newsletter_form_action",
+            "label": "Form Action URL",
+            "name": "newsletter_form_action",
+            "type": "text",
+            "instructions": "Leave blank to use default",
+            "placeholder": "Leave blank for default"
+        },
+        {
+            "key": "field_blog_newsletter_privacy_text",
+            "label": "Privacy Text",
+            "name": "newsletter_privacy_text",
+            "type": "text",
+            "default_value": "We respect your privacy. Unsubscribe anytime."
+        },
+        {
+            "key": "field_blog_topics_tab",
+            "label": "Topics",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_blog_topics_title",
+            "label": "Topics Section Title",
+            "name": "topics_title",
+            "type": "text",
+            "default_value": "Popular Topics"
+        },
+        {
+            "key": "field_blog_topics_count",
+            "label": "Number of Tags to Show",
+            "name": "topics_count",
+            "type": "number",
+            "default_value": 15,
+            "min": 5,
+            "max": 30
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-blog.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Blog page template"
+}

@@ -1,0 +1,286 @@
+{
+    "key": "group_furrylicious_page_preferences",
+    "title": "Preferences Page",
+    "fields": [
+        {
+            "key": "field_preferences_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_preferences_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Puppy Matching",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_preferences_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Let's Find Your Perfect Match"
+        },
+        {
+            "key": "field_preferences_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Tell us about your lifestyle, and we'll help match you with puppies that fit your home, heart, and daily routine."
+        },
+        {
+            "key": "field_preferences_hero_icon",
+            "label": "Hero Icon",
+            "name": "hero_icon",
+            "type": "select",
+            "choices": {
+                "heart": "Heart",
+                "search": "Search",
+                "star": "Star"
+            },
+            "default_value": "heart"
+        },
+        {
+            "key": "field_preferences_wizard_tab",
+            "label": "Wizard",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_preferences_form_action_url",
+            "label": "Form Action URL",
+            "name": "form_action_url",
+            "type": "text",
+            "instructions": "Leave blank to use default admin-post.php",
+            "placeholder": "Leave blank for default"
+        },
+        {
+            "key": "field_preferences_wizard_steps",
+            "label": "Wizard Step Labels",
+            "name": "wizard_steps",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Step",
+            "max": 4,
+            "sub_fields": [
+                {
+                    "key": "field_preferences_step_number",
+                    "label": "Step #",
+                    "name": "number",
+                    "type": "number",
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_preferences_step_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "wrapper": { "width": "80" }
+                }
+            ]
+        },
+        {
+            "key": "field_preferences_how_tab",
+            "label": "How It Works",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_preferences_how_label",
+            "label": "Section Label",
+            "name": "how_label",
+            "type": "text",
+            "default_value": "The Process",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_preferences_how_title",
+            "label": "Section Title",
+            "name": "how_title",
+            "type": "text",
+            "default_value": "How Matching Works"
+        },
+        {
+            "key": "field_preferences_how_steps",
+            "label": "Steps",
+            "name": "how_steps",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Step",
+            "sub_fields": [
+                {
+                    "key": "field_preferences_how_step_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "file-text": "Form/Document",
+                        "search": "Search",
+                        "mail": "Email/Notification"
+                    },
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_preferences_how_step_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "35" }
+                },
+                {
+                    "key": "field_preferences_how_step_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "text",
+                    "wrapper": { "width": "45" }
+                }
+            ]
+        },
+        {
+            "key": "field_preferences_breeds_tab",
+            "label": "Popular Breeds",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_preferences_breeds_label",
+            "label": "Section Label",
+            "name": "breeds_label",
+            "type": "text",
+            "default_value": "Popular Breeds",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_preferences_breeds_title",
+            "label": "Section Title",
+            "name": "breeds_title",
+            "type": "text",
+            "default_value": "Breeds Families Love"
+        },
+        {
+            "key": "field_preferences_breeds",
+            "label": "Featured Breeds",
+            "name": "popular_breeds",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Breed",
+            "max": 4,
+            "sub_fields": [
+                {
+                    "key": "field_preferences_breed_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_preferences_breed_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_preferences_breed_traits",
+                    "label": "Traits",
+                    "name": "traits",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add Trait",
+                    "max": 3,
+                    "sub_fields": [
+                        {
+                            "key": "field_preferences_breed_trait",
+                            "label": "Trait",
+                            "name": "trait",
+                            "type": "text"
+                        }
+                    ],
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_preferences_breeds_link",
+            "label": "View All Breeds Link",
+            "name": "breeds_link",
+            "type": "text",
+            "default_value": "/breeds/"
+        },
+        {
+            "key": "field_preferences_concierge_tab",
+            "label": "Concierge CTA",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_preferences_concierge_label",
+            "label": "Section Label",
+            "name": "concierge_label",
+            "type": "text",
+            "default_value": "Premium Service",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_preferences_concierge_title",
+            "label": "Section Title",
+            "name": "concierge_title",
+            "type": "text",
+            "default_value": "Puppy Concierge Service"
+        },
+        {
+            "key": "field_preferences_concierge_description",
+            "label": "Description",
+            "name": "concierge_description",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Looking for something specific? Our Puppy Concierge team can source your dream puppy from our trusted breeder network. Tell us exactly what you're looking for, and we'll find it."
+        },
+        {
+            "key": "field_preferences_concierge_cta_text",
+            "label": "CTA Text",
+            "name": "concierge_cta_text",
+            "type": "text",
+            "default_value": "Contact Concierge",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_preferences_concierge_cta_link",
+            "label": "CTA Link",
+            "name": "concierge_cta_link",
+            "type": "text",
+            "default_value": "/contact-us/?subject=concierge",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_preferences_concierge_image",
+            "label": "Concierge Image",
+            "name": "concierge_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-preferences.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Preferences page template"
+}

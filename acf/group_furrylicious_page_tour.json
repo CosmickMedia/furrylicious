@@ -1,0 +1,370 @@
+{
+    "key": "group_furrylicious_page_tour",
+    "title": "Look Inside Page",
+    "fields": [
+        {
+            "key": "field_tour_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_tour_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Welcome",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_tour_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "See Where the Magic Happens"
+        },
+        {
+            "key": "field_tour_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Take a virtual tour of our boutique and see why families trust us with their puppy journey. Clean, comfortable, and designed with love for every puppy."
+        },
+        {
+            "key": "field_tour_hero_background",
+            "label": "Background Image",
+            "name": "hero_background",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_tour_cta_video_text",
+            "label": "Video CTA Text",
+            "name": "hero_cta_video_text",
+            "type": "text",
+            "default_value": "Watch Video Tour",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_tour_cta_video_link",
+            "label": "Video CTA Link",
+            "name": "hero_cta_video_link",
+            "type": "text",
+            "default_value": "#video-tour",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_tour_cta_gallery_text",
+            "label": "Gallery CTA Text",
+            "name": "hero_cta_gallery_text",
+            "type": "text",
+            "default_value": "View Gallery",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_tour_cta_gallery_link",
+            "label": "Gallery CTA Link",
+            "name": "hero_cta_gallery_link",
+            "type": "text",
+            "default_value": "#gallery",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_tour_video_tab",
+            "label": "Video Tour",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_tour_video_label",
+            "label": "Section Label",
+            "name": "video_label",
+            "type": "text",
+            "default_value": "Video Tour",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_tour_video_title",
+            "label": "Section Title",
+            "name": "video_title",
+            "type": "text",
+            "default_value": "Take a Walk Through"
+        },
+        {
+            "key": "field_tour_video_description",
+            "label": "Description",
+            "name": "video_description",
+            "type": "text",
+            "default_value": "Join us for a guided tour of our facility and see how we care for our puppies every day."
+        },
+        {
+            "key": "field_tour_video_url",
+            "label": "Video URL",
+            "name": "video_url",
+            "type": "oembed",
+            "instructions": "Paste YouTube or Vimeo URL"
+        },
+        {
+            "key": "field_tour_gallery_tab",
+            "label": "Gallery",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_tour_gallery_label",
+            "label": "Section Label",
+            "name": "gallery_label",
+            "type": "text",
+            "default_value": "Photo Gallery",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_tour_gallery_title",
+            "label": "Section Title",
+            "name": "gallery_title",
+            "type": "text",
+            "default_value": "Explore Our Space"
+        },
+        {
+            "key": "field_tour_gallery_categories",
+            "label": "Gallery Categories",
+            "name": "gallery_categories",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Category",
+            "sub_fields": [
+                {
+                    "key": "field_tour_gallery_cat_slug",
+                    "label": "Slug",
+                    "name": "slug",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_tour_gallery_cat_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_tour_gallery_images",
+            "label": "Gallery Images",
+            "name": "gallery_images",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Image",
+            "sub_fields": [
+                {
+                    "key": "field_tour_gallery_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "40" }
+                },
+                {
+                    "key": "field_tour_gallery_alt",
+                    "label": "Alt Text",
+                    "name": "alt",
+                    "type": "text",
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_tour_gallery_category",
+                    "label": "Category",
+                    "name": "category",
+                    "type": "text",
+                    "instructions": "Match the slug from categories",
+                    "wrapper": { "width": "30" }
+                }
+            ]
+        },
+        {
+            "key": "field_tour_features_tab",
+            "label": "Features",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_tour_features_label",
+            "label": "Section Label",
+            "name": "features_label",
+            "type": "text",
+            "default_value": "Our Facility",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_tour_features_title",
+            "label": "Section Title",
+            "name": "features_title",
+            "type": "text",
+            "default_value": "What Makes Us Special"
+        },
+        {
+            "key": "field_tour_features",
+            "label": "Features",
+            "name": "features",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Feature",
+            "sub_fields": [
+                {
+                    "key": "field_tour_feature_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "thermometer": "Climate Control",
+                        "shield": "Daily Sanitization",
+                        "smile": "Play Areas",
+                        "users": "Private Meetings",
+                        "monitor": "24/7 Monitoring",
+                        "heart": "Loving Care"
+                    },
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_tour_feature_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "35" }
+                },
+                {
+                    "key": "field_tour_feature_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "text",
+                    "wrapper": { "width": "45" }
+                }
+            ]
+        },
+        {
+            "key": "field_tour_standards_tab",
+            "label": "Cleanliness Standards",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_tour_standards_label",
+            "label": "Section Label",
+            "name": "standards_label",
+            "type": "text",
+            "default_value": "Health & Safety",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_tour_standards_title",
+            "label": "Section Title",
+            "name": "standards_title",
+            "type": "text",
+            "default_value": "Our Cleanliness Standards"
+        },
+        {
+            "key": "field_tour_standards_intro",
+            "label": "Introduction",
+            "name": "standards_intro",
+            "type": "text",
+            "default_value": "We go above and beyond to maintain a pristine environment that keeps our puppies healthy and happy."
+        },
+        {
+            "key": "field_tour_standards_list",
+            "label": "Standards List",
+            "name": "standards_list",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Standard",
+            "sub_fields": [
+                {
+                    "key": "field_tour_standard_item",
+                    "label": "Standard",
+                    "name": "item",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_tour_standards_image",
+            "label": "Standards Image",
+            "name": "standards_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_tour_cta_tab",
+            "label": "CTA Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_tour_cta_title",
+            "label": "CTA Title",
+            "name": "cta_title",
+            "type": "text",
+            "default_value": "Ready to See Us in Person?"
+        },
+        {
+            "key": "field_tour_cta_description",
+            "label": "CTA Description",
+            "name": "cta_description",
+            "type": "text",
+            "default_value": "Nothing beats visiting in person. Schedule your appointment and experience our boutique firsthand."
+        },
+        {
+            "key": "field_tour_cta_primary_text",
+            "label": "Primary CTA Text",
+            "name": "cta_primary_text",
+            "type": "text",
+            "default_value": "Schedule a Visit",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_tour_cta_primary_link",
+            "label": "Primary CTA Link",
+            "name": "cta_primary_link",
+            "type": "text",
+            "default_value": "/booking/",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_tour_cta_secondary_text",
+            "label": "Secondary CTA Text",
+            "name": "cta_secondary_text",
+            "type": "text",
+            "default_value": "Meet Our Puppies",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_tour_cta_secondary_link",
+            "label": "Secondary CTA Link",
+            "name": "cta_secondary_link",
+            "type": "text",
+            "default_value": "/puppies/",
+            "wrapper": { "width": "25" }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-look-inside.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Look Inside page template"
+}

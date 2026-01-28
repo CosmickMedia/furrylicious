@@ -44,16 +44,17 @@ $schema = [
     'aggregateRating' => [
         '@type' => 'AggregateRating',
         'ratingValue' => '5.0',
-        'reviewCount' => '38',
+        'reviewCount' => '500',
         'bestRating' => '5',
         'worstRating' => '1'
     ],
     'priceRange' => '$$$',
     'sameAs' => [
-        'https://www.instagram.com/furryliciousnj/',
-        'https://www.facebook.com/furryliciousnj/',
-        'https://www.youtube.com/@furryliciousnj',
-        'https://www.tiktok.com/@furryliciousnj',
+        'https://www.instagram.com/furrylicious/?hl=en',
+        'https://www.facebook.com/furrylicious',
+        'https://twitter.com/_Furrylicious',
+        'https://www.pinterest.com/furrylicious/_created/',
+        'https://www.youtube.com/channel/UCzDaJzujKN2RRcMY_23l3jA',
         'https://www.yelp.com/biz/furrylicious-whitehouse-station'
     ]
 ];
@@ -218,64 +219,45 @@ $schema = [
                 <div class="about-page__team-member">
                     <div class="about-page__team-photo">
                         <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team/owner.jpg'); ?>"
-                            alt="Store Owner and Founder"
+                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/headshot.png'); ?>"
+                            alt="Cindy Knowles, Owner"
                             loading="lazy"
                             width="200"
                             height="200"
                         >
                     </div>
-                    <h3 class="about-page__team-name">Sarah Mitchell</h3>
-                    <span class="about-page__team-role">Owner & Founder</span>
-                    <p class="about-page__team-bio">With over 15 years in the pet industry, Sarah founded Furrylicious to create a boutique experience for finding the perfect puppy.</p>
+                    <h3 class="about-page__team-name">Cindy Knowles</h3>
+                    <span class="about-page__team-role">Owner</span>
                 </div>
 
                 <!-- Team Member 2 -->
                 <div class="about-page__team-member">
                     <div class="about-page__team-photo">
                         <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team/puppy-specialist.jpg'); ?>"
-                            alt="Puppy Care Specialist"
+                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/headshot.png'); ?>"
+                            alt="Stephanie Ear, Owner"
                             loading="lazy"
                             width="200"
                             height="200"
                         >
                     </div>
-                    <h3 class="about-page__team-name">Michael Chen</h3>
-                    <span class="about-page__team-role">Puppy Care Specialist</span>
-                    <p class="about-page__team-bio">Michael ensures every puppy receives the best care, from health monitoring to socialization and early training foundations.</p>
+                    <h3 class="about-page__team-name">Stephanie Ear</h3>
+                    <span class="about-page__team-role">Owner</span>
                 </div>
 
                 <!-- Team Member 3 -->
                 <div class="about-page__team-member">
                     <div class="about-page__team-photo">
                         <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team/customer-experience.jpg'); ?>"
-                            alt="Customer Experience Lead"
+                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/headshot.png'); ?>"
+                            alt="Jessica Mottola, Store Manager"
                             loading="lazy"
                             width="200"
                             height="200"
                         >
                     </div>
-                    <h3 class="about-page__team-name">Emily Rodriguez</h3>
-                    <span class="about-page__team-role">Customer Experience Lead</span>
-                    <p class="about-page__team-bio">Emily guides families through their puppy journey, ensuring every visit is memorable and every question is answered.</p>
-                </div>
-
-                <!-- Team Member 4 -->
-                <div class="about-page__team-member">
-                    <div class="about-page__team-photo">
-                        <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team/boutique-manager.jpg'); ?>"
-                            alt="Boutique Manager"
-                            loading="lazy"
-                            width="200"
-                            height="200"
-                        >
-                    </div>
-                    <h3 class="about-page__team-name">Jessica Taylor</h3>
-                    <span class="about-page__team-role">Boutique Manager</span>
-                    <p class="about-page__team-bio">Jessica curates our premium selection of pet accessories, foods, and supplies from the best brands in the industry.</p>
+                    <h3 class="about-page__team-name">Jessica Mottola</h3>
+                    <span class="about-page__team-role">Store Manager</span>
                 </div>
             </div>
         </div>
@@ -512,7 +494,7 @@ $schema = [
                             </svg>
                         <?php endfor; ?>
                     </div>
-                    <span class="about-page__rating-text"><strong>5.0</strong> from 38+ happy families</span>
+                    <span class="about-page__rating-text"><strong>5.0</strong> from 500+ happy families</span>
                 </div>
             </header>
 
@@ -582,8 +564,8 @@ $schema = [
             </div>
 
             <div class="about-page__testimonials-cta">
-                <a href="https://www.yelp.com/biz/furrylicious-whitehouse-station" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
-                    Read More Reviews on Yelp
+                <a href="https://www.google.com/search?q=furrylicious&oq=furrylicious&gs_lcrp=EgZjaHJvbWUyDggAEEUYJxg5GIAEGIoFMgYIARBFGDwyBggCEEUYPDIGCAMQRRg8MgYIBBAjGCcyDQgFEC4YrwEYxwEYgAQyBggGEEUYPDIGCAcQRRg80gEIMzA4M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x89c3928785f2c9e5:0xf7466da4c576ed92,1,,,," target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+                    Read More Reviews on Google
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
                         <polyline points="15 3 21 3 21 9"/>
@@ -603,7 +585,7 @@ $schema = [
             </header>
 
             <div class="about-page__social-links">
-                <a href="https://www.instagram.com/furryliciousnj/" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Instagram">
+                <a href="https://www.instagram.com/furrylicious/?hl=en" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Instagram">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                         <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
@@ -612,14 +594,28 @@ $schema = [
                     <span>Instagram</span>
                 </a>
 
-                <a href="https://www.facebook.com/furryliciousnj/" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Facebook">
+                <a href="https://www.facebook.com/furrylicious" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
                     </svg>
                     <span>Facebook</span>
                 </a>
 
-                <a href="https://www.youtube.com/@furryliciousnj" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Subscribe on YouTube">
+                <a href="https://twitter.com/_Furrylicious" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                    </svg>
+                    <span>Twitter</span>
+                </a>
+
+                <a href="https://www.pinterest.com/furrylicious/_created/" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Pinterest">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.81-2.425.853 0 1.265.641 1.265 1.409 0 .858-.545 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                    </svg>
+                    <span>Pinterest</span>
+                </a>
+
+                <a href="https://www.youtube.com/channel/UCzDaJzujKN2RRcMY_23l3jA" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Subscribe on YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/>
                         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
@@ -627,26 +623,11 @@ $schema = [
                     <span>YouTube</span>
                 </a>
 
-                <a href="https://www.tiktok.com/@furryliciousnj" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on TikTok">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/>
-                    </svg>
-                    <span>TikTok</span>
-                </a>
-
                 <a href="https://www.yelp.com/biz/furrylicious-whitehouse-station" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="See our reviews on Yelp">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                     <span>Yelp</span>
-                </a>
-
-                <a href="https://www.bbb.org/us/nj/whitehouse-station/profile/pet-shop/furrylicious-0221-90191186" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="View our BBB accreditation">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path d="M9 12l2 2 4-4"/>
-                    </svg>
-                    <span>BBB</span>
                 </a>
             </div>
         </div>

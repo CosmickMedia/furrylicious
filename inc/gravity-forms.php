@@ -22,14 +22,15 @@ add_filter('option_gform_enable_background_updates', '__return_false', PHP_INT_M
 /**
  * Add custom CSS classes to Gravity Forms
  *
- * @param string $classes Existing form classes.
- * @param array  $form    Form data.
- * @return string Modified classes.
+ * @param string $form_tag Form tag HTML.
+ * @param array  $form     Form data.
+ * @return string Modified form tag.
  */
-function furrylicious_gform_form_classes($classes, $form) {
-    $classes .= ' gform--furrylicious';
+function furrylicious_gform_form_classes($form_tag, $form) {
+    // Insert our custom class into the form tag's class attribute
+    $form_tag = str_replace("class='", "class='gform--furrylicious ", $form_tag);
 
-    return $classes;
+    return $form_tag;
 }
 add_filter('gform_form_tag', 'furrylicious_gform_form_classes', 10, 2);
 

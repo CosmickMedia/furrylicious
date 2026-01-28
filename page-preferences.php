@@ -9,6 +9,109 @@
  */
 
 get_header();
+
+// ACF Fields with fallbacks
+// Hero Section
+$hero_label = get_field('hero_label') ?: 'Puppy Matching';
+$hero_title = get_field('hero_title') ?: "Let's Find Your Perfect Match";
+$hero_description = get_field('hero_description') ?: 'Tell us about your lifestyle, and we\'ll help match you with puppies that fit your home, heart, and daily routine.';
+$hero_icon = get_field('hero_icon') ?: 'heart';
+
+// Wizard
+$form_action_url = get_field('form_action_url') ?: admin_url('admin-post.php');
+$wizard_steps = get_field('wizard_steps');
+if (empty($wizard_steps)) {
+    $wizard_steps = [
+        ['number' => 1, 'label' => 'Lifestyle'],
+        ['number' => 2, 'label' => 'Experience'],
+        ['number' => 3, 'label' => 'Preferences'],
+        ['number' => 4, 'label' => 'Contact'],
+    ];
+}
+
+// How It Works
+$how_label = get_field('how_label') ?: 'The Process';
+$how_title = get_field('how_title') ?: 'How Matching Works';
+$how_steps = get_field('how_steps');
+if (empty($how_steps)) {
+    $how_steps = [
+        [
+            'icon' => 'file-text',
+            'title' => 'Share Your Preferences',
+            'description' => "Complete the form above to tell us about your lifestyle and what you're looking for.",
+        ],
+        [
+            'icon' => 'search',
+            'title' => 'We Find Matches',
+            'description' => 'Our team reviews your preferences and searches for puppies that fit your criteria.',
+        ],
+        [
+            'icon' => 'mail',
+            'title' => 'Get Notified',
+            'description' => "When a matching puppy arrives, we'll reach out with photos and details just for you.",
+        ],
+    ];
+}
+
+// Popular Breeds
+$breeds_label = get_field('breeds_label') ?: 'Popular Breeds';
+$breeds_title = get_field('breeds_title') ?: 'Breeds Families Love';
+$popular_breeds = get_field('popular_breeds');
+$breeds_link = get_field('breeds_link') ?: home_url('/breeds/');
+if (empty($popular_breeds)) {
+    $popular_breeds = [
+        ['name' => 'Golden Retriever', 'traits' => [['trait' => 'Family-friendly'], ['trait' => 'Active'], ['trait' => 'Loyal']], 'image' => null],
+        ['name' => 'French Bulldog', 'traits' => [['trait' => 'Apartment-friendly'], ['trait' => 'Low energy'], ['trait' => 'Affectionate']], 'image' => null],
+        ['name' => 'Goldendoodle', 'traits' => [['trait' => 'Hypoallergenic'], ['trait' => 'Intelligent'], ['trait' => 'Playful']], 'image' => null],
+        ['name' => 'Cavalier King Charles', 'traits' => [['trait' => 'Gentle'], ['trait' => 'Great with kids'], ['trait' => 'Adaptable']], 'image' => null],
+    ];
+}
+
+// Concierge
+$concierge_label = get_field('concierge_label') ?: 'Premium Service';
+$concierge_title = get_field('concierge_title') ?: 'Puppy Concierge Service';
+$concierge_description = get_field('concierge_description') ?: "Looking for something specific? Our Puppy Concierge team can source your dream puppy from our trusted breeder network. Tell us exactly what you're looking for, and we'll find it.";
+$concierge_cta_text = get_field('concierge_cta_text') ?: 'Contact Concierge';
+$concierge_cta_link = get_field('concierge_cta_link') ?: home_url('/contact-us/?subject=concierge');
+$concierge_image = get_field('concierge_image');
+
+// Helper function for How It Works icons
+function furrylicious_get_how_icon($icon_name) {
+    $icons = [
+        'file-text' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>',
+        'search' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>',
+        'mail' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+        </svg>',
+    ];
+    return $icons[$icon_name] ?? $icons['file-text'];
+}
+
+// Helper function for Hero icon
+function furrylicious_get_hero_icon($icon_name) {
+    $icons = [
+        'heart' => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+        </svg>',
+        'search' => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>',
+        'star' => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>',
+    ];
+    return $icons[$icon_name] ?? $icons['heart'];
+}
 ?>
 
 <?php
@@ -56,17 +159,15 @@ $schema = [
     </nav>
 
     <!-- Hero Section -->
-    <section class="preferences-page__hero" aria-label="Find Your Perfect Match">
+    <section class="preferences-page__hero" aria-label="<?php echo esc_attr($hero_title); ?>">
         <div class="container">
             <div class="preferences-page__hero-content">
                 <div class="preferences-page__hero-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-                    </svg>
+                    <?php echo furrylicious_get_hero_icon($hero_icon); ?>
                 </div>
-                <span class="preferences-page__section-label">Puppy Matching</span>
-                <h1 class="preferences-page__hero-title">Let's Find Your Perfect Match</h1>
-                <p class="preferences-page__hero-description">Tell us about your lifestyle, and we'll help match you with puppies that fit your home, heart, and daily routine.</p>
+                <span class="preferences-page__section-label"><?php echo esc_html($hero_label); ?></span>
+                <h1 class="preferences-page__hero-title"><?php echo esc_html($hero_title); ?></h1>
+                <p class="preferences-page__hero-description"><?php echo esc_html($hero_description); ?></p>
             </div>
         </div>
     </section>
@@ -81,14 +182,13 @@ $schema = [
                         <div class="preferences-page__progress-fill" style="width: 25%;"></div>
                     </div>
                     <div class="preferences-page__progress-steps">
-                        <span class="preferences-page__progress-step is-active" data-step="1">Lifestyle</span>
-                        <span class="preferences-page__progress-step" data-step="2">Experience</span>
-                        <span class="preferences-page__progress-step" data-step="3">Preferences</span>
-                        <span class="preferences-page__progress-step" data-step="4">Contact</span>
+                        <?php foreach ($wizard_steps as $index => $step) : ?>
+                            <span class="preferences-page__progress-step<?php echo $index === 0 ? ' is-active' : ''; ?>" data-step="<?php echo esc_attr($step['number']); ?>"><?php echo esc_html($step['label']); ?></span>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
-                <form class="preferences-page__form-content" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                <form class="preferences-page__form-content" action="<?php echo esc_url($form_action_url); ?>" method="post">
                     <?php wp_nonce_field('furrylicious_preferences', 'preferences_nonce'); ?>
                     <input type="hidden" name="action" value="furrylicious_preferences">
 
@@ -445,45 +545,20 @@ $schema = [
     <section class="preferences-page__how" aria-labelledby="how-heading">
         <div class="container">
             <header class="preferences-page__how-header">
-                <span class="preferences-page__section-label">The Process</span>
-                <h2 id="how-heading" class="preferences-page__section-title">How Matching Works</h2>
+                <span class="preferences-page__section-label"><?php echo esc_html($how_label); ?></span>
+                <h2 id="how-heading" class="preferences-page__section-title"><?php echo esc_html($how_title); ?></h2>
             </header>
 
             <div class="preferences-page__how-steps">
-                <div class="preferences-page__how-step">
-                    <div class="preferences-page__how-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                        </svg>
+                <?php foreach ($how_steps as $step) : ?>
+                    <div class="preferences-page__how-step">
+                        <div class="preferences-page__how-icon">
+                            <?php echo furrylicious_get_how_icon($step['icon']); ?>
+                        </div>
+                        <h3><?php echo esc_html($step['title']); ?></h3>
+                        <p><?php echo esc_html($step['description']); ?></p>
                     </div>
-                    <h3>Share Your Preferences</h3>
-                    <p>Complete the form above to tell us about your lifestyle and what you're looking for.</p>
-                </div>
-
-                <div class="preferences-page__how-step">
-                    <div class="preferences-page__how-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="11" cy="11" r="8"/>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                        </svg>
-                    </div>
-                    <h3>We Find Matches</h3>
-                    <p>Our team reviews your preferences and searches for puppies that fit your criteria.</p>
-                </div>
-
-                <div class="preferences-page__how-step">
-                    <div class="preferences-page__how-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </div>
-                    <h3>Get Notified</h3>
-                    <p>When a matching puppy arrives, we'll reach out with photos and details just for you.</p>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -492,37 +567,46 @@ $schema = [
     <section class="preferences-page__matches" aria-labelledby="matches-heading">
         <div class="container">
             <header class="preferences-page__matches-header">
-                <span class="preferences-page__section-label">Popular Breeds</span>
-                <h2 id="matches-heading" class="preferences-page__section-title">Breeds Families Love</h2>
+                <span class="preferences-page__section-label"><?php echo esc_html($breeds_label); ?></span>
+                <h2 id="matches-heading" class="preferences-page__section-title"><?php echo esc_html($breeds_title); ?></h2>
             </header>
 
             <div class="preferences-page__matches-grid">
-                <?php
-                $popular_breeds = [
-                    ['name' => 'Golden Retriever', 'traits' => ['Family-friendly', 'Active', 'Loyal'], 'image' => 'golden-retriever.jpg'],
-                    ['name' => 'French Bulldog', 'traits' => ['Apartment-friendly', 'Low energy', 'Affectionate'], 'image' => 'french-bulldog.jpg'],
-                    ['name' => 'Goldendoodle', 'traits' => ['Hypoallergenic', 'Intelligent', 'Playful'], 'image' => 'goldendoodle.jpg'],
-                    ['name' => 'Cavalier King Charles', 'traits' => ['Gentle', 'Great with kids', 'Adaptable'], 'image' => 'cavalier.jpg'],
-                ];
-
-                foreach ($popular_breeds as $breed) :
-                ?>
+                <?php foreach ($popular_breeds as $breed) : ?>
                     <div class="preferences-page__match-card">
                         <div class="preferences-page__match-image">
-                            <img
-                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/breeds/' . $breed['image']); ?>"
-                                alt="<?php echo esc_attr($breed['name']); ?>"
-                                loading="lazy"
-                                width="300"
-                                height="200"
-                            >
+                            <?php if (!empty($breed['image']) && is_array($breed['image'])) : ?>
+                                <img
+                                    src="<?php echo esc_url($breed['image']['url']); ?>"
+                                    alt="<?php echo esc_attr($breed['name']); ?>"
+                                    loading="lazy"
+                                    width="300"
+                                    height="200"
+                                >
+                            <?php else : ?>
+                                <img
+                                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/breeds/' . sanitize_title($breed['name']) . '.jpg'); ?>"
+                                    alt="<?php echo esc_attr($breed['name']); ?>"
+                                    loading="lazy"
+                                    width="300"
+                                    height="200"
+                                >
+                            <?php endif; ?>
                         </div>
                         <div class="preferences-page__match-content">
                             <h3 class="preferences-page__match-name"><?php echo esc_html($breed['name']); ?></h3>
                             <div class="preferences-page__match-traits">
-                                <?php foreach ($breed['traits'] as $trait) : ?>
-                                    <span class="preferences-page__trait"><?php echo esc_html($trait); ?></span>
-                                <?php endforeach; ?>
+                                <?php
+                                $traits = $breed['traits'] ?? [];
+                                foreach ($traits as $trait_item) :
+                                    $trait_text = is_array($trait_item) ? ($trait_item['trait'] ?? '') : $trait_item;
+                                    if ($trait_text) :
+                                ?>
+                                    <span class="preferences-page__trait"><?php echo esc_html($trait_text); ?></span>
+                                <?php
+                                    endif;
+                                endforeach;
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -530,7 +614,7 @@ $schema = [
             </div>
 
             <div class="preferences-page__matches-cta">
-                <a href="<?php echo esc_url(home_url('/breeds/')); ?>" class="btn btn--outline">Explore All Breeds</a>
+                <a href="<?php echo esc_url($breeds_link); ?>" class="btn btn--outline">Explore All Breeds</a>
             </div>
         </div>
     </section>
@@ -540,21 +624,31 @@ $schema = [
         <div class="container">
             <div class="preferences-page__concierge-card">
                 <div class="preferences-page__concierge-content">
-                    <span class="preferences-page__section-label">Premium Service</span>
-                    <h2 id="concierge-heading">Puppy Concierge Service</h2>
-                    <p>Looking for something specific? Our Puppy Concierge team can source your dream puppy from our trusted breeder network. Tell us exactly what you're looking for, and we'll find it.</p>
-                    <a href="<?php echo esc_url(home_url('/contact-us/?subject=concierge')); ?>" class="btn btn--white btn--lg">
-                        Contact Concierge
+                    <span class="preferences-page__section-label"><?php echo esc_html($concierge_label); ?></span>
+                    <h2 id="concierge-heading"><?php echo esc_html($concierge_title); ?></h2>
+                    <p><?php echo esc_html($concierge_description); ?></p>
+                    <a href="<?php echo esc_url($concierge_cta_link); ?>" class="btn btn--white btn--lg">
+                        <?php echo esc_html($concierge_cta_text); ?>
                     </a>
                 </div>
                 <div class="preferences-page__concierge-image">
-                    <img
-                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/concierge.jpg'); ?>"
-                        alt="Puppy concierge service"
-                        loading="lazy"
-                        width="400"
-                        height="300"
-                    >
+                    <?php if (!empty($concierge_image) && is_array($concierge_image)) : ?>
+                        <img
+                            src="<?php echo esc_url($concierge_image['url']); ?>"
+                            alt="<?php echo esc_attr($concierge_image['alt'] ?? 'Puppy concierge service'); ?>"
+                            loading="lazy"
+                            width="400"
+                            height="300"
+                        >
+                    <?php else : ?>
+                        <img
+                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/concierge.jpg'); ?>"
+                            alt="Puppy concierge service"
+                            loading="lazy"
+                            width="400"
+                            height="300"
+                        >
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

@@ -1,0 +1,246 @@
+{
+    "key": "group_furrylicious_page_contact",
+    "title": "Contact Us Page",
+    "fields": [
+        {
+            "key": "field_contact_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_contact_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Get In Touch",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_contact_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "We'd Love to Hear From You"
+        },
+        {
+            "key": "field_contact_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Have questions about our puppies, services, or want to schedule a visit? We're here to help!"
+        },
+        {
+            "key": "field_contact_form_tab",
+            "label": "Contact Form",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_contact_form_title",
+            "label": "Form Title",
+            "name": "form_title",
+            "type": "text",
+            "default_value": "Send Us a Message"
+        },
+        {
+            "key": "field_contact_gravity_form_id",
+            "label": "Gravity Form ID",
+            "name": "gravity_form_id",
+            "type": "number",
+            "instructions": "Enter the Gravity Forms ID for the contact form",
+            "default_value": 1,
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_contact_fallback_message",
+            "label": "Fallback Message",
+            "name": "fallback_message",
+            "type": "textarea",
+            "rows": 2,
+            "instructions": "Shown if Gravity Forms is not available",
+            "default_value": "Please contact us using the information below:"
+        },
+        {
+            "key": "field_contact_info_tab",
+            "label": "Contact Info",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_contact_phone",
+            "label": "Phone Number",
+            "name": "contact_phone",
+            "type": "text",
+            "instructions": "Leave blank to use site settings",
+            "placeholder": "(908) 823-4468",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_contact_email",
+            "label": "Email Address",
+            "name": "contact_email",
+            "type": "email",
+            "instructions": "Leave blank to use site settings",
+            "placeholder": "info@furryliciousnj.com",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_contact_address",
+            "label": "Address",
+            "name": "contact_address",
+            "type": "textarea",
+            "rows": 2,
+            "instructions": "Leave blank to use site settings",
+            "placeholder": "531 US Highway 22 E\nWhitehouse Station, NJ 08889"
+        },
+        {
+            "key": "field_contact_hours_tab",
+            "label": "Business Hours",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_contact_hours",
+            "label": "Business Hours",
+            "name": "business_hours",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Hours",
+            "sub_fields": [
+                {
+                    "key": "field_contact_hour_day",
+                    "label": "Day",
+                    "name": "day",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_contact_hour_time",
+                    "label": "Hours",
+                    "name": "hours",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_contact_map_tab",
+            "label": "Map",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_contact_show_map",
+            "label": "Show Map",
+            "name": "show_map",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_contact_map_embed_url",
+            "label": "Google Maps Embed URL",
+            "name": "map_embed_url",
+            "type": "text",
+            "instructions": "Paste the Google Maps embed URL"
+        },
+        {
+            "key": "field_contact_directions_url",
+            "label": "Get Directions URL",
+            "name": "directions_url",
+            "type": "text",
+            "default_value": "https://maps.google.com/?q=531+US+Highway+22+E+Whitehouse+Station+NJ+08889"
+        },
+        {
+            "key": "field_contact_faq_tab",
+            "label": "FAQ Preview",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_contact_faq_title",
+            "label": "FAQ Section Title",
+            "name": "faq_title",
+            "type": "text",
+            "default_value": "Frequently Asked Questions"
+        },
+        {
+            "key": "field_contact_faq_description",
+            "label": "FAQ Description",
+            "name": "faq_description",
+            "type": "text",
+            "default_value": "Quick answers to common questions"
+        },
+        {
+            "key": "field_contact_faq_items",
+            "label": "FAQ Items",
+            "name": "faq_items",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add FAQ",
+            "max": 4,
+            "sub_fields": [
+                {
+                    "key": "field_contact_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text"
+                },
+                {
+                    "key": "field_contact_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "rows": 2
+                }
+            ]
+        },
+        {
+            "key": "field_contact_faq_link",
+            "label": "View All FAQs Link",
+            "name": "faq_link",
+            "type": "text",
+            "default_value": "/faqs/"
+        },
+        {
+            "key": "field_contact_social_tab",
+            "label": "Social",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_contact_show_social",
+            "label": "Show Social Links",
+            "name": "show_social",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_contact_social_title",
+            "label": "Social Section Title",
+            "name": "social_title",
+            "type": "text",
+            "default_value": "Connect With Us"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-contact-us.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Contact Us page template"
+}

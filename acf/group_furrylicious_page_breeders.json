@@ -1,0 +1,388 @@
+{
+    "key": "group_furrylicious_page_breeders",
+    "title": "Breeders Page",
+    "fields": [
+        {
+            "key": "field_breeders_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_breeders_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Our Partners",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_breeders_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Meet Our Breeder Partners"
+        },
+        {
+            "key": "field_breeders_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "We partner exclusively with USDA-licensed breeders who share our commitment to healthy, well-socialized puppies raised with love and care."
+        },
+        {
+            "key": "field_breeders_hero_image",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_breeders_hero_badges",
+            "label": "Hero Badges",
+            "name": "hero_badges",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Badge",
+            "max": 3,
+            "sub_fields": [
+                {
+                    "key": "field_breeders_badge_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "shield-check": "Shield Check",
+                        "check-circle": "Check Circle",
+                        "heart": "Heart"
+                    },
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_breeders_badge_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "wrapper": { "width": "70" }
+                }
+            ]
+        },
+        {
+            "key": "field_breeders_vetting_tab",
+            "label": "Vetting Process",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_breeders_vetting_label",
+            "label": "Section Label",
+            "name": "vetting_label",
+            "type": "text",
+            "default_value": "Our Process",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_breeders_vetting_title",
+            "label": "Section Title",
+            "name": "vetting_title",
+            "type": "text",
+            "default_value": "Rigorous Breeder Vetting"
+        },
+        {
+            "key": "field_breeders_vetting_description",
+            "label": "Section Description",
+            "name": "vetting_description",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Not just anyone can become a Furrylicious breeder partner. We put every potential partner through a comprehensive vetting process."
+        },
+        {
+            "key": "field_breeders_vetting_steps",
+            "label": "Vetting Steps",
+            "name": "vetting_steps",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Step",
+            "sub_fields": [
+                {
+                    "key": "field_breeders_vetting_step_number",
+                    "label": "Step Number",
+                    "name": "number",
+                    "type": "number",
+                    "wrapper": { "width": "15" }
+                },
+                {
+                    "key": "field_breeders_vetting_step_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "35" }
+                },
+                {
+                    "key": "field_breeders_vetting_step_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 2,
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_breeders_standards_tab",
+            "label": "Standards",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_breeders_standards_label",
+            "label": "Section Label",
+            "name": "standards_label",
+            "type": "text",
+            "default_value": "What We Require",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_breeders_standards_title",
+            "label": "Section Title",
+            "name": "standards_title",
+            "type": "text",
+            "default_value": "Our Breeder Standards"
+        },
+        {
+            "key": "field_breeders_standards_image",
+            "label": "Standards Image",
+            "name": "standards_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_breeders_standards_categories",
+            "label": "Standard Categories",
+            "name": "standards_categories",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Category",
+            "sub_fields": [
+                {
+                    "key": "field_breeders_standard_cat_title",
+                    "label": "Category Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_breeders_standard_cat_items",
+                    "label": "Items",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add Item",
+                    "sub_fields": [
+                        {
+                            "key": "field_breeders_standard_item",
+                            "label": "Item",
+                            "name": "item",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_breeders_profiles_tab",
+            "label": "Breeder Profiles",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_breeders_profiles_label",
+            "label": "Section Label",
+            "name": "profiles_label",
+            "type": "text",
+            "default_value": "Meet Our Partners",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_breeders_profiles_title",
+            "label": "Section Title",
+            "name": "profiles_title",
+            "type": "text",
+            "default_value": "Featured Breeders"
+        },
+        {
+            "key": "field_breeders_profiles",
+            "label": "Breeders",
+            "name": "breeders",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Breeder",
+            "sub_fields": [
+                {
+                    "key": "field_breeders_profile_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_breeders_profile_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_breeders_profile_region",
+                    "label": "Region",
+                    "name": "region",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_breeders_profile_years",
+                    "label": "Years as Partner",
+                    "name": "years",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_breeders_profile_specialties",
+                    "label": "Specialties",
+                    "name": "specialties",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add Specialty",
+                    "sub_fields": [
+                        {
+                            "key": "field_breeders_specialty",
+                            "label": "Breed",
+                            "name": "breed",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_breeders_certs_tab",
+            "label": "Certifications",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_breeders_certs_title",
+            "label": "Section Title",
+            "name": "certifications_title",
+            "type": "text",
+            "default_value": "Certifications & Affiliations"
+        },
+        {
+            "key": "field_breeders_certs_description",
+            "label": "Section Description",
+            "name": "certifications_description",
+            "type": "text",
+            "default_value": "Our breeders maintain memberships and certifications with respected industry organizations."
+        },
+        {
+            "key": "field_breeders_certifications",
+            "label": "Certifications",
+            "name": "certifications",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Certification",
+            "sub_fields": [
+                {
+                    "key": "field_breeders_cert_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_breeders_cert_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_breeders_partner_cta_tab",
+            "label": "Partner CTA",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_breeders_partner_cta_title",
+            "label": "CTA Title",
+            "name": "partner_cta_title",
+            "type": "text",
+            "default_value": "Are You a Responsible Breeder?"
+        },
+        {
+            "key": "field_breeders_partner_cta_description",
+            "label": "CTA Description",
+            "name": "partner_cta_description",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "We're always looking to expand our network of ethical, quality breeders. If you share our commitment to puppy welfare and meet our rigorous standards, we'd love to hear from you."
+        },
+        {
+            "key": "field_breeders_partner_requirements",
+            "label": "Requirements",
+            "name": "partner_requirements",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Requirement",
+            "sub_fields": [
+                {
+                    "key": "field_breeders_requirement",
+                    "label": "Requirement",
+                    "name": "requirement",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_breeders_partner_btn_text",
+            "label": "Button Text",
+            "name": "partner_btn_text",
+            "type": "text",
+            "default_value": "Apply to Be a Partner",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_breeders_partner_btn_link",
+            "label": "Button Link",
+            "name": "partner_btn_link",
+            "type": "text",
+            "default_value": "/contact-us/?subject=breeder-inquiry",
+            "wrapper": { "width": "50" }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-breeders.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Our Breeders page template"
+}

@@ -1,0 +1,189 @@
+{
+    "key": "group_furrylicious_page_faq",
+    "title": "FAQ Page",
+    "fields": [
+        {
+            "key": "field_faq_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_faq_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Support",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_faq_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Questions? We Have Answers"
+        },
+        {
+            "key": "field_faq_hero_description",
+            "label": "Hero Description",
+            "name": "hero_description",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Find answers to the most common questions about our puppies, policies, and process."
+        },
+        {
+            "key": "field_faq_show_search",
+            "label": "Show Search",
+            "name": "show_search",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_faq_categories_tab",
+            "label": "FAQ Categories",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_faq_categories",
+            "label": "FAQ Categories",
+            "name": "faq_categories",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Category",
+            "sub_fields": [
+                {
+                    "key": "field_faq_cat_slug",
+                    "label": "Category Slug",
+                    "name": "slug",
+                    "type": "text",
+                    "instructions": "URL-friendly identifier (e.g., puppies, health, financing)",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_faq_cat_label",
+                    "label": "Category Label",
+                    "name": "label",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_faq_cat_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "heart": "Heart (Puppies)",
+                        "shield": "Shield (Health)",
+                        "credit-card": "Credit Card (Financing)",
+                        "calendar": "Calendar (Visits)",
+                        "help-circle": "Question (General)"
+                    },
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_faq_cat_title",
+                    "label": "Section Title",
+                    "name": "section_title",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_faq_questions",
+                    "label": "Questions",
+                    "name": "questions",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Add Question",
+                    "sub_fields": [
+                        {
+                            "key": "field_faq_q_question",
+                            "label": "Question",
+                            "name": "question",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_faq_q_answer",
+                            "label": "Answer",
+                            "name": "answer",
+                            "type": "wysiwyg",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_faq_cta_tab",
+            "label": "CTA Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_faq_cta_title",
+            "label": "CTA Title",
+            "name": "cta_title",
+            "type": "text",
+            "default_value": "Still Have Questions?"
+        },
+        {
+            "key": "field_faq_cta_description",
+            "label": "CTA Description",
+            "name": "cta_description",
+            "type": "text",
+            "default_value": "Can't find what you're looking for? Our team is here to help."
+        },
+        {
+            "key": "field_faq_cta_btn1_text",
+            "label": "Primary Button Text",
+            "name": "cta_btn1_text",
+            "type": "text",
+            "default_value": "Contact Us",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_faq_cta_btn1_link",
+            "label": "Primary Button Link",
+            "name": "cta_btn1_link",
+            "type": "text",
+            "default_value": "/contact-us/",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_faq_cta_btn2_text",
+            "label": "Secondary Button Text",
+            "name": "cta_btn2_text",
+            "type": "text",
+            "default_value": "(908) 823-4468",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_faq_cta_btn2_link",
+            "label": "Secondary Button Link",
+            "name": "cta_btn2_link",
+            "type": "text",
+            "default_value": "tel:+19088234468",
+            "wrapper": { "width": "25" }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/template-faq.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the FAQ page template"
+}

@@ -1,0 +1,346 @@
+{
+    "key": "group_furrylicious_page_reviews",
+    "title": "Reviews Page",
+    "fields": [
+        {
+            "key": "field_reviews_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_reviews_hero_label",
+            "label": "Section Label",
+            "name": "hero_label",
+            "type": "text",
+            "default_value": "Testimonials",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_reviews_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Real Stories from Real Families"
+        },
+        {
+            "key": "field_reviews_overall_rating",
+            "label": "Overall Rating",
+            "name": "overall_rating",
+            "type": "number",
+            "default_value": 5,
+            "min": 1,
+            "max": 5,
+            "step": 0.1,
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_reviews_total_reviews",
+            "label": "Total Reviews",
+            "name": "total_reviews",
+            "type": "text",
+            "default_value": "125+",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_reviews_leave_cta_text",
+            "label": "Leave Review Button Text",
+            "name": "leave_review_cta_text",
+            "type": "text",
+            "default_value": "Leave a Review",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_reviews_leave_cta_link",
+            "label": "Leave Review Button Link",
+            "name": "leave_review_cta_link",
+            "type": "text",
+            "default_value": "#leave-review",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_reviews_platforms_tab",
+            "label": "Platforms",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_reviews_platforms",
+            "label": "Review Platforms",
+            "name": "platforms",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Platform",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_platform_name",
+                    "label": "Platform Name",
+                    "name": "name",
+                    "type": "select",
+                    "choices": {
+                        "google": "Google",
+                        "yelp": "Yelp",
+                        "facebook": "Facebook"
+                    },
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_reviews_platform_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_reviews_platform_rating",
+                    "label": "Rating",
+                    "name": "rating",
+                    "type": "number",
+                    "min": 1,
+                    "max": 5,
+                    "step": 0.1,
+                    "wrapper": { "width": "15" }
+                },
+                {
+                    "key": "field_reviews_platform_count",
+                    "label": "Review Count",
+                    "name": "count",
+                    "type": "text",
+                    "wrapper": { "width": "15" }
+                },
+                {
+                    "key": "field_reviews_platform_url",
+                    "label": "Review URL",
+                    "name": "url",
+                    "type": "text",
+                    "wrapper": { "width": "30" }
+                }
+            ]
+        },
+        {
+            "key": "field_reviews_reviews_tab",
+            "label": "Reviews",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_reviews_section_title",
+            "label": "Section Title",
+            "name": "reviews_section_title",
+            "type": "text",
+            "default_value": "What Our Families Say"
+        },
+        {
+            "key": "field_reviews_items",
+            "label": "Reviews",
+            "name": "reviews",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Review",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_review_quote",
+                    "label": "Quote",
+                    "name": "quote",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_reviews_review_author",
+                    "label": "Author",
+                    "name": "author",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_reviews_review_breed",
+                    "label": "Breed",
+                    "name": "breed",
+                    "type": "text",
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_reviews_review_platform",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "choices": {
+                        "google": "Google",
+                        "yelp": "Yelp",
+                        "facebook": "Facebook"
+                    },
+                    "wrapper": { "width": "25" }
+                },
+                {
+                    "key": "field_reviews_review_rating",
+                    "label": "Rating",
+                    "name": "rating",
+                    "type": "number",
+                    "min": 1,
+                    "max": 5,
+                    "default_value": 5,
+                    "wrapper": { "width": "25" }
+                }
+            ]
+        },
+        {
+            "key": "field_reviews_photos_tab",
+            "label": "Customer Photos",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_reviews_photos_label",
+            "label": "Section Label",
+            "name": "photos_label",
+            "type": "text",
+            "default_value": "Happy Puppies",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_reviews_photos_title",
+            "label": "Section Title",
+            "name": "photos_title",
+            "type": "text",
+            "default_value": "Photos from Our Families"
+        },
+        {
+            "key": "field_reviews_customer_photos",
+            "label": "Customer Photos",
+            "name": "customer_photos",
+            "type": "gallery",
+            "return_format": "array",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_reviews_instagram_link",
+            "label": "Instagram Link",
+            "name": "instagram_link",
+            "type": "text",
+            "default_value": "https://www.instagram.com/furryliciousnj/"
+        },
+        {
+            "key": "field_reviews_videos_tab",
+            "label": "Video Testimonials",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_reviews_videos_label",
+            "label": "Section Label",
+            "name": "videos_label",
+            "type": "text",
+            "default_value": "Video Stories",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_reviews_videos_title",
+            "label": "Section Title",
+            "name": "videos_title",
+            "type": "text",
+            "default_value": "Watch Their Stories"
+        },
+        {
+            "key": "field_reviews_videos",
+            "label": "Videos",
+            "name": "videos",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Video",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_video_thumbnail",
+                    "label": "Thumbnail",
+                    "name": "thumbnail",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_reviews_video_id",
+                    "label": "YouTube Video ID",
+                    "name": "video_id",
+                    "type": "text",
+                    "instructions": "Just the video ID, not the full URL",
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_reviews_video_caption",
+                    "label": "Caption",
+                    "name": "caption",
+                    "type": "text",
+                    "wrapper": { "width": "40" }
+                }
+            ]
+        },
+        {
+            "key": "field_reviews_leave_tab",
+            "label": "Leave Review CTA",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_reviews_leave_title",
+            "label": "Section Title",
+            "name": "leave_review_title",
+            "type": "text",
+            "default_value": "Share Your Story"
+        },
+        {
+            "key": "field_reviews_leave_description",
+            "label": "Description",
+            "name": "leave_review_description",
+            "type": "text",
+            "default_value": "We'd love to hear about your experience! Leave a review on your favorite platform."
+        },
+        {
+            "key": "field_reviews_leave_platforms",
+            "label": "Review Platforms",
+            "name": "leave_review_platforms",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Platform",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_leave_platform_name",
+                    "label": "Platform",
+                    "name": "name",
+                    "type": "select",
+                    "choices": {
+                        "google": "Google",
+                        "yelp": "Yelp",
+                        "facebook": "Facebook"
+                    },
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_reviews_leave_platform_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "text",
+                    "wrapper": { "width": "70" }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-reviews.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the Reviews page template"
+}

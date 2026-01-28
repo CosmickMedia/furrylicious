@@ -16,6 +16,51 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 // Get selected category from query string
 $selected_category = isset($_GET['category']) ? sanitize_text_field($_GET['category']) : '';
 
+// =============================================================================
+// ACF Fields with Static Fallbacks
+// =============================================================================
+
+// Hero Section
+$hero_label       = get_field('hero_label') ?: __('From Our Team', 'furrylicious');
+$hero_title       = get_field('hero_title') ?: __('Stories, Tips & Puppy Love', 'furrylicious');
+$hero_description = get_field('hero_description') ?: __('Helpful advice, heartwarming stories, and everything you need to know about puppy parenthood.', 'furrylicious');
+$show_search      = get_field('show_search') !== null ? get_field('show_search') : true;
+
+// Featured Post Override
+$featured_override = get_field('featured_override');
+
+// Category Filters
+$category_filters = get_field('category_filters');
+if (empty($category_filters)) {
+    $category_filters = [
+        ['slug' => '', 'label' => __('All Posts', 'furrylicious')],
+        ['slug' => 'puppy-care', 'label' => __('Puppy Care', 'furrylicious')],
+        ['slug' => 'training', 'label' => __('Training', 'furrylicious')],
+        ['slug' => 'health', 'label' => __('Health', 'furrylicious')],
+        ['slug' => 'breed-guides', 'label' => __('Breed Guides', 'furrylicious')],
+        ['slug' => 'news', 'label' => __('News', 'furrylicious')],
+    ];
+}
+
+// Newsletter Section
+$newsletter_title       = get_field('newsletter_title') ?: __('Get Puppy Tips in Your Inbox', 'furrylicious');
+$newsletter_description = get_field('newsletter_description') ?: __('Subscribe to receive new articles, care tips, and exclusive content delivered weekly.', 'furrylicious');
+$newsletter_form_action = get_field('newsletter_form_action') ?: home_url('/newsletter-signup/');
+$newsletter_privacy_text = get_field('newsletter_privacy_text') ?: __('We respect your privacy. Unsubscribe anytime.', 'furrylicious');
+
+// Topics Section
+$topics_title = get_field('topics_title') ?: __('Popular Topics', 'furrylicious');
+$topics_count = get_field('topics_count') ?: 15;
+
+// SEO Fields (for potential use with Yoast or other SEO plugins)
+$focus_keyphrase    = get_field('focus_keyphrase');
+$seo_meta_description = get_field('seo_meta_description');
+$og_image           = get_field('og_image');
+
+// =============================================================================
+// Query Setup
+// =============================================================================
+
 // Build query args
 $args = [
     'post_type' => 'post',
@@ -30,18 +75,28 @@ if ($selected_category) {
 
 $blog_query = new WP_Query($args);
 
-// Get featured post (most recent sticky or latest)
-$featured_args = [
-    'post_type' => 'post',
-    'posts_per_page' => 1,
-    'post__in' => get_option('sticky_posts'),
-    'ignore_sticky_posts' => 1,
-];
+// Get featured post
+if ($featured_override) {
+    // Use ACF override
+    $featured_args = [
+        'post_type' => 'post',
+        'p' => $featured_override,
+        'posts_per_page' => 1,
+    ];
+} else {
+    // Default: most recent sticky post
+    $featured_args = [
+        'post_type' => 'post',
+        'posts_per_page' => 1,
+        'post__in' => get_option('sticky_posts'),
+        'ignore_sticky_posts' => 1,
+    ];
+}
 
 $featured_query = new WP_Query($featured_args);
 
-// If no sticky post, get latest
-if (!$featured_query->have_posts()) {
+// If no sticky post and no override, get latest
+if (!$featured_query->have_posts() && !$featured_override) {
     $featured_args = [
         'post_type' => 'post',
         'posts_per_page' => 1,
@@ -56,7 +111,7 @@ $schema = [
     '@context' => 'https://schema.org',
     '@type' => 'Blog',
     'name' => 'Furrylicious Blog',
-    'description' => 'Stories, tips, and puppy love from Furrylicious',
+    'description' => $seo_meta_description ?: __('Stories, tips, and puppy love from Furrylicious', 'furrylicious'),
     'url' => home_url('/blog/'),
     'publisher' => [
         '@type' => 'Organization',
@@ -95,11 +150,12 @@ $schema = [
     <section class="blog-page__hero" aria-label="Blog">
         <div class="container">
             <header class="blog-page__hero-header">
-                <span class="blog-page__section-label">From Our Team</span>
-                <h1 class="blog-page__hero-title">Stories, Tips & Puppy Love</h1>
-                <p class="blog-page__hero-description">Helpful advice, heartwarming stories, and everything you need to know about puppy parenthood.</p>
+                <span class="blog-page__section-label"><?php echo esc_html($hero_label); ?></span>
+                <h1 class="blog-page__hero-title"><?php echo esc_html($hero_title); ?></h1>
+                <p class="blog-page__hero-description"><?php echo esc_html($hero_description); ?></p>
             </header>
 
+            <?php if ($show_search) : ?>
             <div class="blog-page__search">
                 <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="blog-page__search-form">
                     <label for="blog-search" class="sr-only"><?php esc_html_e('Search articles', 'furrylicious'); ?></label>
@@ -119,6 +175,7 @@ $schema = [
                     </button>
                 </form>
             </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -137,7 +194,7 @@ $schema = [
                     <?php endif; ?>
 
                     <div class="blog-page__featured-content">
-                        <span class="blog-page__featured-badge">Featured</span>
+                        <span class="blog-page__featured-badge"><?php esc_html_e('Featured', 'furrylicious'); ?></span>
 
                         <?php
                         $categories = get_the_category();
@@ -173,21 +230,15 @@ $schema = [
     <!-- Category Filters -->
     <section class="blog-page__categories" aria-label="Filter by category">
         <div class="container">
-            <?php
-            $categories = [
-                '' => 'All Posts',
-                'puppy-care' => 'Puppy Care',
-                'training' => 'Training',
-                'health' => 'Health',
-                'breed-guides' => 'Breed Guides',
-                'news' => 'News',
-            ];
-            ?>
             <div class="blog-page__category-filters">
-                <?php foreach ($categories as $slug => $name) : ?>
+                <?php foreach ($category_filters as $filter) :
+                    $slug = isset($filter['slug']) ? $filter['slug'] : '';
+                    $label = isset($filter['label']) ? $filter['label'] : '';
+                    if (empty($label)) continue;
+                ?>
                     <a href="<?php echo esc_url($slug ? add_query_arg('category', $slug) : remove_query_arg('category')); ?>"
                        class="blog-page__category-pill<?php echo $selected_category === $slug ? ' is-active' : ''; ?>">
-                        <?php echo esc_html($name); ?>
+                        <?php echo esc_html($label); ?>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -279,11 +330,11 @@ $schema = [
         <div class="container">
             <div class="blog-page__newsletter-card">
                 <div class="blog-page__newsletter-content">
-                    <h2 id="newsletter-heading" class="blog-page__newsletter-title">Get Puppy Tips in Your Inbox</h2>
-                    <p class="blog-page__newsletter-text">Subscribe to receive new articles, care tips, and exclusive content delivered weekly.</p>
+                    <h2 id="newsletter-heading" class="blog-page__newsletter-title"><?php echo esc_html($newsletter_title); ?></h2>
+                    <p class="blog-page__newsletter-text"><?php echo esc_html($newsletter_description); ?></p>
                 </div>
 
-                <form class="blog-page__newsletter-form" action="<?php echo esc_url(home_url('/newsletter-signup/')); ?>" method="post">
+                <form class="blog-page__newsletter-form" action="<?php echo esc_url($newsletter_form_action); ?>" method="post">
                     <?php wp_nonce_field('furrylicious_newsletter', 'newsletter_nonce'); ?>
                     <div class="blog-page__newsletter-field">
                         <label for="newsletter-email" class="sr-only"><?php esc_html_e('Email address', 'furrylicious'); ?></label>
@@ -299,7 +350,7 @@ $schema = [
                             <?php esc_html_e('Subscribe', 'furrylicious'); ?>
                         </button>
                     </div>
-                    <p class="blog-page__newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
+                    <p class="blog-page__newsletter-privacy"><?php echo esc_html($newsletter_privacy_text); ?></p>
                 </form>
             </div>
         </div>
@@ -308,10 +359,10 @@ $schema = [
     <!-- Topics Cloud -->
     <section class="blog-page__topics" aria-labelledby="topics-heading">
         <div class="container">
-            <h2 id="topics-heading" class="blog-page__topics-title">Popular Topics</h2>
+            <h2 id="topics-heading" class="blog-page__topics-title"><?php echo esc_html($topics_title); ?></h2>
             <div class="blog-page__topics-cloud">
                 <?php
-                $tags = get_tags(['orderby' => 'count', 'order' => 'DESC', 'number' => 15]);
+                $tags = get_tags(['orderby' => 'count', 'order' => 'DESC', 'number' => intval($topics_count)]);
                 foreach ($tags as $tag) :
                 ?>
                     <a href="<?php echo esc_url(get_tag_link($tag)); ?>" class="blog-page__topic-tag">

@@ -6704,7 +6704,7 @@ body.modal-open {
 
 .about-page__team-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
 }
 
@@ -7411,6 +7411,82 @@ body.modal-open {
     background-color: var(--cream);
 }
 
+/* Breadcrumb Items - Shared */
+.booking-page__breadcrumb .breadcrumb,
+.financing-page__breadcrumb .breadcrumb,
+.tour-page__breadcrumb .breadcrumb,
+.blog-page__breadcrumb .breadcrumb,
+.breeders-page__breadcrumb .breadcrumb,
+.boutique-page__breadcrumb .breadcrumb,
+.preferences-page__breadcrumb .breadcrumb,
+.reviews-page__breadcrumb .breadcrumb,
+.contact-page__breadcrumb .breadcrumb,
+.faq-page__breadcrumb .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-sm);
+}
+
+.booking-page__breadcrumb .breadcrumb__item a,
+.financing-page__breadcrumb .breadcrumb__item a,
+.tour-page__breadcrumb .breadcrumb__item a,
+.blog-page__breadcrumb .breadcrumb__item a,
+.breeders-page__breadcrumb .breadcrumb__item a,
+.boutique-page__breadcrumb .breadcrumb__item a,
+.preferences-page__breadcrumb .breadcrumb__item a,
+.reviews-page__breadcrumb .breadcrumb__item a,
+.contact-page__breadcrumb .breadcrumb__item a,
+.faq-page__breadcrumb .breadcrumb__item a {
+    color: var(--mauve);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.booking-page__breadcrumb .breadcrumb__item a:hover,
+.financing-page__breadcrumb .breadcrumb__item a:hover,
+.tour-page__breadcrumb .breadcrumb__item a:hover,
+.blog-page__breadcrumb .breadcrumb__item a:hover,
+.breeders-page__breadcrumb .breadcrumb__item a:hover,
+.boutique-page__breadcrumb .breadcrumb__item a:hover,
+.preferences-page__breadcrumb .breadcrumb__item a:hover,
+.reviews-page__breadcrumb .breadcrumb__item a:hover,
+.contact-page__breadcrumb .breadcrumb__item a:hover,
+.faq-page__breadcrumb .breadcrumb__item a:hover {
+    color: var(--rose);
+}
+
+.booking-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.financing-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.tour-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.blog-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.breeders-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.boutique-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.preferences-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.reviews-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.contact-page__breadcrumb .breadcrumb__item:not(:last-child)::after,
+.faq-page__breadcrumb .breadcrumb__item:not(:last-child)::after {
+    content: '/';
+    margin-left: var(--space-2);
+    color: var(--mauve);
+}
+
+.booking-page__breadcrumb .breadcrumb__item--active,
+.financing-page__breadcrumb .breadcrumb__item--active,
+.tour-page__breadcrumb .breadcrumb__item--active,
+.blog-page__breadcrumb .breadcrumb__item--active,
+.breeders-page__breadcrumb .breadcrumb__item--active,
+.boutique-page__breadcrumb .breadcrumb__item--active,
+.preferences-page__breadcrumb .breadcrumb__item--active,
+.reviews-page__breadcrumb .breadcrumb__item--active,
+.contact-page__breadcrumb .breadcrumb__item--active,
+.faq-page__breadcrumb .breadcrumb__item--active {
+    color: var(--espresso);
+}
+
 /* Section Labels - Shared */
 .booking-page__section-label,
 .financing-page__section-label,
@@ -7421,7 +7497,8 @@ body.modal-open {
 .preferences-page__section-label,
 .reviews-page__section-label,
 .contact-page__section-label,
-.faq-page__section-label {
+.faq-page__section-label,
+.concierge-page__section-label {
     display: block;
     font-family: var(--font-heading);
     font-size: var(--font-size-xs);
@@ -7441,7 +7518,8 @@ body.modal-open {
 .boutique-page__section-title,
 .preferences-page__section-title,
 .reviews-page__section-title,
-.faq-page__section-title {
+.faq-page__section-title,
+.concierge-page__section-title {
     font-family: var(--font-display);
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-medium);
@@ -7458,7 +7536,8 @@ body.modal-open {
     .boutique-page__section-title,
     .preferences-page__section-title,
     .reviews-page__section-title,
-    .faq-page__section-title {
+    .faq-page__section-title,
+    .concierge-page__section-title {
         font-size: var(--font-size-4xl);
     }
 }
@@ -7752,6 +7831,77 @@ body.modal-open {
 
 .booking-page__location-item a:hover {
     color: var(--rose);
+}
+
+/* Booking Page Accordion Styles (Bootstrap 5) */
+.booking-page__tips .accordion {
+    --bs-accordion-border-color: var(--border-color);
+    --bs-accordion-border-radius: var(--radius-lg);
+    --bs-accordion-btn-padding-x: var(--space-6);
+    --bs-accordion-btn-padding-y: var(--space-5);
+    --bs-accordion-body-padding-x: var(--space-6);
+    --bs-accordion-body-padding-y: var(--space-4);
+}
+
+.booking-page__tips .accordion-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+}
+
+.booking-page__tips .accordion-item:first-of-type {
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+}
+
+.booking-page__tips .accordion-item:last-of-type {
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+}
+
+.booking-page__tips .accordion-header {
+    margin: 0;
+}
+
+.booking-page__tips .accordion-button {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--espresso);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.booking-page__tips .accordion-button:not(.collapsed) {
+    color: var(--espresso);
+    background-color: var(--blush);
+    box-shadow: none;
+}
+
+.booking-page__tips .accordion-button:hover {
+    background-color: var(--cream);
+}
+
+.booking-page__tips .accordion-button:not(.collapsed):hover {
+    background-color: var(--blush);
+}
+
+.booking-page__tips .accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--border-color);
+}
+
+/* Custom chevron icon color (rose) */
+.booking-page__tips .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D4A5A5'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.booking-page__tips .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D4A5A5'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.booking-page__tips .accordion-body p {
+    color: var(--mauve);
+    line-height: 1.7;
+    margin: 0;
 }
 
 /* ==========================================================================
@@ -8152,13 +8302,15 @@ body.modal-open {
 .tour-page__hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(61, 43, 31, 0.4) 0%, rgba(61, 43, 31, 0.8) 100%);
+    background: linear-gradient(180deg, rgba(61, 43, 31, 0.7) 0%, rgba(61, 43, 31, 0.9) 100%);
 }
 
 .tour-page__hero-content {
     position: relative;
     z-index: 1;
     max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .tour-page__hero .tour-page__section-label {
@@ -8664,7 +8816,7 @@ body.modal-open {
 
 @media (min-width: 1024px) {
     .blog-page__grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -8746,14 +8898,15 @@ body.modal-open {
 
 /* Pagination */
 .blog-page__pagination {
-    margin-top: var(--space-10);
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-12);
 }
 
 .blog-page__pagination .page-numbers {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-2);
+    gap: var(--space-3);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -8763,24 +8916,36 @@ body.modal-open {
 .blog-page__pagination .page-numbers li span {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
     padding: var(--space-2) var(--space-4);
+    font-family: var(--font-heading);
     font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
     color: var(--espresso);
     background-color: var(--white);
-    border-radius: var(--radius-md);
+    border: 2px solid var(--espresso);
+    border-radius: var(--radius-full);
     text-decoration: none;
     transition: all var(--transition-fast);
 }
 
 .blog-page__pagination .page-numbers li a:hover {
     background-color: var(--rose);
+    border-color: var(--rose);
     color: var(--white);
 }
 
 .blog-page__pagination .page-numbers li span.current {
     background-color: var(--rose);
+    border-color: var(--rose);
     color: var(--white);
+}
+
+.blog-page__pagination .page-numbers li a svg {
+    width: 16px;
+    height: 16px;
 }
 
 /* No Posts */
@@ -8899,6 +9064,101 @@ body.modal-open {
 .blog-page__topic-tag:hover {
     background-color: var(--rose);
     color: var(--white);
+}
+
+/* ==========================================================================
+   INDEX / BLOG POSTS GRID (index.php)
+   ========================================================================== */
+
+.posts-grid {
+    display: grid;
+    gap: var(--space-6);
+    padding: var(--space-8) 0;
+}
+
+@media (min-width: 640px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Page Header */
+.page-header {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-6);
+    text-align: center;
+}
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    color: var(--espresso);
+    margin: 0;
+}
+
+.pagination-nav {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-12);
+}
+
+.pagination-nav .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-nav .nav-links a,
+.pagination-nav .nav-links span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--espresso);
+    background-color: var(--white);
+    border: 2px solid var(--espresso);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.pagination-nav .nav-links a:hover {
+    background-color: var(--rose);
+    border-color: var(--rose);
+    color: var(--white);
+}
+
+.pagination-nav .nav-links span.current {
+    background-color: var(--rose);
+    border-color: var(--rose);
+    color: var(--white);
+}
+
+/* Reset WordPress pagination wrapper */
+.pagination-nav .navigation.pagination {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Ensure prev/next arrows match number buttons */
+.pagination-nav .nav-links .prev,
+.pagination-nav .nav-links .next {
+    border: 2px solid var(--espresso);
 }
 
 /* ==========================================================================
@@ -9376,47 +9636,47 @@ body.modal-open {
     margin-top: var(--space-10);
 }
 
-.boutique-page__service-card {
-    background-color: var(--white);
-    border-radius: var(--radius-xl);
+.boutique-page__service {
+    background: var(--white);
+    border-radius: var(--radius-2xl);
     padding: var(--space-8);
     text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-base);
+    box-shadow: 0 4px 20px rgba(61, 43, 31, 0.08);
+    transition: all 0.3s ease;
 }
 
-.boutique-page__service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+.boutique-page__service:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(61, 43, 31, 0.12);
 }
 
 .boutique-page__service-icon {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-5);
+    background: linear-gradient(135deg, var(--rose-light) 0%, var(--rose) 100%);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto var(--space-4);
-    background-color: var(--rose-light);
-    border-radius: 50%;
 }
 
 .boutique-page__service-icon svg {
-    width: 32px;
-    height: 32px;
-    color: var(--rose);
+    width: 36px;
+    height: 36px;
+    color: var(--white);
 }
 
-.boutique-page__service-title {
+.boutique-page__service h3 {
     font-family: var(--font-display);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
     color: var(--espresso);
-    margin: 0 0 var(--space-2);
+    margin-bottom: var(--space-3);
 }
 
-.boutique-page__service-desc {
-    font-size: var(--font-size-sm);
+.boutique-page__service p {
     color: var(--mauve);
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -9433,40 +9693,119 @@ body.modal-open {
 }
 
 /* Gift Cards */
-.boutique-page__gift-cards {
-    padding: var(--space-16) 0;
-    background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+.boutique-page__giftcards {
+    padding: var(--space-20) 0;
+    background: var(--cream);
+    text-align: center;
 }
 
-.boutique-page__gift-cards-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: center;
+.boutique-page__giftcards-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.boutique-page__gift-cards-title {
+.boutique-page__giftcards h2 {
     font-family: var(--font-display);
     font-size: var(--font-size-3xl);
-    color: var(--white);
-    margin: 0 0 var(--space-4);
+    color: var(--espresso);
+    margin: 0 0 var(--space-3);
 }
 
-.boutique-page__gift-cards-text {
+.boutique-page__giftcards p {
     font-size: var(--font-size-lg);
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0 0 var(--space-6);
+    color: var(--mauve);
+    margin: 0;
 }
 
-.boutique-page__gift-cards-image {
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
+.boutique-page__giftcard-visual {
+    margin: var(--space-10) auto;
+    max-width: 380px;
 }
 
-@media (max-width: 768px) {
-    .boutique-page__gift-cards-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+.boutique-page__giftcard-design {
+    aspect-ratio: 1.6 / 1;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--dusty-rose) 50%, var(--rose-dark) 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 50px rgba(212, 165, 165, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative shimmer effect */
+.boutique-page__giftcard-design::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 60%
+    );
+    pointer-events: none;
+}
+
+.boutique-page__giftcard-logo {
+    text-align: left;
+}
+
+.giftcard-logo-text {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    color: var(--white);
+    display: block;
+}
+
+.giftcard-tagline {
+    font-size: var(--font-size-xs);
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.boutique-page__giftcard-label {
+    text-align: right;
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    color: var(--white);
+    opacity: 0.9;
+}
+
+/* Special button style */
+.btn--giftcard {
+    background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+    color: var(--white);
+    padding: var(--space-4) var(--space-10);
+    font-size: var(--font-size-base);
+    border: none;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 20px rgba(212, 165, 165, 0.4);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: var(--font-weight-medium);
+    transition: all 0.3s ease;
+}
+
+.btn--giftcard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 165, 165, 0.5);
+    color: var(--white);
+}
+
+@media (max-width: 480px) {
+    .boutique-page__giftcard-visual {
+        max-width: 100%;
+    }
+
+    .boutique-page__giftcard-design {
+        padding: var(--space-6);
     }
 }
 
@@ -9865,72 +10204,144 @@ body.modal-open {
     overflow-x: hidden;
 }
 
-/* Hero */
+/* Breadcrumb */
+.reviews-page__breadcrumb {
+    padding: var(--space-4) 0;
+    background-color: var(--cream);
+}
+
+/* Section Label (reusable) */
+.reviews-page__section-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+    margin-bottom: var(--space-2);
+}
+
+/* Section Title (reusable) */
+.reviews-page__section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    color: var(--espresso);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
 .reviews-page__hero {
     padding: var(--space-16) 0 var(--space-20);
     background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
     text-align: center;
 }
 
-.reviews-page__rating-display {
+.reviews-page__hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.reviews-page__hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--espresso);
+    margin: 0 0 var(--space-6);
+    line-height: 1.1;
+}
+
+.reviews-page__hero-rating {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-4);
     margin-bottom: var(--space-6);
+    flex-wrap: wrap;
 }
 
-.reviews-page__rating-score {
+.reviews-page__stars {
+    display: flex;
+    gap: var(--space-1);
+    color: var(--gold);
+}
+
+.reviews-page__stars svg {
+    width: 32px;
+    height: 32px;
+}
+
+.reviews-page__rating-value {
     font-family: var(--font-display);
-    font-size: 72px;
+    font-size: 3rem;
+    font-weight: 700;
     color: var(--espresso);
     line-height: 1;
 }
 
-.reviews-page__rating-stars {
-    display: flex;
-    gap: var(--space-1);
-}
-
-.reviews-page__rating-star {
-    font-size: 24px;
-    color: var(--gold);
+.reviews-page__rating-count {
+    font-size: var(--font-size-lg);
+    color: var(--mauve);
 }
 
 .reviews-page__platforms {
     display: flex;
     justify-content: center;
-    gap: var(--space-6);
-    margin-top: var(--space-6);
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: var(--space-6) 0 var(--space-8);
 }
 
-.reviews-page__platform-badge {
-    display: flex;
+.reviews-page__platform {
+    display: inline-flex;
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-4);
     background-color: var(--white);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-sm);
-}
-
-.reviews-page__platform-logo {
-    width: 24px;
-    height: 24px;
-}
-
-.reviews-page__platform-rating {
-    font-weight: 600;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
     color: var(--espresso);
 }
 
-/* Summary */
+.reviews-page__platform img {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+    .reviews-page__hero {
+        padding: var(--space-12) 0 var(--space-16);
+    }
+
+    .reviews-page__hero-rating {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .reviews-page__stars svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .reviews-page__rating-value {
+        font-size: 2.5rem;
+    }
+}
+
+/* ==========================================================================
+   Summary Cards Section
+   ========================================================================== */
+
 .reviews-page__summary {
     padding: var(--space-12) 0;
     background-color: var(--white);
 }
 
-.reviews-page__summary-cards {
+.reviews-page__summary-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
@@ -9941,117 +10352,219 @@ body.modal-open {
     border-radius: var(--radius-xl);
     padding: var(--space-6);
     text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.reviews-page__summary-logo {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto var(--space-4);
+.reviews-page__summary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 .reviews-page__summary-platform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.reviews-page__summary-platform img {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+}
+
+.reviews-page__summary-platform span {
     font-family: var(--font-display);
     font-size: var(--font-size-lg);
     color: var(--espresso);
-    margin: 0 0 var(--space-2);
 }
 
-.reviews-page__summary-score {
-    font-size: var(--font-size-2xl);
+.reviews-page__summary-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.reviews-page__summary-value {
+    font-family: var(--font-display);
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     color: var(--rose);
+    line-height: 1;
+}
+
+.reviews-page__summary-stars {
+    display: flex;
+    gap: 2px;
+    color: var(--gold);
+}
+
+.reviews-page__summary-stars svg {
+    width: 16px;
+    height: 16px;
 }
 
 .reviews-page__summary-count {
+    display: block;
     font-size: var(--font-size-sm);
     color: var(--mauve);
+    margin-bottom: var(--space-4);
+}
+
+.reviews-page__summary-link {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--rose);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--rose);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+}
+
+.reviews-page__summary-link:hover {
+    background-color: var(--rose);
+    color: var(--white);
+}
+
+@media (max-width: 992px) {
+    .reviews-page__summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-4);
+    }
 }
 
 @media (max-width: 768px) {
-    .reviews-page__summary-cards {
+    .reviews-page__summary-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* Review Grid */
+/* ==========================================================================
+   Review Cards Grid Section
+   ========================================================================== */
+
 .reviews-page__grid-section {
     padding: var(--space-16) 0;
     background-color: var(--cream);
+}
+
+.reviews-page__grid-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
 }
 
 .reviews-page__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
-    margin-top: var(--space-10);
 }
 
-.reviews-page__card {
+.reviews-page__review-card {
     background-color: var(--white);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
     box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.reviews-page__card-header {
+.reviews-page__review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.reviews-page__review-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: var(--space-4);
 }
 
-.reviews-page__card-stars {
+.reviews-page__review-stars {
     display: flex;
     gap: 2px;
     color: var(--gold);
 }
 
-.reviews-page__card-platform {
-    font-size: var(--font-size-xs);
-    color: var(--mauve);
-    background-color: var(--cream);
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-sm);
+.reviews-page__review-stars svg {
+    width: 16px;
+    height: 16px;
 }
 
-.reviews-page__card-quote {
+.reviews-page__review-platform {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--white);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    background-color: var(--mauve);
+}
+
+.reviews-page__review-platform--google {
+    background-color: #4285f4;
+}
+
+.reviews-page__review-platform--yelp {
+    background-color: #d32323;
+}
+
+.reviews-page__review-platform--facebook {
+    background-color: #1877f2;
+}
+
+.reviews-page__review-quote {
     font-size: var(--font-size-base);
     color: var(--espresso);
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0 0 var(--space-4);
     font-style: italic;
 }
 
-.reviews-page__card-footer {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
+.reviews-page__review-footer {
     padding-top: var(--space-4);
     border-top: 1px solid var(--tan);
 }
 
-.reviews-page__card-avatar {
-    width: 40px;
-    height: 40px;
+.reviews-page__review-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.reviews-page__review-avatar {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: var(--rose-light);
+    background: linear-gradient(135deg, var(--rose-light) 0%, var(--rose) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--rose);
+    color: var(--white);
+    flex-shrink: 0;
 }
 
-.reviews-page__card-author {
+.reviews-page__review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.reviews-page__review-name {
     font-weight: 600;
     color: var(--espresso);
-    margin: 0;
+    font-size: var(--font-size-base);
 }
 
-.reviews-page__card-breed {
+.reviews-page__review-breed {
     font-size: var(--font-size-sm);
     color: var(--mauve);
-    margin: 0;
 }
 
 @media (max-width: 992px) {
@@ -10064,26 +10577,40 @@ body.modal-open {
     .reviews-page__grid {
         grid-template-columns: 1fr;
     }
+
+    .reviews-page__grid-section {
+        padding: var(--space-12) 0;
+    }
 }
 
-/* Photo Reviews */
+/* ==========================================================================
+   Photos Gallery Section
+   ========================================================================== */
+
 .reviews-page__photos {
     padding: var(--space-16) 0;
     background-color: var(--white);
 }
 
+.reviews-page__photos-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+
 .reviews-page__photos-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: var(--space-3);
-    margin-top: var(--space-10);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
 }
 
 .reviews-page__photo {
+    position: relative;
     aspect-ratio: 1;
     border-radius: var(--radius-lg);
     overflow: hidden;
     cursor: pointer;
+    display: block;
+    text-decoration: none;
 }
 
 .reviews-page__photo img {
@@ -10094,7 +10621,39 @@ body.modal-open {
 }
 
 .reviews-page__photo:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
+}
+
+.reviews-page__photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(61, 43, 31, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.reviews-page__photo-overlay svg {
+    color: var(--white);
+    width: 32px;
+    height: 32px;
+}
+
+.reviews-page__photo:hover .reviews-page__photo-overlay {
+    opacity: 1;
+}
+
+.reviews-page__photos-cta {
+    text-align: center;
+    margin-top: var(--space-10);
+}
+
+.reviews-page__photos-cta p {
+    font-size: var(--font-size-lg);
+    color: var(--espresso);
+    margin: 0 0 var(--space-4);
 }
 
 @media (max-width: 992px) {
@@ -10103,37 +10662,71 @@ body.modal-open {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .reviews-page__photos-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3);
+    }
+
+    .reviews-page__photos {
+        padding: var(--space-12) 0;
     }
 }
 
-/* Video Testimonials */
+@media (max-width: 480px) {
+    .reviews-page__photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================================================
+   Video Testimonials Section
+   ========================================================================== */
+
 .reviews-page__videos {
     padding: var(--space-16) 0;
     background-color: var(--cream);
+}
+
+.reviews-page__videos-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
 }
 
 .reviews-page__videos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
-    margin-top: var(--space-10);
 }
 
 .reviews-page__video-card {
-    position: relative;
+    background-color: var(--white);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    aspect-ratio: 16/9;
-    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.reviews-page__video-thumb {
+.reviews-page__video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.reviews-page__video-wrapper {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.reviews-page__video-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform var(--transition-base);
+}
+
+.reviews-page__video-card:hover .reviews-page__video-wrapper img {
+    transform: scale(1.05);
 }
 
 .reviews-page__video-play {
@@ -10141,58 +10734,172 @@ body.modal-open {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
-    background-color: rgba(255, 255, 255, 0.9);
+    width: 72px;
+    height: 72px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     transition: all var(--transition-base);
+    box-shadow: var(--shadow-lg);
+}
+
+.reviews-page__video-play svg {
+    width: 28px;
+    height: 28px;
+    margin-left: 4px;
+    color: var(--rose);
+    transition: color var(--transition-base);
 }
 
 .reviews-page__video-card:hover .reviews-page__video-play {
     background-color: var(--rose);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.reviews-page__video-card:hover .reviews-page__video-play svg {
     color: var(--white);
 }
 
-.reviews-page__video-play svg {
-    width: 24px;
-    height: 24px;
-    margin-left: 4px;
+.reviews-page__video-caption {
+    padding: var(--space-4);
+    font-size: var(--font-size-base);
+    color: var(--espresso);
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+}
+
+@media (max-width: 992px) {
+    .reviews-page__videos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
     .reviews-page__videos-grid {
         grid-template-columns: 1fr;
     }
+
+    .reviews-page__videos {
+        padding: var(--space-12) 0;
+    }
+
+    .reviews-page__video-play {
+        width: 60px;
+        height: 60px;
+    }
+
+    .reviews-page__video-play svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
-/* Share CTA */
-.reviews-page__share {
+/* ==========================================================================
+   Leave a Review CTA Section
+   ========================================================================== */
+
+.reviews-page__leave-review {
     padding: var(--space-16) 0;
-    background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+    background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark, #c89090) 100%);
     text-align: center;
 }
 
-.reviews-page__share-title {
+.reviews-page__leave-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-10);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(10px);
+}
+
+.reviews-page__leave-card h2 {
     font-family: var(--font-display);
     font-size: var(--font-size-3xl);
     color: var(--white);
     margin: 0 0 var(--space-4);
 }
 
-.reviews-page__share-text {
+.reviews-page__leave-card p {
     font-size: var(--font-size-lg);
     color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto var(--space-8);
+    margin: 0 0 var(--space-8);
+    line-height: 1.6;
 }
 
-.reviews-page__share-buttons {
+.reviews-page__leave-buttons {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: var(--space-4);
+}
+
+.reviews-page__leave-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background-color: var(--white);
+    color: var(--espresso);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.reviews-page__leave-btn img {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+}
+
+.reviews-page__leave-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.reviews-page__leave-btn--google:hover {
+    background-color: #4285f4;
+    color: var(--white);
+}
+
+.reviews-page__leave-btn--yelp:hover {
+    background-color: #d32323;
+    color: var(--white);
+}
+
+.reviews-page__leave-btn--facebook:hover {
+    background-color: #1877f2;
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .reviews-page__leave-review {
+        padding: var(--space-12) 0;
+    }
+
+    .reviews-page__leave-card {
+        padding: var(--space-6);
+        margin: 0 var(--space-4);
+    }
+
+    .reviews-page__leave-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reviews-page__leave-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
 }
 
 /* ==========================================================================
@@ -10432,12 +11139,22 @@ body.modal-open {
 .faq-page__search {
     max-width: 500px;
     margin: var(--space-8) auto 0;
-    position: relative;
+}
+
+.faq-page__search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.faq-page__search-wrapper svg {
+    flex-shrink: 0;
+    color: var(--mauve);
 }
 
 .faq-page__search-input {
-    width: 100%;
-    padding: var(--space-4) var(--space-6) var(--space-4) var(--space-12);
+    flex: 1;
+    padding: var(--space-4) var(--space-6);
     font-size: var(--font-size-base);
     color: var(--espresso);
     background-color: var(--white);
@@ -10449,16 +11166,6 @@ body.modal-open {
 .faq-page__search-input:focus {
     outline: none;
     border-color: var(--rose);
-}
-
-.faq-page__search-icon {
-    position: absolute;
-    left: var(--space-4);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    color: var(--mauve);
 }
 
 /* Categories */
@@ -10517,12 +11224,20 @@ body.modal-open {
 }
 
 .faq-page__section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
     font-family: var(--font-display);
     font-size: var(--font-size-2xl);
     color: var(--espresso);
     margin: 0 0 var(--space-6);
     padding-bottom: var(--space-4);
     border-bottom: 2px solid var(--rose);
+}
+
+.faq-page__section-title svg {
+    flex-shrink: 0;
+    color: var(--rose);
 }
 
 .faq-page__accordion {
@@ -10614,21 +11329,125 @@ body.modal-open {
 .faq-page__cta {
     padding: var(--space-12) 0;
     background-color: var(--white);
+}
+
+.faq-page__cta-card {
+    background-color: var(--rose);
+    padding: var(--space-12) var(--space-8);
+    border-radius: var(--radius-xl);
     text-align: center;
 }
 
-.faq-page__cta-title {
+.faq-page__cta-card h2 {
     font-family: var(--font-display);
     font-size: var(--font-size-2xl);
+    color: var(--white);
+    margin: 0 0 var(--space-3);
+}
+
+.faq-page__cta-card p {
+    font-size: var(--font-size-lg);
+    color: var(--white);
+    opacity: 0.9;
+    margin: 0 0 var(--space-6);
+}
+
+.faq-page__cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.faq-page__cta-buttons .btn {
+    min-width: 180px;
+}
+
+/* FAQ Accordion - Bootstrap-compatible styling */
+.faq-page__content .accordion-item {
+    background-color: var(--white);
+    border: 1px solid var(--tan);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-3);
+    overflow: hidden;
+}
+
+.faq-page__content .accordion-header {
+    margin: 0;
+}
+
+.faq-page__content .accordion-button {
+    width: 100%;
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-base);
+    font-weight: 600;
     color: var(--espresso);
+    background-color: var(--white);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition-base);
+}
+
+.faq-page__content .accordion-button:hover {
+    background-color: var(--cream);
+}
+
+.faq-page__content .accordion-button[aria-expanded="true"],
+.faq-page__content .accordion-button:not(.collapsed) {
+    color: var(--espresso);
+    background-color: var(--blush);
+}
+
+.faq-page__content .accordion-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--rose);
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+}
+
+.faq-page__content .accordion-button[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.faq-page__content .accordion-button::after {
+    display: none;
+}
+
+.faq-page__content .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+    padding: 0 var(--space-6);
+    color: var(--mauve);
+    line-height: 1.7;
+}
+
+.faq-page__content .accordion-content[aria-hidden="false"] {
+    max-height: 1000px;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-5);
+}
+
+.faq-page__content .accordion-content p {
     margin: 0 0 var(--space-4);
 }
 
-.faq-page__cta-text {
-    font-size: var(--font-size-lg);
-    color: var(--mauve);
-    max-width: 500px;
-    margin: 0 auto var(--space-6);
+.faq-page__content .accordion-content p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-page__content .accordion-content a {
+    color: var(--rose);
+    text-decoration: underline;
+}
+
+.faq-page__content .accordion-content a:hover {
+    color: var(--espresso);
 }
 
 /* ==========================================================================
@@ -10700,4 +11519,389 @@ body.modal-open {
 
 [data-accordion] .accordion-content-inner p:last-child {
     margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Dog Breed Info Page
+   ========================================================================== */
+
+.page-dog-breed-info .page-content__wrapper {
+    max-width: 100%;
+}
+
+.page-dog-breed-info .page-header {
+    text-align: center;
+    padding-top: var(--space-12);
+}
+
+.page-dog-breed-info .page-title {
+    font-size: var(--font-size-3xl);
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Coming Soon Puppies Page
+   ========================================================================== */
+
+.page-coming-soon-puppies .page-header {
+    text-align: center;
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+}
+
+.page-coming-soon-puppies .page-title {
+    font-size: var(--font-size-4xl);
+    margin: 0 auto var(--space-4);
+}
+
+.page-coming-soon-puppies .page-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--mauve);
+    font-size: var(--font-size-lg);
+}
+
+.page-coming-soon-puppies .no-products {
+    text-align: center;
+    padding: var(--space-16) var(--space-6);
+    color: var(--mauve);
+}
+
+.page-coming-soon-puppies .no-products h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--espresso);
+    margin: 0 0 var(--space-4);
+}
+
+.page-coming-soon-puppies .no-products p {
+    max-width: 500px;
+    margin: 0 auto var(--space-6);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Puppy Concierge Page
+   ========================================================================== */
+
+/* Breadcrumb */
+.concierge-page__breadcrumb {
+    padding: var(--space-4) 0;
+    background-color: var(--cream);
+}
+
+.concierge-page__breadcrumb .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-sm);
+}
+
+.concierge-page__breadcrumb .breadcrumb__item a {
+    color: var(--mauve);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.concierge-page__breadcrumb .breadcrumb__item a:hover,
+.concierge-page__breadcrumb .breadcrumb__item a:focus {
+    color: var(--rose);
+}
+
+.concierge-page__breadcrumb .breadcrumb__item:not(:last-child)::after {
+    content: '/';
+    margin-left: var(--space-2);
+    color: var(--mauve);
+    opacity: 0.5;
+}
+
+.concierge-page__breadcrumb .breadcrumb__item--active {
+    color: var(--espresso);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Hero Section */
+.concierge-page__hero {
+    padding: var(--space-12) 0 var(--space-16);
+    background: var(--gradient-warm);
+    text-align: center;
+}
+
+.concierge-page__hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.concierge-page__hero-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--espresso);
+    margin: 0 0 var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .concierge-page__hero-title {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+.concierge-page__hero-description {
+    font-size: var(--font-size-lg);
+    color: var(--mauve);
+    margin: 0 0 var(--space-8);
+    line-height: 1.7;
+}
+
+.concierge-page__hero-cta {
+    display: flex;
+    justify-content: center;
+}
+
+/* Process Section */
+.concierge-page__process {
+    padding: var(--space-16) 0;
+    background-color: var(--white);
+}
+
+.concierge-page__process-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-12);
+}
+
+.concierge-page__process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+}
+
+@media (max-width: 1023px) {
+    .concierge-page__process-steps {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+.concierge-page__process-step {
+    text-align: center;
+    padding: var(--space-6);
+}
+
+.concierge-page__step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--rose);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-4);
+}
+
+.concierge-page__step-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--espresso);
+    margin: 0 0 var(--space-3);
+}
+
+.concierge-page__step-text {
+    font-size: var(--font-size-base);
+    color: var(--mauve);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Services Section */
+.concierge-page__services {
+    padding: var(--space-16) 0;
+    background-color: var(--cream);
+}
+
+.concierge-page__services-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-12);
+}
+
+.concierge-page__services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 1023px) {
+    .concierge-page__services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 639px) {
+    .concierge-page__services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.concierge-page__service-card {
+    padding: var(--space-8);
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.concierge-page__service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.concierge-page__service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-4);
+    border-radius: 50%;
+    background-color: var(--rose-light);
+    color: var(--rose);
+}
+
+.concierge-page__service-card h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--espresso);
+    margin: 0 0 var(--space-3);
+}
+
+.concierge-page__service-card p {
+    font-size: var(--font-size-sm);
+    color: var(--mauve);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* CTA Section */
+.concierge-page__cta {
+    padding: var(--space-16) 0;
+    background-color: var(--espresso);
+    text-align: center;
+}
+
+.concierge-page__cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.concierge-page__cta-content h2 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    color: var(--white);
+    margin: 0 0 var(--space-4);
+}
+
+.concierge-page__cta-content p {
+    font-size: var(--font-size-lg);
+    color: var(--rose-light);
+    margin: 0 0 var(--space-8);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Search No Results
+   ========================================================================== */
+
+.search-no-results {
+    text-align: center;
+    padding: var(--space-16) var(--space-4);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-no-results__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--space-6);
+    border-radius: 50%;
+    background-color: var(--cream);
+    color: var(--rose);
+}
+
+.search-no-results__icon svg {
+    width: 64px;
+    height: 64px;
+}
+
+.search-no-results__title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--espresso);
+    margin: 0 0 var(--space-4);
+}
+
+.search-no-results__text {
+    font-size: var(--font-size-base);
+    color: var(--mauve);
+    line-height: 1.7;
+    margin: 0 0 var(--space-8);
+}
+
+.search-no-results .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.search-no-results .btn svg {
+    transition: transform var(--transition-fast);
+}
+
+.search-no-results .btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* Footer Reviews Link */
+.footer-reviews-link {
+    display: block;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.footer-reviews-link:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .search-no-results {
+        padding: var(--space-12) var(--space-4);
+    }
+
+    .search-no-results__icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .search-no-results__icon svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .search-no-results__title {
+        font-size: var(--font-size-xl);
+    }
 }
