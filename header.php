@@ -239,6 +239,18 @@ $contact_phone = '(908) 823-4468';
             </button>
         </form>
 
+        <!-- Live Search Results -->
+        <div class="header-search-overlay__results" aria-live="polite">
+            <div class="header-search-overlay__loading" hidden>
+                <svg class="header-search-overlay__spinner" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="31.4 31.4" />
+                </svg>
+                <span><?php esc_html_e('Searching...', 'furrylicious'); ?></span>
+            </div>
+            <div class="header-search-overlay__results-grid"></div>
+            <p class="header-search-overlay__no-results" hidden><?php esc_html_e('No puppies found. Try a different search term.', 'furrylicious'); ?></p>
+        </div>
+
         <div class="header-search-overlay__quick-links">
             <p class="header-search-overlay__label"><?php esc_html_e('Popular Searches', 'furrylicious'); ?></p>
             <div class="header-search-overlay__tags">

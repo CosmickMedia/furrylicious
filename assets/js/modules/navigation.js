@@ -5,9 +5,11 @@
  * - Header scroll behavior (transparent → solid)
  * - Full-screen mobile menu with staggered animations
  * - Mega menu interactions
- * - Full-width search overlay
+ * - Full-width search overlay with live search
  * - Keyboard navigation and accessibility
  */
+
+import liveSearch from './live-search.js';
 
 const Navigation = {
     // Configuration
@@ -357,6 +359,9 @@ const Navigation = {
 
         this.elements.body.classList.add('search-open');
 
+        // Initialize live search
+        liveSearch.init();
+
         // Focus search input
         if (this.elements.searchInput) {
             setTimeout(() => this.elements.searchInput.focus(), 100);
@@ -388,6 +393,10 @@ const Navigation = {
         if (this.elements.searchInput) {
             this.elements.searchInput.value = '';
         }
+
+        // Clear live search results
+        liveSearch.clearResults();
+        liveSearch.showQuickLinks();
 
         // Release focus trap
         this.releaseFocusTrap();

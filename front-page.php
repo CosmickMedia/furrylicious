@@ -125,63 +125,18 @@ $puppies_description = 'Each of our puppies is raised with love, socialized from
 $puppies_title_formatted = str_replace('|', '<br>', esc_html($puppies_title));
 $puppies_title_formatted = preg_replace('/\*([^*]+)\*/', '<span>$1</span>', $puppies_title_formatted);
 
-$puppies = [
-    [
-        'name' => 'Luna',
-        'breed' => 'Golden Retriever',
-        'age' => '10 weeks',
-        'gender' => 'female',
-        'price' => '$2,800',
-        'image' => get_template_directory_uri() . '/assets/images/puppies/puppy-1.jpg',
-        'link' => home_url('/puppies-for-sale/luna/'),
-        'badge' => 'Just Arrived',
-        'featured' => false,
-    ],
-    [
-        'name' => 'Milo',
-        'breed' => 'French Bulldog',
-        'age' => '12 weeks',
-        'gender' => 'male',
-        'price' => '$4,500',
-        'image' => get_template_directory_uri() . '/assets/images/puppies/puppy-2.jpg',
-        'link' => home_url('/puppies-for-sale/milo/'),
-        'badge' => '',
-        'featured' => false,
-    ],
-    [
-        'name' => 'Daisy',
-        'breed' => 'Mini Goldendoodle',
-        'age' => '9 weeks',
-        'gender' => 'female',
-        'price' => '$3,200',
-        'image' => get_template_directory_uri() . '/assets/images/puppies/puppy-3.jpg',
-        'link' => home_url('/puppies-for-sale/daisy/'),
-        'badge' => '',
-        'featured' => false,
-    ],
-    [
-        'name' => 'Charlie',
-        'breed' => 'Cavalier King Charles',
-        'age' => '11 weeks',
-        'gender' => 'male',
-        'price' => '$3,000',
-        'image' => get_template_directory_uri() . '/assets/images/puppies/puppy-4.jpg',
-        'link' => home_url('/puppies-for-sale/charlie/'),
-        'badge' => 'Reserved',
-        'featured' => false,
-    ],
-    [
-        'name' => 'Bella',
-        'breed' => 'Bernedoodle',
-        'age' => '8 weeks',
-        'gender' => 'female',
-        'price' => '$3,800',
-        'image' => get_template_directory_uri() . '/assets/images/puppies/puppy-5.jpg',
-        'link' => home_url('/puppies-for-sale/bella/'),
-        'badge' => '',
-        'featured' => false,
-    ],
-];
+// Query WooCommerce products from puppies-for-sale category
+$puppies_per_page = 6;
+$puppies_query = new WP_Query([
+    'post_type'      => 'product',
+    'post_status'    => 'publish',
+    'posts_per_page' => $puppies_per_page,
+    'tax_query'      => [[
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => 'puppies-for-sale',
+    ]],
+]);
 ?>
 
 <section class="puppies-mosaic">
@@ -200,62 +155,43 @@ $puppies = [
             <?php endif; ?>
         </header>
 
-        <div class="puppies-mosaic__grid">
-            <?php foreach ($puppies as $index => $puppy) :
-                $card_class = 'puppy-card';
-                if ($puppy['featured']) {
-                    $card_class .= ' puppy-card--featured';
-                }
+        <div class="puppies-mosaic__grid"
+             id="puppies-grid"
+             data-per-page="<?php echo esc_attr($puppies_per_page); ?>"
+             data-total="<?php echo esc_attr($puppies_query->found_posts); ?>">
+            <?php
+            if ($puppies_query->have_posts()) :
+                while ($puppies_query->have_posts()) :
+                    $puppies_query->the_post();
+                    global $product;
+                    $product = wc_get_product(get_the_ID());
+                    if ($product) :
+                        get_template_part('partials/frontpage-puppy-card');
+                    endif;
+                endwhile;
+                wp_reset_postdata();
+            else :
             ?>
-                <article class="<?php echo esc_attr($card_class); ?>">
-                    <a href="<?php echo esc_url($puppy['link']); ?>" class="puppy-card__link">
-                        <div class="puppy-card__image-wrapper">
-                            <img
-                                src="<?php echo esc_url($puppy['image']); ?>"
-                                alt="<?php echo esc_attr($puppy['name']); ?> - <?php echo esc_attr($puppy['breed']); ?>"
-                                class="puppy-card__image"
-                                loading="lazy"
-                            />
-
-                            <?php if ($puppy['badge']) : ?>
-                                <span class="puppy-card__badge"><?php echo esc_html($puppy['badge']); ?></span>
-                            <?php endif; ?>
-                        </div>
-
-                        <div class="puppy-card__content">
-                            <div class="puppy-card__header">
-                                <h3 class="puppy-card__name"><?php echo esc_html($puppy['name']); ?></h3>
-                                <span class="puppy-card__gender puppy-card__gender--<?php echo esc_attr($puppy['gender']); ?>">
-                                    <?php if ($puppy['gender'] === 'female') : ?>
-                                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
-                                            <path d="M12 14v8M9 19h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                    <?php else : ?>
-                                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                            <circle cx="10" cy="14" r="6" stroke="currentColor" stroke-width="2"/>
-                                            <path d="M14 10l6-6M15 4h5v5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    <?php endif; ?>
-                                </span>
-                            </div>
-
-                            <p class="puppy-card__breed"><?php echo esc_html($puppy['breed']); ?></p>
-
-                            <div class="puppy-card__meta">
-                                <span class="puppy-card__age"><?php echo esc_html($puppy['age']); ?></span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            <?php endforeach; ?>
+                <p class="puppies-mosaic__empty"><?php esc_html_e('No puppies available at the moment. Check back soon!', 'furrylicious'); ?></p>
+            <?php endif; ?>
         </div>
 
-        <div class="puppies-mosaic__cta">
-            <a href="<?php echo esc_url(home_url('/puppies-for-sale/')); ?>" class="btn btn--primary btn--lg">
-                View All Puppies
-            </a>
-        </div>
+        <?php if ($puppies_query->found_posts > $puppies_per_page) : ?>
+            <div class="puppies-mosaic__load-more">
+                <button type="button"
+                        class="btn btn--primary btn--lg"
+                        id="load-more-puppies"
+                        data-offset="<?php echo esc_attr($puppies_per_page); ?>">
+                    <?php esc_html_e('Load More', 'furrylicious'); ?>
+                </button>
+            </div>
+        <?php else : ?>
+            <div class="puppies-mosaic__cta">
+                <a href="<?php echo esc_url(home_url('/puppies-for-sale/')); ?>" class="btn btn--primary btn--lg">
+                    <?php esc_html_e('View All Puppies', 'furrylicious'); ?>
+                </a>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 

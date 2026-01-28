@@ -42,5 +42,15 @@ function furrylicious_load_addons() {
     if (file_exists(FURRYLICIOUS_ADDONS_DIR . '/video-gallery/video-gallery.php')) {
         require_once FURRYLICIOUS_ADDONS_DIR . '/video-gallery/video-gallery.php';
     }
+
+    // Live Search - load if file exists
+    if (file_exists(FURRYLICIOUS_ADDONS_DIR . '/live-search/live-search.php')) {
+        require_once FURRYLICIOUS_ADDONS_DIR . '/live-search/live-search.php';
+    }
+
+    // Load More - load if file exists
+    if (file_exists(FURRYLICIOUS_ADDONS_DIR . '/load-more/load-more.php')) {
+        require_once FURRYLICIOUS_ADDONS_DIR . '/load-more/load-more.php';
+    }
 }
 add_action('after_setup_theme', 'furrylicious_load_addons');
