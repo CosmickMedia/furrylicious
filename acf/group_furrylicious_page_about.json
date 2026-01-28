@@ -1,0 +1,603 @@
+{
+    "key": "group_furrylicious_page_about",
+    "title": "About Page",
+    "fields": [
+        {
+            "key": "field_about_hero_tab",
+            "label": "Hero Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "required": 1,
+            "default_value": "Your Pets Are Our Passion"
+        },
+        {
+            "key": "field_about_hero_subtitle",
+            "label": "Hero Subtitle",
+            "name": "hero_subtitle",
+            "type": "text",
+            "default_value": "Whitehouse Station's Premier Puppy Boutique"
+        },
+        {
+            "key": "field_about_hero_video_id",
+            "label": "YouTube Video ID",
+            "name": "hero_video_id",
+            "type": "text",
+            "default_value": "VnlnqPz6PBQ",
+            "instructions": "Enter the YouTube video ID (e.g., VnlnqPz6PBQ from youtube.com/watch?v=VnlnqPz6PBQ)"
+        },
+        {
+            "key": "field_about_story_tab",
+            "label": "Story Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_story_label",
+            "label": "Section Label",
+            "name": "story_label",
+            "type": "text",
+            "default_value": "Our Story",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_story_title",
+            "label": "Section Title",
+            "name": "story_title",
+            "type": "text",
+            "default_value": "Welcome to Furrylicious"
+        },
+        {
+            "key": "field_about_story_intro",
+            "label": "Intro Paragraph",
+            "name": "story_intro",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "At Furrylicious, we believe that finding the perfect furry companion should be a joyful and memorable experience. Our boutique is more than just a place to find puppies—it's where families begin their journey with a new best friend."
+        },
+        {
+            "key": "field_about_story_quote",
+            "label": "Quote",
+            "name": "story_quote",
+            "type": "text",
+            "default_value": "Every puppy deserves a loving home, and every family deserves a healthy, happy companion."
+        },
+        {
+            "key": "field_about_story_description",
+            "label": "Description",
+            "name": "story_description",
+            "type": "wysiwyg",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "default_value": "<p>Founded with a deep love for animals and a commitment to ethical practices, Furrylicious has become Whitehouse Station's trusted destination for premium puppies. We work exclusively with USDA-licensed breeders who share our dedication to the health and well-being of every puppy.</p>\n<p>Our warm, welcoming environment allows you to spend quality time getting to know your potential new family member. Our knowledgeable staff is here to guide you every step of the way, from choosing the right breed for your lifestyle to providing ongoing support long after you bring your puppy home.</p>"
+        },
+        {
+            "key": "field_about_story_image",
+            "label": "Story Image",
+            "name": "story_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "instructions": "Recommended size: 600x700px"
+        },
+        {
+            "key": "field_about_pillars_tab",
+            "label": "Trust Pillars",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_pillars_label",
+            "label": "Section Label",
+            "name": "pillars_label",
+            "type": "text",
+            "default_value": "Why Choose Us",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_pillars_title",
+            "label": "Section Title",
+            "name": "pillars_title",
+            "type": "text",
+            "default_value": "Our Commitment to Excellence"
+        },
+        {
+            "key": "field_about_pillars",
+            "label": "Pillars",
+            "name": "pillars",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Pillar",
+            "max": 6,
+            "sub_fields": [
+                {
+                    "key": "field_about_pillar_icon",
+                    "label": "Icon SVG",
+                    "name": "icon",
+                    "type": "textarea",
+                    "rows": 3,
+                    "instructions": "Paste SVG code for the icon",
+                    "wrapper": { "width": "100" }
+                },
+                {
+                    "key": "field_about_pillar_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_about_pillar_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 2,
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_about_team_tab",
+            "label": "Team Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_team_label",
+            "label": "Section Label",
+            "name": "team_label",
+            "type": "text",
+            "default_value": "Meet the Team",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_team_title",
+            "label": "Section Title",
+            "name": "team_title",
+            "type": "text",
+            "default_value": "The Passionate People Behind Furrylicious"
+        },
+        {
+            "key": "field_about_team_intro",
+            "label": "Team Intro",
+            "name": "team_intro",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Our dedicated team brings together years of experience in animal care, breed expertise, and a genuine love for helping families find their perfect companion."
+        },
+        {
+            "key": "field_about_team_members",
+            "label": "Team Members",
+            "name": "team_members",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Team Member",
+            "max": 10,
+            "sub_fields": [
+                {
+                    "key": "field_about_member_photo",
+                    "label": "Photo",
+                    "name": "photo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_about_member_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "wrapper": { "width": "35" }
+                },
+                {
+                    "key": "field_about_member_role",
+                    "label": "Role",
+                    "name": "role",
+                    "type": "text",
+                    "wrapper": { "width": "35" }
+                }
+            ]
+        },
+        {
+            "key": "field_about_expertise_tab",
+            "label": "Expertise Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_expertise_label",
+            "label": "Section Label",
+            "name": "expertise_label",
+            "type": "text",
+            "default_value": "Our Expertise",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_expertise_title",
+            "label": "Section Title",
+            "name": "expertise_title",
+            "type": "text",
+            "default_value": "Knowledge You Can Trust"
+        },
+        {
+            "key": "field_about_expertise_items",
+            "label": "Expertise Items",
+            "name": "expertise_items",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Expertise",
+            "max": 6,
+            "sub_fields": [
+                {
+                    "key": "field_about_expertise_item_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_about_expertise_item_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 2,
+                    "wrapper": { "width": "70" }
+                }
+            ]
+        },
+        {
+            "key": "field_about_expertise_image",
+            "label": "Expertise Image",
+            "name": "expertise_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "instructions": "Recommended size: 500x600px"
+        },
+        {
+            "key": "field_about_boutique_tab",
+            "label": "Boutique Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_boutique_label",
+            "label": "Section Label",
+            "name": "boutique_label",
+            "type": "text",
+            "default_value": "The Boutique",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_boutique_title",
+            "label": "Section Title",
+            "name": "boutique_title",
+            "type": "text",
+            "default_value": "Premium Products & Services"
+        },
+        {
+            "key": "field_about_boutique_intro",
+            "label": "Boutique Intro",
+            "name": "boutique_intro",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Beyond puppies, we curate a selection of premium pet products from the finest brands to pamper your furry family members."
+        },
+        {
+            "key": "field_about_boutique_services",
+            "label": "Services",
+            "name": "boutique_services",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Service",
+            "max": 8,
+            "sub_fields": [
+                {
+                    "key": "field_about_service_icon",
+                    "label": "Icon SVG",
+                    "name": "icon",
+                    "type": "textarea",
+                    "rows": 3,
+                    "instructions": "Paste SVG code for the icon",
+                    "wrapper": { "width": "100" }
+                },
+                {
+                    "key": "field_about_service_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_about_service_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 2,
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_about_location_tab",
+            "label": "Location Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_location_label",
+            "label": "Section Label",
+            "name": "location_label",
+            "type": "text",
+            "default_value": "Visit Us",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_location_title",
+            "label": "Section Title",
+            "name": "location_title",
+            "type": "text",
+            "default_value": "Whitehouse Station Charm"
+        },
+        {
+            "key": "field_about_location_intro",
+            "label": "Location Intro",
+            "name": "location_intro",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Located in the heart of Hunterdon County, our boutique is easily accessible and surrounded by the beautiful New Jersey countryside."
+        },
+        {
+            "key": "field_about_location_address",
+            "label": "Address",
+            "name": "location_address",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "531 US Highway 22 E\nWhitehouse Station, NJ 08889"
+        },
+        {
+            "key": "field_about_location_hours",
+            "label": "Hours",
+            "name": "location_hours",
+            "type": "text",
+            "default_value": "Open Daily: 11 AM – 7 PM"
+        },
+        {
+            "key": "field_about_location_phone",
+            "label": "Phone",
+            "name": "location_phone",
+            "type": "text",
+            "default_value": "(908) 823-4468"
+        },
+        {
+            "key": "field_about_location_nearby",
+            "label": "Nearby Attractions",
+            "name": "location_nearby",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Attraction",
+            "sub_fields": [
+                {
+                    "key": "field_about_nearby_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_about_location_image",
+            "label": "Location Image",
+            "name": "location_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "instructions": "Recommended size: 600x450px"
+        },
+        {
+            "key": "field_about_testimonials_tab",
+            "label": "Testimonials",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_testimonials_label",
+            "label": "Section Label",
+            "name": "testimonials_label",
+            "type": "text",
+            "default_value": "Happy Families",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_testimonials_title",
+            "label": "Section Title",
+            "name": "testimonials_title",
+            "type": "text",
+            "default_value": "What Our Customers Say"
+        },
+        {
+            "key": "field_about_testimonials_rating",
+            "label": "Rating",
+            "name": "testimonials_rating",
+            "type": "text",
+            "default_value": "5.0",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_about_testimonials_count",
+            "label": "Review Count",
+            "name": "testimonials_count",
+            "type": "text",
+            "default_value": "500+",
+            "wrapper": { "width": "25" }
+        },
+        {
+            "key": "field_about_testimonials",
+            "label": "Testimonials",
+            "name": "testimonials",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Testimonial",
+            "max": 6,
+            "sub_fields": [
+                {
+                    "key": "field_about_testimonial_quote",
+                    "label": "Quote",
+                    "name": "quote",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_about_testimonial_initials",
+                    "label": "Initials",
+                    "name": "initials",
+                    "type": "text",
+                    "wrapper": { "width": "20" }
+                },
+                {
+                    "key": "field_about_testimonial_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "wrapper": { "width": "40" }
+                },
+                {
+                    "key": "field_about_testimonial_detail",
+                    "label": "Detail",
+                    "name": "detail",
+                    "type": "text",
+                    "instructions": "e.g., French Bulldog Parent",
+                    "wrapper": { "width": "40" }
+                }
+            ]
+        },
+        {
+            "key": "field_about_testimonials_cta_text",
+            "label": "CTA Button Text",
+            "name": "testimonials_cta_text",
+            "type": "text",
+            "default_value": "Read More Reviews on Google",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_testimonials_cta_link",
+            "label": "CTA Button Link",
+            "name": "testimonials_cta_link",
+            "type": "url",
+            "default_value": "https://www.google.com/search?q=furrylicious&oq=furrylicious&gs_lcrp=EgZjaHJvbWUyDggAEEUYJxg5GIAEGIoFMgYIARBFGDwyBggCEEUYPDIGCAMQRRg8MgYIBBAjGCcyDQgFEC4YrwEYxwEYgAQyBggGEEUYPDIGCAcQRRg80gEIMzA4M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x89c3928785f2c9e5:0xf7466da4c576ed92,1,,,,",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_social_tab",
+            "label": "Social Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_social_title",
+            "label": "Section Title",
+            "name": "social_title",
+            "type": "text",
+            "default_value": "Connect With Us"
+        },
+        {
+            "key": "field_about_social_subtitle",
+            "label": "Section Subtitle",
+            "name": "social_subtitle",
+            "type": "text",
+            "default_value": "Follow our puppy adventures and stay updated on new arrivals"
+        },
+        {
+            "key": "field_about_social_links",
+            "label": "Social Links",
+            "name": "social_links",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Social Link",
+            "sub_fields": [
+                {
+                    "key": "field_about_social_platform",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "choices": {
+                        "instagram": "Instagram",
+                        "facebook": "Facebook",
+                        "twitter": "Twitter",
+                        "pinterest": "Pinterest",
+                        "youtube": "YouTube",
+                        "yelp": "Yelp",
+                        "tiktok": "TikTok"
+                    },
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_about_social_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "wrapper": { "width": "70" }
+                }
+            ]
+        },
+        {
+            "key": "field_about_cta_tab",
+            "label": "CTA Section",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_about_cta_title",
+            "label": "CTA Title",
+            "name": "cta_title",
+            "type": "text",
+            "default_value": "Meet Your New Best Friend"
+        },
+        {
+            "key": "field_about_cta_description",
+            "label": "CTA Description",
+            "name": "cta_description",
+            "type": "text",
+            "default_value": "Browse our selection of healthy, happy puppies waiting to join your family."
+        },
+        {
+            "key": "field_about_cta_button_text",
+            "label": "Button Text",
+            "name": "cta_button_text",
+            "type": "text",
+            "default_value": "View Available Puppies",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_about_cta_button_link",
+            "label": "Button Link",
+            "name": "cta_button_link",
+            "type": "page_link",
+            "post_type": ["page"],
+            "allow_null": 1,
+            "wrapper": { "width": "50" }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-about.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "ACF fields for the About page template"
+}

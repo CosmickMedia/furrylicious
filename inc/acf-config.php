@@ -355,6 +355,7 @@ function furrylicious_disable_gutenberg_for_acf_templates($use_block_editor, $po
     $template = get_page_template_slug($post->ID);
 
     $acf_templates = [
+        'page-about.php',
         'page-booking.php',
         'page-blog.php',
         'page-boutique.php',
@@ -386,6 +387,7 @@ add_filter('use_block_editor_for_post', 'furrylicious_disable_gutenberg_for_acf_
  */
 function furrylicious_hide_editor_on_acf_pages($field_group) {
     $templates_to_hide = [
+        'page-about.php',
         'page-booking.php',
         'page-blog.php',
         'page-boutique.php',

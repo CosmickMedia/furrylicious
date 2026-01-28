@@ -9,6 +9,212 @@
  */
 
 get_header();
+
+// =============================================================================
+// ACF Fields with Fallback Values
+// =============================================================================
+
+// Hero Section
+$hero_title = get_field('hero_title') ?: __('Your Pets Are Our Passion', 'furrylicious');
+$hero_subtitle = get_field('hero_subtitle') ?: __("Whitehouse Station's Premier Puppy Boutique", 'furrylicious');
+$hero_video_id = get_field('hero_video_id') ?: 'VnlnqPz6PBQ';
+
+// Story Section
+$story_label = get_field('story_label') ?: __('Our Story', 'furrylicious');
+$story_title = get_field('story_title') ?: __('Welcome to Furrylicious', 'furrylicious');
+$story_intro = get_field('story_intro') ?: __('At Furrylicious, we believe that finding the perfect furry companion should be a joyful and memorable experience. Our boutique is more than just a place to find puppies—it\'s where families begin their journey with a new best friend.', 'furrylicious');
+$story_quote = get_field('story_quote') ?: __('Every puppy deserves a loving home, and every family deserves a healthy, happy companion.', 'furrylicious');
+$story_description = get_field('story_description') ?: '<p>' . __('Founded with a deep love for animals and a commitment to ethical practices, Furrylicious has become Whitehouse Station\'s trusted destination for premium puppies. We work exclusively with USDA-licensed breeders who share our dedication to the health and well-being of every puppy.', 'furrylicious') . '</p><p>' . __('Our warm, welcoming environment allows you to spend quality time getting to know your potential new family member. Our knowledgeable staff is here to guide you every step of the way, from choosing the right breed for your lifestyle to providing ongoing support long after you bring your puppy home.', 'furrylicious') . '</p>';
+$story_image = get_field('story_image');
+$story_image_url = $story_image ? $story_image['url'] : get_template_directory_uri() . '/assets/images/about-story.jpg';
+$story_image_alt = $story_image && !empty($story_image['alt']) ? $story_image['alt'] : __('Happy puppy at Furrylicious boutique in Whitehouse Station, NJ', 'furrylicious');
+
+// Trust Pillars Section
+$pillars_label = get_field('pillars_label') ?: __('Why Choose Us', 'furrylicious');
+$pillars_title = get_field('pillars_title') ?: __('Our Commitment to Excellence', 'furrylicious');
+$pillars = get_field('pillars');
+$default_pillars = [
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
+        'title' => __('Ethical Sourcing', 'furrylicious'),
+        'description' => __('We partner exclusively with USDA-licensed, regularly inspected breeders who meet our rigorous standards for animal welfare and breeding practices.', 'furrylicious'),
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 1112 6.006a5 5 0 017.5 6.566z"/></svg>',
+        'title' => __('Health Guaranteed', 'furrylicious'),
+        'description' => __('Every puppy comes with comprehensive health guarantees, complete medical records, and registration papers for your peace of mind.', 'furrylicious'),
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        'title' => __('Expert Guidance', 'furrylicious'),
+        'description' => __('Our experienced team provides personalized breed recommendations and expert care advice tailored to your lifestyle and family needs.', 'furrylicious'),
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
+        'title' => __('Ongoing Support', 'furrylicious'),
+        'description' => __('We provide lifetime support for every puppy family—from training tips to health questions, we\'re always here to help.', 'furrylicious'),
+    ],
+];
+if (!$pillars || !is_array($pillars) || count($pillars) === 0) {
+    $pillars = $default_pillars;
+}
+
+// Team Section
+$team_label = get_field('team_label') ?: __('Meet the Team', 'furrylicious');
+$team_title = get_field('team_title') ?: __('The Passionate People Behind Furrylicious', 'furrylicious');
+$team_intro = get_field('team_intro') ?: __('Our dedicated team brings together years of experience in animal care, breed expertise, and a genuine love for helping families find their perfect companion.', 'furrylicious');
+$team_members = get_field('team_members');
+$default_team_members = [
+    ['name' => 'Cindy Knowles', 'role' => __('Owner', 'furrylicious'), 'photo' => null],
+    ['name' => 'Stephanie Ear', 'role' => __('Owner', 'furrylicious'), 'photo' => null],
+    ['name' => 'Jessica Mottola', 'role' => __('Store Manager', 'furrylicious'), 'photo' => null],
+];
+if (!$team_members || !is_array($team_members) || count($team_members) === 0) {
+    $team_members = $default_team_members;
+}
+$default_headshot = get_template_directory_uri() . '/assets/images/headshot.png';
+
+// Expertise Section
+$expertise_label = get_field('expertise_label') ?: __('Our Expertise', 'furrylicious');
+$expertise_title = get_field('expertise_title') ?: __('Knowledge You Can Trust', 'furrylicious');
+$expertise_items = get_field('expertise_items');
+$default_expertise_items = [
+    [
+        'title' => __('Breed Knowledge', 'furrylicious'),
+        'description' => __('From toy breeds to gentle giants, we understand the unique characteristics, temperaments, and care requirements of every breed we carry.', 'furrylicious'),
+    ],
+    [
+        'title' => __('Care Expertise', 'furrylicious'),
+        'description' => __('We stay current with the latest in nutrition, training, and veterinary care to provide you with accurate, up-to-date guidance.', 'furrylicious'),
+    ],
+    [
+        'title' => __('Personalized Matching', 'furrylicious'),
+        'description' => __('We take the time to understand your lifestyle, living situation, and preferences to recommend the perfect breed for your family.', 'furrylicious'),
+    ],
+];
+if (!$expertise_items || !is_array($expertise_items) || count($expertise_items) === 0) {
+    $expertise_items = $default_expertise_items;
+}
+$expertise_image = get_field('expertise_image');
+$expertise_image_url = $expertise_image ? $expertise_image['url'] : get_template_directory_uri() . '/assets/images/about-expertise.jpg';
+$expertise_image_alt = $expertise_image && !empty($expertise_image['alt']) ? $expertise_image['alt'] : __('Expert staff member with puppy at Furrylicious', 'furrylicious');
+
+// Boutique Section
+$boutique_label = get_field('boutique_label') ?: __('The Boutique', 'furrylicious');
+$boutique_title = get_field('boutique_title') ?: __('Premium Products & Services', 'furrylicious');
+$boutique_intro = get_field('boutique_intro') ?: __('Beyond puppies, we curate a selection of premium pet products from the finest brands to pamper your furry family members.', 'furrylicious');
+$boutique_services = get_field('boutique_services');
+$default_boutique_services = [
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>',
+        'title' => __('Premium Brands', 'furrylicious'),
+        'description' => __("Hello Doggie, Puppia, Merricks, Stella & Chewy's, and more top-tier brands for discerning pet parents.", 'furrylicious'),
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>',
+        'title' => __('Exclusive Accessories', 'furrylicious'),
+        'description' => __('Designer collars, harnesses, carriers, beds, and toys that combine style with quality craftsmanship.', 'furrylicious'),
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
+        'title' => __('Premium Nutrition', 'furrylicious'),
+        'description' => __('Carefully selected foods, treats, and supplements to keep your pet healthy, happy, and thriving.', 'furrylicious'),
+    ],
+    [
+        'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+        'title' => __('Personal Service', 'furrylicious'),
+        'description' => __("Expert staff to help with sizing, product recommendations, and personalized advice for your pet's needs.", 'furrylicious'),
+    ],
+];
+if (!$boutique_services || !is_array($boutique_services) || count($boutique_services) === 0) {
+    $boutique_services = $default_boutique_services;
+}
+
+// Location Section
+$location_label = get_field('location_label') ?: __('Visit Us', 'furrylicious');
+$location_title = get_field('location_title') ?: __('Whitehouse Station Charm', 'furrylicious');
+$location_intro = get_field('location_intro') ?: __('Located in the heart of Hunterdon County, our boutique is easily accessible and surrounded by the beautiful New Jersey countryside.', 'furrylicious');
+$location_address = get_field('location_address') ?: "531 US Highway 22 E\nWhitehouse Station, NJ 08889";
+$location_hours = get_field('location_hours') ?: __('Open Daily: 11 AM – 7 PM', 'furrylicious');
+$location_phone = get_field('location_phone') ?: '(908) 823-4468';
+$location_nearby = get_field('location_nearby');
+$default_nearby = [
+    ['name' => 'Red Mill Museum Village, Clinton'],
+    ['name' => 'Morristown National Historical Park'],
+    ['name' => 'Round Valley Recreation Area'],
+    ['name' => 'Hunterdon County Arboretum'],
+];
+if (!$location_nearby || !is_array($location_nearby) || count($location_nearby) === 0) {
+    $location_nearby = $default_nearby;
+}
+$location_image = get_field('location_image');
+$location_image_url = $location_image ? $location_image['url'] : get_template_directory_uri() . '/assets/images/store-location.jpg';
+$location_image_alt = $location_image && !empty($location_image['alt']) ? $location_image['alt'] : __('Furrylicious store exterior in Whitehouse Station, NJ', 'furrylicious');
+
+// Testimonials Section
+$testimonials_label = get_field('testimonials_label') ?: __('Happy Families', 'furrylicious');
+$testimonials_title = get_field('testimonials_title') ?: __('What Our Customers Say', 'furrylicious');
+$testimonials_rating = get_field('testimonials_rating') ?: '5.0';
+$testimonials_count = get_field('testimonials_count') ?: '500+';
+$testimonials = get_field('testimonials');
+$default_testimonials = [
+    [
+        'quote' => __('We found our perfect French Bulldog at Furrylicious! The staff was incredibly knowledgeable and helped us every step of the way. Our Louie is healthy, happy, and the best addition to our family.', 'furrylicious'),
+        'initials' => 'JM',
+        'name' => 'Jennifer M.',
+        'detail' => __('French Bulldog Parent', 'furrylicious'),
+    ],
+    [
+        'quote' => __('The experience at Furrylicious was nothing like other pet stores. They truly care about matching the right puppy with the right family. Their follow-up support has been amazing!', 'furrylicious'),
+        'initials' => 'DK',
+        'name' => 'David K.',
+        'detail' => __('Golden Retriever Parent', 'furrylicious'),
+    ],
+    [
+        'quote' => __('As first-time puppy parents, we had so many questions. The team at Furrylicious was patient, informative, and made the whole process enjoyable. Our Cavapoo is absolutely perfect!', 'furrylicious'),
+        'initials' => 'SR',
+        'name' => 'Sarah R.',
+        'detail' => __('Cavapoo Parent', 'furrylicious'),
+    ],
+];
+if (!$testimonials || !is_array($testimonials) || count($testimonials) === 0) {
+    $testimonials = $default_testimonials;
+}
+$testimonials_cta_text = get_field('testimonials_cta_text') ?: __('Read More Reviews on Google', 'furrylicious');
+$testimonials_cta_link = get_field('testimonials_cta_link') ?: 'https://www.google.com/search?q=furrylicious&oq=furrylicious&gs_lcrp=EgZjaHJvbWUyDggAEEUYJxg5GIAEGIoFMgYIARBFGDwyBggCEEUYPDIGCAMQRRg8MgYIBBAjGCcyDQgFEC4YrwEYxwEYgAQyBggGEEUYPDIGCAcQRRg80gEIMzA4M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x89c3928785f2c9e5:0xf7466da4c576ed92,1,,,,';
+
+// Social Section
+$social_title = get_field('social_title') ?: __('Connect With Us', 'furrylicious');
+$social_subtitle = get_field('social_subtitle') ?: __('Follow our puppy adventures and stay updated on new arrivals', 'furrylicious');
+$social_links = get_field('social_links');
+$default_social_links = [
+    ['platform' => 'instagram', 'url' => 'https://www.instagram.com/furrylicious/?hl=en'],
+    ['platform' => 'facebook', 'url' => 'https://www.facebook.com/furrylicious'],
+    ['platform' => 'twitter', 'url' => 'https://twitter.com/_Furrylicious'],
+    ['platform' => 'pinterest', 'url' => 'https://www.pinterest.com/furrylicious/_created/'],
+    ['platform' => 'youtube', 'url' => 'https://www.youtube.com/channel/UCzDaJzujKN2RRcMY_23l3jA'],
+    ['platform' => 'yelp', 'url' => 'https://www.yelp.com/biz/furrylicious-whitehouse-station'],
+];
+if (!$social_links || !is_array($social_links) || count($social_links) === 0) {
+    $social_links = $default_social_links;
+}
+
+// Social icons SVG map
+$social_icons = [
+    'instagram' => '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    'facebook' => '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>',
+    'twitter' => '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>',
+    'pinterest' => '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.81-2.425.853 0 1.265.641 1.265 1.409 0 .858-.545 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>',
+    'youtube' => '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>',
+    'yelp' => '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
+    'tiktok' => '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>',
+];
+
+// CTA Section
+$cta_title = get_field('cta_title') ?: __('Meet Your New Best Friend', 'furrylicious');
+$cta_description = get_field('cta_description') ?: __('Browse our selection of healthy, happy puppies waiting to join your family.', 'furrylicious');
+$cta_button_text = get_field('cta_button_text') ?: __('View Available Puppies', 'furrylicious');
+$cta_button_link = get_field('cta_button_link') ?: home_url('/puppies-for-sale/');
 ?>
 
 <?php
@@ -85,15 +291,15 @@ $schema = [
     <section class="about-page__hero" aria-label="About Furrylicious">
         <div class="container">
             <header class="about-page__hero-header">
-                <h1 class="about-page__hero-title">Your Pets Are Our Passion</h1>
-                <p class="about-page__hero-subtitle">Whitehouse Station's Premier Puppy Boutique</p>
+                <h1 class="about-page__hero-title"><?php echo esc_html($hero_title); ?></h1>
+                <p class="about-page__hero-subtitle"><?php echo esc_html($hero_subtitle); ?></p>
             </header>
 
             <div class="about-page__hero-video">
                 <div class="about-page__video-wrapper">
                     <iframe
-                        src="https://www.youtube.com/embed/VnlnqPz6PBQ?rel=0&modestbranding=1"
-                        title="Welcome to Furrylicious - Your Premier Puppy Boutique"
+                        src="https://www.youtube.com/embed/<?php echo esc_attr($hero_video_id); ?>?rel=0&modestbranding=1"
+                        title="<?php esc_attr_e('Welcome to Furrylicious - Your Premier Puppy Boutique', 'furrylicious'); ?>"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen
@@ -115,24 +321,22 @@ $schema = [
         <div class="container">
             <div class="about-page__story-grid">
                 <div class="about-page__story-content">
-                    <span class="about-page__section-label">Our Story</span>
-                    <h2 id="story-heading" class="about-page__section-title">Welcome to Furrylicious</h2>
+                    <span class="about-page__section-label"><?php echo esc_html($story_label); ?></span>
+                    <h2 id="story-heading" class="about-page__section-title"><?php echo esc_html($story_title); ?></h2>
 
-                    <p class="about-page__story-intro">At Furrylicious, we believe that finding the perfect furry companion should be a joyful and memorable experience. Our boutique is more than just a place to find puppies&mdash;it's where families begin their journey with a new best friend.</p>
+                    <p class="about-page__story-intro"><?php echo esc_html($story_intro); ?></p>
 
                     <blockquote class="about-page__quote">
-                        <p>"Every puppy deserves a loving home, and every family deserves a healthy, happy companion."</p>
+                        <p>"<?php echo esc_html($story_quote); ?>"</p>
                     </blockquote>
 
-                    <p>Founded with a deep love for animals and a commitment to ethical practices, Furrylicious has become Whitehouse Station's trusted destination for premium puppies. We work exclusively with USDA-licensed breeders who share our dedication to the health and well-being of every puppy.</p>
-
-                    <p>Our warm, welcoming environment allows you to spend quality time getting to know your potential new family member. Our knowledgeable staff is here to guide you every step of the way, from choosing the right breed for your lifestyle to providing ongoing support long after you bring your puppy home.</p>
+                    <?php echo wp_kses_post($story_description); ?>
                 </div>
 
                 <div class="about-page__story-image">
                     <img
-                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/about-story.jpg'); ?>"
-                        alt="Happy puppy at Furrylicious boutique in Whitehouse Station, NJ"
+                        src="<?php echo esc_url($story_image_url); ?>"
+                        alt="<?php echo esc_attr($story_image_alt); ?>"
                         loading="lazy"
                         width="600"
                         height="700"
@@ -147,60 +351,20 @@ $schema = [
     <section class="about-page__pillars" aria-labelledby="pillars-heading">
         <div class="container">
             <header class="about-page__pillars-header">
-                <span class="about-page__section-label">Why Choose Us</span>
-                <h2 id="pillars-heading" class="about-page__section-title">Our Commitment to Excellence</h2>
+                <span class="about-page__section-label"><?php echo esc_html($pillars_label); ?></span>
+                <h2 id="pillars-heading" class="about-page__section-title"><?php echo esc_html($pillars_title); ?></h2>
             </header>
 
             <div class="about-page__pillars-grid">
-                <!-- Pillar 1: Ethical Sourcing -->
+                <?php foreach ($pillars as $pillar) : ?>
                 <div class="about-page__pillar">
                     <div class="about-page__pillar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M9 12l2 2 4-4"/>
-                        </svg>
+                        <?php echo $pillar['icon']; ?>
                     </div>
-                    <h3 class="about-page__pillar-title">Ethical Sourcing</h3>
-                    <p class="about-page__pillar-text">We partner exclusively with USDA-licensed, regularly inspected breeders who meet our rigorous standards for animal welfare and breeding practices.</p>
+                    <h3 class="about-page__pillar-title"><?php echo esc_html($pillar['title']); ?></h3>
+                    <p class="about-page__pillar-text"><?php echo esc_html($pillar['description']); ?></p>
                 </div>
-
-                <!-- Pillar 2: Health Guaranteed -->
-                <div class="about-page__pillar">
-                    <div class="about-page__pillar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 1112 6.006a5 5 0 017.5 6.566z"/>
-                        </svg>
-                    </div>
-                    <h3 class="about-page__pillar-title">Health Guaranteed</h3>
-                    <p class="about-page__pillar-text">Every puppy comes with comprehensive health guarantees, complete medical records, and registration papers for your peace of mind.</p>
-                </div>
-
-                <!-- Pillar 3: Expert Guidance -->
-                <div class="about-page__pillar">
-                    <div class="about-page__pillar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                    </div>
-                    <h3 class="about-page__pillar-title">Expert Guidance</h3>
-                    <p class="about-page__pillar-text">Our experienced team provides personalized breed recommendations and expert care advice tailored to your lifestyle and family needs.</p>
-                </div>
-
-                <!-- Pillar 4: Ongoing Support -->
-                <div class="about-page__pillar">
-                    <div class="about-page__pillar-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 010 7.75"/>
-                        </svg>
-                    </div>
-                    <h3 class="about-page__pillar-title">Ongoing Support</h3>
-                    <p class="about-page__pillar-text">We provide lifetime support for every puppy family&mdash;from training tips to health questions, we're always here to help.</p>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -209,56 +373,30 @@ $schema = [
     <section class="about-page__team" aria-labelledby="team-heading">
         <div class="container">
             <header class="about-page__team-header">
-                <span class="about-page__section-label">Meet the Team</span>
-                <h2 id="team-heading" class="about-page__section-title">The Passionate People Behind Furrylicious</h2>
-                <p class="about-page__team-intro">Our dedicated team brings together years of experience in animal care, breed expertise, and a genuine love for helping families find their perfect companion.</p>
+                <span class="about-page__section-label"><?php echo esc_html($team_label); ?></span>
+                <h2 id="team-heading" class="about-page__section-title"><?php echo esc_html($team_title); ?></h2>
+                <p class="about-page__team-intro"><?php echo esc_html($team_intro); ?></p>
             </header>
 
             <div class="about-page__team-grid">
-                <!-- Team Member 1 -->
+                <?php foreach ($team_members as $member) :
+                    $photo_url = !empty($member['photo']['url']) ? $member['photo']['url'] : $default_headshot;
+                    $photo_alt = !empty($member['photo']['alt']) ? $member['photo']['alt'] : $member['name'] . ', ' . $member['role'];
+                ?>
                 <div class="about-page__team-member">
                     <div class="about-page__team-photo">
                         <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/headshot.png'); ?>"
-                            alt="Cindy Knowles, Owner"
+                            src="<?php echo esc_url($photo_url); ?>"
+                            alt="<?php echo esc_attr($photo_alt); ?>"
                             loading="lazy"
                             width="200"
                             height="200"
                         >
                     </div>
-                    <h3 class="about-page__team-name">Cindy Knowles</h3>
-                    <span class="about-page__team-role">Owner</span>
+                    <h3 class="about-page__team-name"><?php echo esc_html($member['name']); ?></h3>
+                    <span class="about-page__team-role"><?php echo esc_html($member['role']); ?></span>
                 </div>
-
-                <!-- Team Member 2 -->
-                <div class="about-page__team-member">
-                    <div class="about-page__team-photo">
-                        <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/headshot.png'); ?>"
-                            alt="Stephanie Ear, Owner"
-                            loading="lazy"
-                            width="200"
-                            height="200"
-                        >
-                    </div>
-                    <h3 class="about-page__team-name">Stephanie Ear</h3>
-                    <span class="about-page__team-role">Owner</span>
-                </div>
-
-                <!-- Team Member 3 -->
-                <div class="about-page__team-member">
-                    <div class="about-page__team-photo">
-                        <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/headshot.png'); ?>"
-                            alt="Jessica Mottola, Store Manager"
-                            loading="lazy"
-                            width="200"
-                            height="200"
-                        >
-                    </div>
-                    <h3 class="about-page__team-name">Jessica Mottola</h3>
-                    <span class="about-page__team-role">Store Manager</span>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -268,10 +406,11 @@ $schema = [
         <div class="container">
             <div class="about-page__expertise-grid">
                 <div class="about-page__expertise-content">
-                    <span class="about-page__section-label">Our Expertise</span>
-                    <h2 id="expertise-heading" class="about-page__section-title">Knowledge You Can Trust</h2>
+                    <span class="about-page__section-label"><?php echo esc_html($expertise_label); ?></span>
+                    <h2 id="expertise-heading" class="about-page__section-title"><?php echo esc_html($expertise_title); ?></h2>
 
                     <div class="about-page__expertise-list">
+                        <?php foreach ($expertise_items as $item) : ?>
                         <div class="about-page__expertise-item">
                             <div class="about-page__expertise-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -280,43 +419,18 @@ $schema = [
                                 </svg>
                             </div>
                             <div class="about-page__expertise-text">
-                                <h3>Breed Knowledge</h3>
-                                <p>From toy breeds to gentle giants, we understand the unique characteristics, temperaments, and care requirements of every breed we carry.</p>
+                                <h3><?php echo esc_html($item['title']); ?></h3>
+                                <p><?php echo esc_html($item['description']); ?></p>
                             </div>
                         </div>
-
-                        <div class="about-page__expertise-item">
-                            <div class="about-page__expertise-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                            </div>
-                            <div class="about-page__expertise-text">
-                                <h3>Care Expertise</h3>
-                                <p>We stay current with the latest in nutrition, training, and veterinary care to provide you with accurate, up-to-date guidance.</p>
-                            </div>
-                        </div>
-
-                        <div class="about-page__expertise-item">
-                            <div class="about-page__expertise-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                            </div>
-                            <div class="about-page__expertise-text">
-                                <h3>Personalized Matching</h3>
-                                <p>We take the time to understand your lifestyle, living situation, and preferences to recommend the perfect breed for your family.</p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
                 <div class="about-page__expertise-image">
                     <img
-                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/about-expertise.jpg'); ?>"
-                        alt="Expert staff member with puppy at Furrylicious"
+                        src="<?php echo esc_url($expertise_image_url); ?>"
+                        alt="<?php echo esc_attr($expertise_image_alt); ?>"
                         loading="lazy"
                         width="500"
                         height="600"
@@ -330,60 +444,21 @@ $schema = [
     <section class="about-page__boutique" aria-labelledby="boutique-heading">
         <div class="container">
             <header class="about-page__boutique-header">
-                <span class="about-page__section-label">The Boutique</span>
-                <h2 id="boutique-heading" class="about-page__section-title">Premium Products & Services</h2>
-                <p class="about-page__boutique-intro">Beyond puppies, we curate a selection of premium pet products from the finest brands to pamper your furry family members.</p>
+                <span class="about-page__section-label"><?php echo esc_html($boutique_label); ?></span>
+                <h2 id="boutique-heading" class="about-page__section-title"><?php echo esc_html($boutique_title); ?></h2>
+                <p class="about-page__boutique-intro"><?php echo esc_html($boutique_intro); ?></p>
             </header>
 
             <div class="about-page__boutique-grid">
+                <?php foreach ($boutique_services as $service) : ?>
                 <div class="about-page__boutique-card">
                     <div class="about-page__boutique-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-                            <line x1="3" y1="6" x2="21" y2="6"/>
-                            <path d="M16 10a4 4 0 01-8 0"/>
-                        </svg>
+                        <?php echo $service['icon']; ?>
                     </div>
-                    <h3>Premium Brands</h3>
-                    <p>Hello Doggie, Puppia, Merricks, Stella & Chewy's, and more top-tier brands for discerning pet parents.</p>
+                    <h3><?php echo esc_html($service['title']); ?></h3>
+                    <p><?php echo esc_html($service['description']); ?></p>
                 </div>
-
-                <div class="about-page__boutique-card">
-                    <div class="about-page__boutique-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="9" cy="21" r="1"/>
-                            <circle cx="20" cy="21" r="1"/>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
-                        </svg>
-                    </div>
-                    <h3>Exclusive Accessories</h3>
-                    <p>Designer collars, harnesses, carriers, beds, and toys that combine style with quality craftsmanship.</p>
-                </div>
-
-                <div class="about-page__boutique-card">
-                    <div class="about-page__boutique-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M18 8h1a4 4 0 010 8h-1"/>
-                            <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
-                            <line x1="6" y1="1" x2="6" y2="4"/>
-                            <line x1="10" y1="1" x2="10" y2="4"/>
-                            <line x1="14" y1="1" x2="14" y2="4"/>
-                        </svg>
-                    </div>
-                    <h3>Premium Nutrition</h3>
-                    <p>Carefully selected foods, treats, and supplements to keep your pet healthy, happy, and thriving.</p>
-                </div>
-
-                <div class="about-page__boutique-card">
-                    <div class="about-page__boutique-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                    </div>
-                    <h3>Personal Service</h3>
-                    <p>Expert staff to help with sizing, product recommendations, and personalized advice for your pet's needs.</p>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -393,9 +468,9 @@ $schema = [
         <div class="container">
             <div class="about-page__location-grid">
                 <div class="about-page__location-info">
-                    <span class="about-page__section-label">Visit Us</span>
-                    <h2 id="location-heading" class="about-page__section-title">Whitehouse Station Charm</h2>
-                    <p class="about-page__location-intro">Located in the heart of Hunterdon County, our boutique is easily accessible and surrounded by the beautiful New Jersey countryside.</p>
+                    <span class="about-page__section-label"><?php echo esc_html($location_label); ?></span>
+                    <h2 id="location-heading" class="about-page__section-title"><?php echo esc_html($location_title); ?></h2>
+                    <p class="about-page__location-intro"><?php echo esc_html($location_intro); ?></p>
 
                     <div class="about-page__location-details">
                         <div class="about-page__location-item">
@@ -404,8 +479,8 @@ $schema = [
                                 <circle cx="12" cy="10" r="3"/>
                             </svg>
                             <div>
-                                <strong>Address</strong>
-                                <span>531 US Highway 22 E<br>Whitehouse Station, NJ 08889</span>
+                                <strong><?php esc_html_e('Address', 'furrylicious'); ?></strong>
+                                <span><?php echo nl2br(esc_html($location_address)); ?></span>
                             </div>
                         </div>
 
@@ -415,8 +490,8 @@ $schema = [
                                 <polyline points="12 6 12 12 16 14"/>
                             </svg>
                             <div>
-                                <strong>Hours</strong>
-                                <span>Open Daily: 11 AM &ndash; 7 PM</span>
+                                <strong><?php esc_html_e('Hours', 'furrylicious'); ?></strong>
+                                <span><?php echo esc_html($location_hours); ?></span>
                             </div>
                         </div>
 
@@ -425,51 +500,32 @@ $schema = [
                                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
                             </svg>
                             <div>
-                                <strong>Phone</strong>
-                                <a href="tel:+19088234468">(908) 823-4468</a>
+                                <strong><?php esc_html_e('Phone', 'furrylicious'); ?></strong>
+                                <a href="tel:+1<?php echo esc_attr(preg_replace('/[^0-9]/', '', $location_phone)); ?>"><?php echo esc_html($location_phone); ?></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="about-page__nearby">
-                        <h3>Nearby Attractions</h3>
+                        <h3><?php esc_html_e('Nearby Attractions', 'furrylicious'); ?></h3>
                         <ul>
+                            <?php foreach ($location_nearby as $attraction) : ?>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="9 11 12 14 22 4"/>
                                     <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
                                 </svg>
-                                Red Mill Museum Village, Clinton
+                                <?php echo esc_html($attraction['name']); ?>
                             </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 11 12 14 22 4"/>
-                                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                                </svg>
-                                Morristown National Historical Park
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 11 12 14 22 4"/>
-                                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                                </svg>
-                                Round Valley Recreation Area
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 11 12 14 22 4"/>
-                                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                                </svg>
-                                Hunterdon County Arboretum
-                            </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
 
                 <div class="about-page__location-map">
                     <img
-                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/store-location.jpg'); ?>"
-                        alt="Furrylicious store exterior in Whitehouse Station, NJ"
+                        src="<?php echo esc_url($location_image_url); ?>"
+                        alt="<?php echo esc_attr($location_image_alt); ?>"
                         loading="lazy"
                         width="600"
                         height="450"
@@ -483,23 +539,23 @@ $schema = [
     <section class="about-page__testimonials" aria-labelledby="testimonials-heading">
         <div class="container">
             <header class="about-page__testimonials-header">
-                <span class="about-page__section-label">Happy Families</span>
-                <h2 id="testimonials-heading" class="about-page__section-title">What Our Customers Say</h2>
+                <span class="about-page__section-label"><?php echo esc_html($testimonials_label); ?></span>
+                <h2 id="testimonials-heading" class="about-page__section-title"><?php echo esc_html($testimonials_title); ?></h2>
 
                 <div class="about-page__rating-badge">
-                    <div class="about-page__rating-stars" aria-label="5 out of 5 stars">
+                    <div class="about-page__rating-stars" aria-label="<?php echo esc_attr($testimonials_rating); ?> out of 5 stars">
                         <?php for ($i = 0; $i < 5; $i++) : ?>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                             </svg>
                         <?php endfor; ?>
                     </div>
-                    <span class="about-page__rating-text"><strong>5.0</strong> from 500+ happy families</span>
+                    <span class="about-page__rating-text"><strong><?php echo esc_html($testimonials_rating); ?></strong> <?php printf(esc_html__('from %s happy families', 'furrylicious'), esc_html($testimonials_count)); ?></span>
                 </div>
             </header>
 
             <div class="about-page__testimonials-grid">
-                <!-- Testimonial 1 -->
+                <?php foreach ($testimonials as $testimonial) : ?>
                 <div class="about-page__testimonial">
                     <div class="about-page__testimonial-stars" aria-label="5 out of 5 stars">
                         <?php for ($i = 0; $i < 5; $i++) : ?>
@@ -509,63 +565,22 @@ $schema = [
                         <?php endfor; ?>
                     </div>
                     <blockquote class="about-page__testimonial-quote">
-                        <p>"We found our perfect French Bulldog at Furrylicious! The staff was incredibly knowledgeable and helped us every step of the way. Our Louie is healthy, happy, and the best addition to our family."</p>
+                        <p>"<?php echo esc_html($testimonial['quote']); ?>"</p>
                     </blockquote>
                     <div class="about-page__testimonial-author">
-                        <div class="about-page__testimonial-avatar">JM</div>
+                        <div class="about-page__testimonial-avatar"><?php echo esc_html($testimonial['initials']); ?></div>
                         <div class="about-page__testimonial-info">
-                            <span class="about-page__testimonial-name">Jennifer M.</span>
-                            <span class="about-page__testimonial-detail">French Bulldog Parent</span>
+                            <span class="about-page__testimonial-name"><?php echo esc_html($testimonial['name']); ?></span>
+                            <span class="about-page__testimonial-detail"><?php echo esc_html($testimonial['detail']); ?></span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Testimonial 2 -->
-                <div class="about-page__testimonial">
-                    <div class="about-page__testimonial-stars" aria-label="5 out of 5 stars">
-                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        <?php endfor; ?>
-                    </div>
-                    <blockquote class="about-page__testimonial-quote">
-                        <p>"The experience at Furrylicious was nothing like other pet stores. They truly care about matching the right puppy with the right family. Their follow-up support has been amazing!"</p>
-                    </blockquote>
-                    <div class="about-page__testimonial-author">
-                        <div class="about-page__testimonial-avatar">DK</div>
-                        <div class="about-page__testimonial-info">
-                            <span class="about-page__testimonial-name">David K.</span>
-                            <span class="about-page__testimonial-detail">Golden Retriever Parent</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="about-page__testimonial">
-                    <div class="about-page__testimonial-stars" aria-label="5 out of 5 stars">
-                        <?php for ($i = 0; $i < 5; $i++) : ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        <?php endfor; ?>
-                    </div>
-                    <blockquote class="about-page__testimonial-quote">
-                        <p>"As first-time puppy parents, we had so many questions. The team at Furrylicious was patient, informative, and made the whole process enjoyable. Our Cavapoo is absolutely perfect!"</p>
-                    </blockquote>
-                    <div class="about-page__testimonial-author">
-                        <div class="about-page__testimonial-avatar">SR</div>
-                        <div class="about-page__testimonial-info">
-                            <span class="about-page__testimonial-name">Sarah R.</span>
-                            <span class="about-page__testimonial-detail">Cavapoo Parent</span>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
 
             <div class="about-page__testimonials-cta">
-                <a href="https://www.google.com/search?q=furrylicious&oq=furrylicious&gs_lcrp=EgZjaHJvbWUyDggAEEUYJxg5GIAEGIoFMgYIARBFGDwyBggCEEUYPDIGCAMQRRg8MgYIBBAjGCcyDQgFEC4YrwEYxwEYgAQyBggGEEUYPDIGCAcQRRg80gEIMzA4M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x89c3928785f2c9e5:0xf7466da4c576ed92,1,,,," target="_blank" rel="noopener noreferrer" class="btn btn--outline">
-                    Read More Reviews on Google
+                <a href="<?php echo esc_url($testimonials_cta_link); ?>" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+                    <?php echo esc_html($testimonials_cta_text); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
                         <polyline points="15 3 21 3 21 9"/>
@@ -580,55 +595,22 @@ $schema = [
     <section class="about-page__social" aria-labelledby="social-heading">
         <div class="container">
             <header class="about-page__social-header">
-                <h2 id="social-heading" class="about-page__section-title">Connect With Us</h2>
-                <p>Follow our puppy adventures and stay updated on new arrivals</p>
+                <h2 id="social-heading" class="about-page__section-title"><?php echo esc_html($social_title); ?></h2>
+                <p><?php echo esc_html($social_subtitle); ?></p>
             </header>
 
             <div class="about-page__social-links">
-                <a href="https://www.instagram.com/furrylicious/?hl=en" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                    </svg>
-                    <span>Instagram</span>
+                <?php foreach ($social_links as $link) :
+                    $platform = $link['platform'];
+                    $url = $link['url'];
+                    $icon = isset($social_icons[$platform]) ? $social_icons[$platform] : '';
+                    $label = ucfirst($platform);
+                ?>
+                <a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="<?php printf(esc_attr__('Follow us on %s', 'furrylicious'), $label); ?>">
+                    <?php echo $icon; ?>
+                    <span><?php echo esc_html($label); ?></span>
                 </a>
-
-                <a href="https://www.facebook.com/furrylicious" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                    </svg>
-                    <span>Facebook</span>
-                </a>
-
-                <a href="https://twitter.com/_Furrylicious" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
-                    </svg>
-                    <span>Twitter</span>
-                </a>
-
-                <a href="https://www.pinterest.com/furrylicious/_created/" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Follow us on Pinterest">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.81-2.425.853 0 1.265.641 1.265 1.409 0 .858-.545 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
-                    </svg>
-                    <span>Pinterest</span>
-                </a>
-
-                <a href="https://www.youtube.com/channel/UCzDaJzujKN2RRcMY_23l3jA" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="Subscribe on YouTube">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/>
-                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
-                    </svg>
-                    <span>YouTube</span>
-                </a>
-
-                <a href="https://www.yelp.com/biz/furrylicious-whitehouse-station" target="_blank" rel="noopener noreferrer" class="about-page__social-link" aria-label="See our reviews on Yelp">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <span>Yelp</span>
-                </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -644,10 +626,10 @@ $schema = [
     <section class="about-page__cta" aria-label="View available puppies">
         <div class="container">
             <div class="about-page__cta-content">
-                <h2>Meet Your New Best Friend</h2>
-                <p>Browse our selection of healthy, happy puppies waiting to join your family.</p>
-                <a href="<?php echo esc_url(home_url('/puppies-for-sale/')); ?>" class="btn btn--rose btn--lg">
-                    View Available Puppies
+                <h2><?php echo esc_html($cta_title); ?></h2>
+                <p><?php echo esc_html($cta_description); ?></p>
+                <a href="<?php echo esc_url($cta_button_link); ?>" class="btn btn--rose btn--lg">
+                    <?php echo esc_html($cta_button_text); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="5" y1="12" x2="19" y2="12"/>
                         <polyline points="12 5 19 12 12 19"/>
